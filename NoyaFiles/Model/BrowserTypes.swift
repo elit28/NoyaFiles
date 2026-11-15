@@ -61,6 +61,17 @@ enum SortField: String, CaseIterable, Identifiable {
     }
 }
 
+/// The window appearance chosen by the user, or the system's.
+enum AppearancePreference: String, CaseIterable, Identifiable {
+    case system
+    case light
+    case dark
+
+    static let storageKey = "appearance"
+
+    var id: Self { self }
+}
+
 enum LoadState: Equatable {
     case loading
     case loaded

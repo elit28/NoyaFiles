@@ -4,6 +4,7 @@ import SwiftUI
 /// The File, View and Go menu items that act on the focused browser window.
 struct BrowserCommands: Commands {
     @FocusedValue(\.browserModel) private var model: BrowserModel?
+    @AppStorage(AppearancePreference.storageKey) private var appearance = AppearancePreference.system
 
     var body: some Commands {
         CommandGroup(after: .newItem) {
@@ -38,6 +39,11 @@ struct BrowserCommands: Commands {
             Button(hiddenFilesTitle) { model?.showHidden.toggle() }
                 .keyboardShortcut(".", modifiers: [.command, .shift])
                 .disabled(model == nil)
+            Picker("Appearance", selection: $appearance) {
+                ForEach(AppearancePreference.allCases) { preference in
+                    Text(preference.title).tag(preference)
+                }
+            }
             Divider()
             Button("Refresh") { model?.reload() }
                 .keyboardShortcut("r")

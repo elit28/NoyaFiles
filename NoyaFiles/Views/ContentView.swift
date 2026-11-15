@@ -4,6 +4,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var model = BrowserModel()
     @State private var sidebar = SidebarModel()
+    @AppStorage(AppearancePreference.storageKey) private var appearance = AppearancePreference.system
 
     var body: some View {
         NavigationSplitView {
@@ -35,6 +36,7 @@ struct ContentView: View {
             Text(message)
         }
         .frame(minWidth: 860, minHeight: 520)
+        .preferredColorScheme(appearance.colorScheme)
     }
 
     /// The sidebar highlights the current folder when it is one of its places.
