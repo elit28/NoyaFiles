@@ -60,3 +60,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# NOYA Files
+build/
+dist/
+.DS_Store
+.swiftpm/
+*.xcresult
+__pycache__/

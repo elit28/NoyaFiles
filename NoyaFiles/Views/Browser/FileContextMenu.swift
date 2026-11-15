@@ -1,0 +1,22 @@
+import SwiftUI
+
+/// The right-click menu for items, or for the folder itself when nothing is clicked.
+struct FileContextMenu: View {
+    let model: BrowserModel
+    let ids: Set<BrowserNode.ID>
+
+    var body: some View {
+        if ids.isEmpty {
+            Button("Show in Finder") { model.revealInFinder([]) }
+            Button("Refresh") { model.reload() }
+        } else {
+            Button("Open") { model.open(ids) }
+            if !model.items(for: ids).isEmpty {
+                Button("Show in Finder") { model.revealInFinder(ids) }
+                Button("Copy Path") { model.copyPaths(ids) }
+                Divider()
+                Button("Move to Trash", role: .destructive) { model.moveToTrash(ids) }
+            }
+        }
+    }
+}
