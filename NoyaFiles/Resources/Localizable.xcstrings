@@ -281,6 +281,76 @@
         }
       }
     },
+    "Accent color": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couleur d'accent"
+          }
+        }
+      }
+    },
+    "Add Tag…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un tag…"
+          }
+        }
+      }
+    },
+    "Added": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouté"
+          }
+        }
+      }
+    },
+    "Advanced": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avancé"
+          }
+        }
+      }
+    },
+    "Allowed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorisé"
+          }
+        }
+      }
+    },
+    "Already installed: %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déjà installées : %@."
+          }
+        }
+      }
+    },
+    "Already installed: %@. This frees %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déjà installées : %1$@. Cela libère %2$@."
+          }
+        }
+      }
+    },
     "and %lld more": {
       "localizations": {
         "en": {
@@ -421,12 +491,32 @@
         }
       }
     },
+    "Calculate folder sizes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calculer la taille des dossiers"
+          }
+        }
+      }
+    },
     "Calculating sizes…": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Calcul des tailles…"
+          }
+        }
+      }
+    },
+    "Can keep the disk busy in very large folders.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peut solliciter le disque dans les très gros dossiers."
           }
         }
       }
@@ -451,6 +541,16 @@
         }
       }
     },
+    "Check Again": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifier à nouveau"
+          }
+        }
+      }
+    },
     "Code": {
       "localizations": {
         "fr": {
@@ -467,6 +567,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copier le chemin"
+          }
+        }
+      }
+    },
+    "Created": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé"
           }
         }
       }
@@ -511,6 +621,16 @@
         }
       }
     },
+    "Default view": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Présentation par défaut"
+          }
+        }
+      }
+    },
     "Descending": {
       "localizations": {
         "fr": {
@@ -531,12 +651,42 @@
         }
       }
     },
+    "Dimensions": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimensions"
+          }
+        }
+      }
+    },
     "Disk images and packages you may no longer need.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Images disque et paquets dont vous n'avez peut-être plus besoin."
+          }
+        }
+      }
+    },
+    "Disk space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espace disque"
+          }
+        }
+      }
+    },
+    "Disks": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disques"
           }
         }
       }
@@ -571,12 +721,32 @@
         }
       }
     },
+    "Downloaded From": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargé depuis"
+          }
+        }
+      }
+    },
     "Downloads": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Téléchargements"
+          }
+        }
+      }
+    },
+    "Duration": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durée"
           }
         }
       }
@@ -651,6 +821,26 @@
         }
       }
     },
+    "Full Disk Access": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accès complet au disque"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Général"
+          }
+        }
+      }
+    },
     "Go": {
       "localizations": {
         "fr": {
@@ -681,6 +871,16 @@
         }
       }
     },
+    "Graphite": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Graphite"
+          }
+        }
+      }
+    },
     "Grid": {
       "localizations": {
         "fr": {
@@ -697,6 +897,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Grouper par"
+          }
+        }
+      }
+    },
+    "Group by default": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grouper par défaut"
           }
         }
       }
@@ -761,6 +971,16 @@
         }
       }
     },
+    "Icon size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille des icônes"
+          }
+        }
+      }
+    },
     "Images": {
       "localizations": {
         "fr": {
@@ -811,12 +1031,52 @@
         }
       }
     },
+    "Keep folders on top": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder les dossiers en premier"
+          }
+        }
+      }
+    },
     "Kind": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Type"
+          }
+        }
+      }
+    },
+    "Language": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue"
+          }
+        }
+      }
+    },
+    "Last Folder Opened": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dernier dossier ouvert"
+          }
+        }
+      }
+    },
+    "Lets NOYA Files measure every folder and open the Trash.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permet à NOYA Files de mesurer tous les dossiers et d'ouvrir la Corbeille."
           }
         }
       }
@@ -861,6 +1121,76 @@
         }
       }
     },
+    "Modified": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifié"
+          }
+        }
+      }
+    },
+    "More": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus"
+          }
+        }
+      }
+    },
+    "More actions": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus d'actions"
+          }
+        }
+      }
+    },
+    "Move %lld installers to the Trash?": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld installer to the Trash?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld installers to the Trash?"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld installateur dans la Corbeille ?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld installateurs dans la Corbeille ?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Move to Trash": {
       "localizations": {
         "fr": {
@@ -871,12 +1201,52 @@
         }
       }
     },
+    "Move to Trash…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Placer dans la Corbeille…"
+          }
+        }
+      }
+    },
+    "Movies": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vidéos"
+          }
+        }
+      }
+    },
+    "Music": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Musique"
+          }
+        }
+      }
+    },
     "Name": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Nom"
+          }
+        }
+      }
+    },
+    "New windows open": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les nouvelles fenêtres ouvrent"
           }
         }
       }
@@ -911,6 +1281,16 @@
         }
       }
     },
+    "Not allowed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non autorisé"
+          }
+        }
+      }
+    },
     "Nothing here yet.": {
       "localizations": {
         "fr": {
@@ -941,12 +1321,42 @@
         }
       }
     },
+    "NOYA Blue": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bleu NOYA"
+          }
+        }
+      }
+    },
     "NOYA Files can't open this folder": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "NOYA Files ne peut pas ouvrir ce dossier"
+          }
+        }
+      }
+    },
+    "NOYA Files goes back to how it was on first launch.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOYA Files revient à son état du premier lancement."
+          }
+        }
+      }
+    },
+    "NOYA Files works entirely on this Mac. It has no account and sends none of your files anywhere.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOYA Files fonctionne entièrement sur ce Mac. Il n'a pas de compte et n'envoie aucun de vos fichiers."
           }
         }
       }
@@ -1031,6 +1441,16 @@
         }
       }
     },
+    "Orange": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orange"
+          }
+        }
+      }
+    },
     "Order": {
       "localizations": {
         "fr": {
@@ -1047,6 +1467,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Autres"
+          }
+        }
+      }
+    },
+    "Pages": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pages"
           }
         }
       }
@@ -1071,6 +1501,26 @@
         }
       }
     },
+    "Pictures": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Images"
+          }
+        }
+      }
+    },
+    "Pink": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rose"
+          }
+        }
+      }
+    },
     "Previous 30 Days": {
       "localizations": {
         "fr": {
@@ -1091,12 +1541,82 @@
         }
       }
     },
+    "Privacy": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confidentialité"
+          }
+        }
+      }
+    },
+    "Purple": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Violet"
+          }
+        }
+      }
+    },
     "Refresh": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Actualiser"
+          }
+        }
+      }
+    },
+    "Remove Tag": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retirer le tag"
+          }
+        }
+      }
+    },
+    "Reset": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinitialiser"
+          }
+        }
+      }
+    },
+    "Reset all settings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinitialiser tous les réglages"
+          }
+        }
+      }
+    },
+    "Reset all settings?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinitialiser tous les réglages ?"
+          }
+        }
+      }
+    },
+    "Reset…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinitialiser…"
           }
         }
       }
@@ -1121,6 +1641,16 @@
         }
       }
     },
+    "Share": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partager"
+          }
+        }
+      }
+    },
     "Show everything": {
       "localizations": {
         "fr": {
@@ -1132,6 +1662,16 @@
       }
     },
     "Show Hidden Files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher les fichiers cachés"
+          }
+        }
+      }
+    },
+    "Show hidden files": {
       "localizations": {
         "fr": {
           "stringUnit": {
@@ -1177,6 +1717,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Afficher ou masquer l'analyse"
+          }
+        }
+      }
+    },
+    "Show the Insights panel in new windows": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher le panneau Analyse dans les nouvelles fenêtres"
+          }
+        }
+      }
+    },
+    "Sidebar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barre latérale"
           }
         }
       }
@@ -1247,6 +1807,66 @@
           "stringUnit": {
             "state": "translated",
             "value": "Système"
+          }
+        }
+      }
+    },
+    "System Language": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue du système"
+          }
+        }
+      }
+    },
+    "Tag": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tag"
+          }
+        }
+      }
+    },
+    "Tags": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tags"
+          }
+        }
+      }
+    },
+    "Takes effect the next time you open NOYA Files.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prend effet au prochain lancement de NOYA Files."
+          }
+        }
+      }
+    },
+    "Teal": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sarcelle"
+          }
+        }
+      }
+    },
+    "Theme": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thème"
           }
         }
       }
@@ -1391,12 +2011,32 @@
         }
       }
     },
+    "Where": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emplacement"
+          }
+        }
+      }
+    },
     "Yesterday": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Hier"
+          }
+        }
+      }
+    },
+    "Your files are not affected.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos fichiers ne sont pas touchés."
           }
         }
       }

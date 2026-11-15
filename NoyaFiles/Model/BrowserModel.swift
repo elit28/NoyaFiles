@@ -2,7 +2,15 @@ import AppKit
 import NoyaCore
 import Observation
 
-/// Everything one browser window shows: where it is, what is inside, and how it is presented.
+/// Items waiting for the user to confirm they go to the Trash.
+struct PendingTrash: Identifiable {
+    let id = UUID()
+    let urls: [URL]
+    let title: String
+    let message: String
+}
+
+/// Everything one browser shows: where it is, what is inside, and how it is presented.
 @MainActor
 @Observable
 final class BrowserModel {
@@ -31,12 +39,12 @@ final class BrowserModel {
     // MARK: - Presentation options
 
     var viewMode: ViewMode {
-        didSet { defaults.set(viewMode.rawValue, forKey: Keys.viewMode) }
+        didSet { save(viewMode.rawValue, PreferenceKey.viewMode, changed: viewMode != oldValue) }
     }
 
     var grouping: GroupingMode {
         didSet {
-            defaults.set(grouping.rawValue, forKey: Keys.grouping)
+            save(grouping.rawValue, PreferenceKey.grouping, changed: grouping != oldValue)
             rebuild()
         }
     }
@@ -47,14 +55,15 @@ final class BrowserModel {
 
     var showHidden: Bool {
         didSet {
-            defaults.set(showHidden, forKey: Keys.showHidden)
+            guard showHidden != oldValue else { return }
+            save(showHidden, PreferenceKey.showHidden, changed: true)
             rebuild()
             if showHidden { measureMissingContainers() }
         }
     }
 
     var isInsightsVisible: Bool {
-        didSet { defaults.set(isInsightsVisible, forKey: Keys.insightsVisible) }
+        didSet { save(isInsightsVisible, PreferenceKey.insightsVisible, changed: isInsightsVisible != oldValue) }
     }
 
     var searchText = "" {
@@ -63,38 +72,48 @@ final class BrowserModel {
         }
     }
 
+    private(set) var measuresFolders: Bool
+    private(set) var keepsFoldersFirst: Bool
+
     var selection: Set<BrowserNode.ID> = []
     var dismissedSuggestions: Set<CleanupSuggestion.Kind> = []
     var isGoToFolderPresented = false
     var errorMessage: String?
+    var pendingTrash: PendingTrash?
 
     // MARK: - Private state
 
     private let defaults: UserDefaults
     @ObservationIgnored private var nodesByID: [BrowserNode.ID: BrowserNode] = [:]
     @ObservationIgnored private var measuredStamps: [URL: Date] = [:]
+    @ObservationIgnored private var installedAppNames: [String] = []
     @ObservationIgnored private var loadTask: Task<Void, Never>?
     @ObservationIgnored private var measureTask: Task<Void, Never>?
     @ObservationIgnored private var refreshTask: Task<Void, Never>?
     @ObservationIgnored private var watcher: DirectoryWatcher?
+    @ObservationIgnored private var defaultsObserver: (any NSObjectProtocol)?
 
     private static let maxConcurrentMeasurements = 4
 
-    private enum Keys {
-        static let viewMode = "browser.viewMode"
-        static let grouping = "browser.grouping"
-        static let showHidden = "browser.showHidden"
-        static let insightsVisible = "browser.insightsVisible"
-        static let lastPath = "browser.lastPath"
-    }
-
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .standard, startingAt startURL: URL? = nil) {
         self.defaults = defaults
-        viewMode = defaults.string(forKey: Keys.viewMode).flatMap(ViewMode.init(rawValue:)) ?? .grid
-        grouping = defaults.string(forKey: Keys.grouping).flatMap(GroupingMode.init(rawValue:)) ?? .kind
-        showHidden = defaults.bool(forKey: Keys.showHidden)
-        isInsightsVisible = defaults.object(forKey: Keys.insightsVisible) as? Bool ?? true
-        location = BrowserLocation(url: Self.initialFolder(defaults: defaults))
+        viewMode = defaults.string(forKey: PreferenceKey.viewMode).flatMap(ViewMode.init(rawValue:)) ?? .grid
+        grouping = defaults.string(forKey: PreferenceKey.grouping).flatMap(GroupingMode.init(rawValue:)) ?? .kind
+        showHidden = defaults.bool(forKey: PreferenceKey.showHidden)
+        isInsightsVisible = defaults.object(forKey: PreferenceKey.insightsVisible) as? Bool ?? true
+        measuresFolders = defaults.object(forKey: PreferenceKey.measureFolders) as? Bool ?? true
+        keepsFoldersFirst = defaults.object(forKey: PreferenceKey.foldersFirst) as? Bool ?? true
+        location = BrowserLocation(url: (startURL ?? Self.initialFolder(defaults: defaults)).canonicalDirectory)
+
+        defaultsObserver = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: defaults,
+            queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated {
+                self?.syncWithDefaults()
+            }
+        }
         load(remeasureAll: true)
     }
 
@@ -108,8 +127,15 @@ final class BrowserModel {
     var canGoForward: Bool { !forwardStack.isEmpty }
     var canGoUp: Bool { location.scope != .everything || location.url.path != "/" }
     var isMeasuring: Bool { pendingMeasurementCount > 0 }
+    var isDownloadsFolder: Bool { location.url == URL.downloadsDirectory.canonicalDirectory }
 
     var selectedItems: [FileItem] { items(for: selection) }
+
+    /// The selected item, when exactly one real item is selected.
+    var singleSelectedItem: FileItem? {
+        guard selection.count == 1 else { return nil }
+        return selectedItems.first
+    }
 
     var visibleSuggestions: [CleanupSuggestion] {
         suggestions.filter { !dismissedSuggestions.contains($0.kind) }
@@ -178,7 +204,7 @@ final class BrowserModel {
         searchText = ""
 
         if folderChanged {
-            defaults.set(destination.url.path, forKey: Keys.lastPath)
+            defaults.set(destination.url.path, forKey: PreferenceKey.lastPath)
             dismissedSuggestions = []
             items = []
             loadState = .loading
@@ -210,8 +236,12 @@ final class BrowserModel {
                     return .failure(BrowserError(error))
                 }
             }.value
+            let appNames = await Task.detached(priority: .utility) {
+                InstalledAppMatcher.installedAppNames()
+            }.value
 
             guard let self, !Task.isCancelled, self.location.url == url else { return }
+            self.installedAppNames = appNames
             switch result {
             case .success(let items):
                 self.items = items
@@ -230,6 +260,10 @@ final class BrowserModel {
     /// Measures folders and packages in the background, a few at a time.
     private func measureContainers(in items: [FileItem], remeasureAll: Bool) {
         measureTask?.cancel()
+        guard measuresFolders else {
+            pendingMeasurementCount = 0
+            return
+        }
         let targets = items.filter { item in
             guard item.isContainer, showHidden || !item.isHidden else { return false }
             if remeasureAll || measurements[item.url] == nil { return true }
@@ -294,15 +328,50 @@ final class BrowserModel {
 
     private static func initialFolder(defaults: UserDefaults) -> URL {
         let fileManager = FileManager.default
-        if let path = defaults.string(forKey: Keys.lastPath) {
+        let start = defaults.string(forKey: PreferenceKey.startLocation).flatMap(StartLocation.init(rawValue:)) ?? .last
+        if let url = start.url {
+            return url
+        }
+        if let path = defaults.string(forKey: PreferenceKey.lastPath) {
             let url = URL(fileURLWithPath: (path as NSString).expandingTildeInPath, isDirectory: true)
             var isDirectory: ObjCBool = false
             if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory), isDirectory.boolValue {
-                return url.canonicalDirectory
+                return url
             }
         }
-        let downloads = fileManager.urls(for: .downloadsDirectory, in: .userDomainMask).first
-        return (downloads ?? fileManager.homeDirectoryForCurrentUser).canonicalDirectory
+        return URL.downloadsDirectory
+    }
+
+    // MARK: - Preferences
+
+    private func save(_ value: Any, _ key: String, changed: Bool) {
+        guard changed else { return }
+        defaults.set(value, forKey: key)
+    }
+
+    /// Picks up changes made in the Settings window or in another window.
+    private func syncWithDefaults() {
+        let storedShowHidden = defaults.bool(forKey: PreferenceKey.showHidden)
+        if storedShowHidden != showHidden { showHidden = storedShowHidden }
+
+        let storedMeasures = defaults.object(forKey: PreferenceKey.measureFolders) as? Bool ?? true
+        if storedMeasures != measuresFolders {
+            measuresFolders = storedMeasures
+            if storedMeasures { measureMissingContainers() } else { measureTask?.cancel(); pendingMeasurementCount = 0 }
+        }
+
+        let storedFoldersFirst = defaults.object(forKey: PreferenceKey.foldersFirst) as? Bool ?? true
+        if storedFoldersFirst != keepsFoldersFirst {
+            keepsFoldersFirst = storedFoldersFirst
+            rebuild()
+        }
+
+        if let mode = defaults.string(forKey: PreferenceKey.viewMode).flatMap(ViewMode.init(rawValue:)), mode != viewMode {
+            viewMode = mode
+        }
+        if let mode = defaults.string(forKey: PreferenceKey.grouping).flatMap(GroupingMode.init(rawValue:)), mode != grouping {
+            grouping = mode
+        }
     }
 
     // MARK: - Building what the views display
@@ -312,7 +381,7 @@ final class BrowserModel {
         let visible = showHidden ? items : items.filter { !$0.isHidden }
 
         insights = FolderInsights(items: items, measurements: measurements, includeHidden: showHidden)
-        suggestions = CleanupAdvisor.suggestions(for: visible, now: now)
+        suggestions = CleanupAdvisor.suggestions(for: visible, now: now, installedAppNames: installedAppNames)
 
         var shown: [FileItem]
         switch location.scope {
@@ -339,6 +408,7 @@ final class BrowserModel {
             grouping: effectiveGrouping,
             measurements: measurements,
             sortOrder: sortOrder,
+            foldersFirst: keepsFoldersFirst,
             now: now
         )
         gridSections = makeGridSections(for: effectiveGrouping)
@@ -425,25 +495,41 @@ final class BrowserModel {
         NSPasteboard.general.setString(paths.joined(separator: "\n"), forType: .string)
     }
 
-    /// Moves items to the Trash, where the user can still recover them.
+    /// Moves the items behind some nodes to the Trash, where the user can still recover them.
     func moveToTrash(_ ids: Set<BrowserNode.ID>) {
-        let targets = items(for: ids)
-        guard !targets.isEmpty else { return }
+        moveToTrash(urls: items(for: ids).map(\.url))
+    }
 
+    /// Moves files to the Trash, where the user can still recover them.
+    func moveToTrash(urls: [URL]) {
+        guard !urls.isEmpty else { return }
         var failures: [String] = []
-        for item in targets {
+        for url in urls {
             do {
-                try FileManager.default.trashItem(at: item.url, resultingItemURL: nil)
+                try FileManager.default.trashItem(at: url, resultingItemURL: nil)
             } catch {
-                failures.append(item.name)
+                failures.append(url.lastPathComponent)
             }
         }
         if !failures.isEmpty {
             let names = failures.joined(separator: ", ")
             errorMessage = String(localized: "These items could not be moved to the Trash: \(names)")
         }
-        selection.subtract(ids)
+        selection.subtract(urls.map(\.path))
         load(remeasureAll: false)
+    }
+
+    /// Asks for confirmation before trashing installers whose app is already installed.
+    func requestTrashingInstalled(from suggestion: CleanupSuggestion) {
+        let matches = suggestion.installedMatches
+        guard !matches.isEmpty else { return }
+        let bytes = matches.reduce(Int64(0)) { $0 + $1.bytes }
+        let apps = matches.map(\.appName).formatted(.list(type: .and))
+        pendingTrash = PendingTrash(
+            urls: matches.map(\.installerURL),
+            title: String(localized: "Move \(matches.count) installers to the Trash?"),
+            message: String(localized: "Already installed: \(apps). This frees \(bytes.formattedByteCount).")
+        )
     }
 
     func review(_ suggestion: CleanupSuggestion) {

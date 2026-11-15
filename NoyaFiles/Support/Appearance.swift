@@ -71,25 +71,6 @@ extension GroupingMode {
     }
 }
 
-extension AppearancePreference {
-    var title: String {
-        switch self {
-        case .system: String(localized: "System")
-        case .light: String(localized: "Light")
-        case .dark: String(localized: "Dark")
-        }
-    }
-
-    /// `nil` follows the system appearance.
-    var colorScheme: ColorScheme? {
-        switch self {
-        case .system: nil
-        case .light: .light
-        case .dark: .dark
-        }
-    }
-}
-
 extension SortField {
     var title: String {
         switch self {

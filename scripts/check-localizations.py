@@ -34,6 +34,10 @@ CALLS = (
     r"PanelSectionTitle\(",
     r"\.alert\(\s*",
     r"TextField\(",
+    r"LabeledContent\(",
+    r"\.confirmationDialog\(\s*",
+    r"(?<![\w.])fact\(",
+    r"Entry\(id: \"[^\"]*\", title: ",
 )
 CALL_PATTERN = re.compile(r"(?:%s)%s" % ("|".join(CALLS), LITERAL))
 # Ternaries typed as LocalizedStringKey: `flag ? "Hide X" : "Show X"`.

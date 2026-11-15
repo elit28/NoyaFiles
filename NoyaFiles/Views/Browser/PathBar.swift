@@ -81,7 +81,7 @@ private struct ScopeChip: View {
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 2)
-        .background(Color.accentColor.opacity(0.15), in: Capsule())
+        .background(.tint.opacity(0.15), in: Capsule())
     }
 }
 

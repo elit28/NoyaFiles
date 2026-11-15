@@ -107,6 +107,7 @@ struct InsightsPanel: View {
                 SuggestionCard(
                     suggestion: suggestion,
                     review: { model.review(suggestion) },
+                    trashInstalled: { model.requestTrashingInstalled(from: suggestion) },
                     dismiss: { model.dismiss(suggestion) }
                 )
             }
@@ -157,7 +158,7 @@ private struct BreakdownRow: View {
             .font(.callout)
             UsageBar(
                 fraction: totalBytes > 0 ? Double(entry.bytes) / Double(totalBytes) : 0,
-                tint: tint
+                fill: tint
             )
         }
         .contentShape(Rectangle())
@@ -170,10 +171,10 @@ private struct BreakdownRow: View {
         }
     }
 
-    private var tint: Color {
+    private var tint: AnyShapeStyle {
         switch entry.subject {
-        case .folder: .accentColor
-        case .category(let category): category.tint
+        case .folder: AnyShapeStyle(.tint)
+        case .category(let category): AnyShapeStyle(category.tint)
         }
     }
 
@@ -197,6 +198,7 @@ private struct BreakdownRow: View {
 private struct SuggestionCard: View {
     let suggestion: CleanupSuggestion
     let review: () -> Void
+    let trashInstalled: () -> Void
     let dismiss: () -> Void
 
     var body: some View {
@@ -222,9 +224,16 @@ private struct SuggestionCard: View {
                 .foregroundStyle(.secondary)
                 .help("Dismiss")
             }
-            Button("Review", action: review)
-                .buttonStyle(.link)
-                .padding(.leading, 24)
+            HStack(spacing: 12) {
+                if !suggestion.installedMatches.isEmpty {
+                    Button("Move to Trash…", action: trashInstalled)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.small)
+                }
+                Button("Review", action: review)
+                    .buttonStyle(.link)
+            }
+            .padding(.leading, 24)
         }
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -256,9 +265,14 @@ private struct SuggestionCard: View {
     private var subtitle: String {
         switch suggestion.kind {
         case .installers:
-            String(localized: "Disk images and packages you may no longer need.")
+            let names = suggestion.installedMatches.map(\.appName)
+            guard !names.isEmpty else {
+                return String(localized: "Disk images and packages you may no longer need.")
+            }
+            let shown = names.prefix(3).joined(separator: ", ") + (names.count > 3 ? "…" : "")
+            return String(localized: "Already installed: \(shown).")
         case .staleFiles(let days):
-            String(localized: "Untouched for more than \(days) days. You may not need them anymore.")
+            return String(localized: "Untouched for more than \(days) days. You may not need them anymore.")
         }
     }
 }

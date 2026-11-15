@@ -39,6 +39,8 @@ jobs:
         run: |
           xcodebuild -version
           swift --version
+          echo "Installed Xcode versions:"
+          ls -d /Applications/Xcode*.app
 
       - name: Check translations
         run: python3 scripts/check-localizations.py

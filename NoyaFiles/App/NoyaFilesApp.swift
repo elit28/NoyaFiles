@@ -2,6 +2,11 @@ import SwiftUI
 
 @main
 struct NoyaFilesApp: App {
+    init() {
+        // Remember the language the app started in, to tell when a change needs a relaunch.
+        _ = AppLanguage.atLaunch
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -9,6 +14,10 @@ struct NoyaFilesApp: App {
         .defaultSize(width: 1180, height: 740)
         .commands {
             BrowserCommands()
+        }
+
+        Settings {
+            SettingsView()
         }
     }
 }

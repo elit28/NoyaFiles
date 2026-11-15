@@ -3,21 +3,22 @@ import SwiftUI
 
 struct SidebarView: View {
     let sidebar: SidebarModel
-    @Binding var selection: URL?
+    @Binding var selection: SidebarSelection?
+    @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
 
     var body: some View {
         List(selection: $selection) {
             Section("Favorites") {
-                ForEach(sidebar.favorites) { item in
+                ForEach(sidebar.favorites.filter { visibility.shows($0.key) }) { item in
                     Label(item.title, systemImage: item.symbolName)
-                        .tag(item.url)
+                        .tag(SidebarSelection.folder(item.url))
                 }
             }
 
             Section("Locations") {
-                ForEach(sidebar.locations) { item in
+                ForEach(sidebar.locations.filter { visibility.shows($0.key) }) { item in
                     Label(item.title, systemImage: item.symbolName)
-                        .tag(item.url)
+                        .tag(SidebarSelection.folder(item.url))
                 }
             }
         }
@@ -26,7 +27,9 @@ struct SidebarView: View {
             BrandHeader()
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            DiskUsageFooter(disk: sidebar.disk)
+            if visibility.shows("disk") {
+                DiskUsageFooter(disk: sidebar.disk)
+            }
         }
         .task {
             while !Task.isCancelled {
@@ -73,7 +76,7 @@ private struct DiskUsageFooter: View {
                     Text(disk.name)
                         .font(.callout.weight(.medium))
                         .lineLimit(1)
-                    UsageBar(fraction: disk.usedFraction, tint: .accentColor)
+                    UsageBar(fraction: disk.usedFraction, fill: .tint)
                     Text("\(disk.availableBytes.formattedByteCount) free")
                         .font(.caption)
                         .foregroundStyle(.secondary)

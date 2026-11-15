@@ -10,6 +10,7 @@ enum NodeBuilder {
         grouping: GroupingMode,
         measurements: [URL: FolderSizer.Measurement],
         sortOrder: [KeyPathComparator<BrowserNode>],
+        foldersFirst: Bool = true,
         now: Date
     ) -> [BrowserNode] {
         func makeNode(_ item: FileItem) -> BrowserNode {
@@ -18,7 +19,7 @@ enum NodeBuilder {
 
         switch grouping {
         case .flat:
-            return foldersFirst(items.map(makeNode), sortedBy: sortOrder)
+            return sorted(items.map(makeNode), by: sortOrder, foldersFirst: foldersFirst)
 
         case .kind:
             let folders = items.filter(\.isFolder).map(makeNode).sorted(using: sortOrder)
@@ -35,7 +36,7 @@ enum NodeBuilder {
 
         case .date:
             return Grouping.byDate(items, now: now).map { group in
-                let children = foldersFirst(group.items.map(makeNode), sortedBy: sortOrder)
+                let children = sorted(group.items.map(makeNode), by: sortOrder, foldersFirst: foldersFirst)
                 return groupNode(
                     id: "date:\(group.bucket.rawValue)",
                     content: .dateBucket(group.bucket),
@@ -102,12 +103,14 @@ enum NodeBuilder {
         )
     }
 
-    /// Sorts nodes and keeps folders above everything else, as most file managers do.
-    private static func foldersFirst(
+    /// Sorts nodes, optionally keeping folders above everything else as most file managers do.
+    static func sorted(
         _ nodes: [BrowserNode],
-        sortedBy sortOrder: [KeyPathComparator<BrowserNode>]
+        by sortOrder: [KeyPathComparator<BrowserNode>],
+        foldersFirst: Bool
     ) -> [BrowserNode] {
-        nodes.filter(\.isFolder).sorted(using: sortOrder)
+        guard foldersFirst else { return nodes.sorted(using: sortOrder) }
+        return nodes.filter(\.isFolder).sorted(using: sortOrder)
             + nodes.filter { !$0.isFolder }.sorted(using: sortOrder)
     }
 }

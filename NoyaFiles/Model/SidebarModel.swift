@@ -2,6 +2,8 @@ import Foundation
 import Observation
 
 struct SidebarItem: Identifiable, Hashable {
+    /// A stable name, such as `downloads`, used to hide the item from the sidebar.
+    let key: String
     let url: URL
     let title: String
     let symbolName: String
@@ -47,25 +49,22 @@ final class SidebarModel {
         let fileManager = FileManager.default
         var items: [SidebarItem] = []
 
-        func add(_ directory: FileManager.SearchPathDirectory, symbolName: String) {
-            guard let url = fileManager.urls(for: directory, in: .userDomainMask).first else { return }
+        func add(_ key: String, _ url: URL, symbolName: String) {
             items.append(SidebarItem(
+                key: key,
                 url: url.canonicalDirectory,
                 title: fileManager.displayName(atPath: url.path),
                 symbolName: symbolName
             ))
         }
 
-        add(.desktopDirectory, symbolName: "menubar.dock.rectangle")
-        add(.documentDirectory, symbolName: "doc")
-        add(.downloadsDirectory, symbolName: "arrow.down.circle")
-
-        let applications = URL(fileURLWithPath: "/Applications", isDirectory: true)
-        items.append(SidebarItem(
-            url: applications.canonicalDirectory,
-            title: fileManager.displayName(atPath: applications.path),
-            symbolName: "square.grid.2x2"
-        ))
+        add("desktop", .desktopDirectory, symbolName: "menubar.dock.rectangle")
+        add("documents", .documentsDirectory, symbolName: "doc")
+        add("downloads", .downloadsDirectory, symbolName: "arrow.down.circle")
+        add("applications", URL(fileURLWithPath: "/Applications", isDirectory: true), symbolName: "square.grid.2x2")
+        add("pictures", .picturesDirectory, symbolName: "photo")
+        add("movies", .moviesDirectory, symbolName: "film")
+        add("music", .musicDirectory, symbolName: "music.note")
         return items
     }
 
@@ -77,6 +76,7 @@ final class SidebarModel {
         let iCloudDrive = home.appendingPathComponent("Library/Mobile Documents/com~apple~CloudDocs", isDirectory: true)
         if fileManager.fileExists(atPath: iCloudDrive.path) {
             items.append(SidebarItem(
+                key: "icloud",
                 url: iCloudDrive.canonicalDirectory,
                 title: String(localized: "iCloud Drive"),
                 symbolName: "icloud"
@@ -84,6 +84,7 @@ final class SidebarModel {
         }
 
         items.append(SidebarItem(
+            key: "home",
             url: home.canonicalDirectory,
             title: fileManager.displayName(atPath: home.path),
             symbolName: "house"
@@ -97,6 +98,7 @@ final class SidebarModel {
         for volume in volumes {
             let values = try? volume.resourceValues(forKeys: Set(volumeKeys))
             items.append(SidebarItem(
+                key: "volumes",
                 url: volume.canonicalDirectory,
                 title: values?.volumeLocalizedName ?? volume.lastPathComponent,
                 symbolName: values?.volumeIsInternal == false ? "externaldrive" : "internaldrive"
@@ -105,6 +107,7 @@ final class SidebarModel {
 
         if let trash = fileManager.urls(for: .trashDirectory, in: .userDomainMask).first {
             items.append(SidebarItem(
+                key: "trash",
                 url: trash.canonicalDirectory,
                 title: String(localized: "Trash"),
                 symbolName: "trash"

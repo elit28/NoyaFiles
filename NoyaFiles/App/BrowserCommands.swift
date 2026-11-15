@@ -4,7 +4,7 @@ import SwiftUI
 /// The File, View and Go menu items that act on the focused browser window.
 struct BrowserCommands: Commands {
     @FocusedValue(\.browserModel) private var model: BrowserModel?
-    @AppStorage(AppearancePreference.storageKey) private var appearance = AppearancePreference.system
+    @AppStorage(PreferenceKey.appearance) private var appearance = AppearancePreference.system
 
     var body: some Commands {
         CommandGroup(after: .newItem) {

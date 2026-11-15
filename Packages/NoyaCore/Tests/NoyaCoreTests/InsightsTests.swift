@@ -175,3 +175,49 @@ struct GroupingTests {
         #expect(groups.map(\.bucket) == [.today, .older])
     }
 }
+
+@Suite("Installed apps")
+struct InstalledAppMatcherTests {
+    let apps = ["Sketch.app", "Figma.app", "zoom.us.app", "Visual Studio Code.app", "Raycast.app", "Notes.app"]
+
+    @Test("Reduces installer names to their product", arguments: [
+        ("Sketch-101.2.dmg", "sketch"),
+        ("Figma-installer-universal.dmg", "figma"),
+        ("Install Zoom.pkg", "zoom"),
+        ("Raycast_v1.80.3_arm64.dmg", "raycast"),
+        ("googlechrome.dmg", "googlechrome"),
+    ])
+    func productKeys(fileName: String, expected: String) {
+        #expect(InstalledAppMatcher.productKey(fromInstaller: fileName) == expected)
+    }
+
+    @Test("Finds the installed app an installer is for", arguments: [
+        ("Sketch-101.2.dmg", "Sketch"),
+        ("Figma-installer.dmg", "Figma"),
+        ("zoomusInstallerFull.pkg", "zoom.us"),
+        ("Raycast_v1.80.3_arm64.dmg", "Raycast"),
+    ])
+    func matches(installer: String, expected: String) {
+        #expect(InstalledAppMatcher.installedApp(forInstaller: installer, among: apps) == expected)
+    }
+
+    @Test("Ignores installers for apps that are not installed", arguments: [
+        "Blender-4.2.dmg",
+        "setup.pkg",
+        "v2.dmg",
+    ])
+    func noMatch(installer: String) {
+        #expect(InstalledAppMatcher.installedApp(forInstaller: installer, among: apps) == nil)
+    }
+
+    @Test("The installers suggestion lists the ones already installed")
+    func suggestionListsMatches() throws {
+        let items = [file("Sketch-101.2.dmg", size: 300), file("Blender-4.2.dmg", size: 500)]
+        let suggestions = CleanupAdvisor.suggestions(for: items, now: now, installedAppNames: apps)
+        let installers = try #require(suggestions.first { $0.kind == .installers })
+
+        #expect(installers.count == 2)
+        #expect(installers.installedMatches.map(\.appName) == ["Sketch"])
+        #expect(installers.installedMatches.first?.bytes == 300)
+    }
+}

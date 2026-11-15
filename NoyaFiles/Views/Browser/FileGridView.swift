@@ -6,7 +6,11 @@ import SwiftUI
 struct FileGridView: View {
     @Bindable var model: BrowserModel
 
-    private let columns = [GridItem(.adaptive(minimum: 128, maximum: 150), spacing: 16, alignment: .top)]
+    @AppStorage(PreferenceKey.iconSize) private var iconSize = 96.0
+
+    private var columns: [GridItem] {
+        [GridItem(.adaptive(minimum: iconSize + 36, maximum: iconSize + 56), spacing: 16, alignment: .top)]
+    }
 
     var body: some View {
         GeometryReader { proxy in
@@ -39,7 +43,7 @@ struct FileGridView: View {
     }
 
     private func tile(for node: BrowserNode) -> some View {
-        GridTile(node: node, isSelected: model.selection.contains(node.id))
+        GridTile(node: node, isSelected: model.selection.contains(node.id), iconSize: iconSize)
             .onTapGesture(count: 2) {
                 model.open([node.id])
             }
@@ -71,11 +75,14 @@ private struct SectionHeader: View {
 private struct GridTile: View {
     let node: BrowserNode
     let isSelected: Bool
+    let iconSize: CGFloat
+
+    private var artHeight: CGFloat { iconSize * 80 / 96 }
 
     var body: some View {
         VStack(spacing: 6) {
             artwork
-                .frame(width: 96, height: 80)
+                .frame(width: iconSize, height: artHeight)
                 .padding(6)
                 .background(
                     isSelected ? Color.primary.opacity(0.09) : Color.clear,
@@ -91,7 +98,7 @@ private struct GridTile: View {
                 .padding(.horizontal, 5)
                 .padding(.vertical, 1)
                 .background(
-                    isSelected ? Color.accentColor : Color.clear,
+                    isSelected ? AnyShapeStyle(.tint) : AnyShapeStyle(Color.clear),
                     in: RoundedRectangle(cornerRadius: 4, style: .continuous)
                 )
 
@@ -101,7 +108,7 @@ private struct GridTile: View {
                 .lineLimit(1)
                 .monospacedDigit()
         }
-        .frame(width: 132)
+        .frame(width: iconSize + 36)
         .contentShape(Rectangle())
         .opacity(node.isHidden ? 0.6 : 1)
         .accessibilityElement(children: .combine)
@@ -113,13 +120,14 @@ private struct GridTile: View {
         switch node.content {
         case .category(let category):
             CategoryFolderArt(category: category)
+                .scaleEffect(iconSize / 96)
         case .dateBucket:
             Image(systemName: "calendar")
                 .font(.system(size: 40))
                 .foregroundStyle(.secondary)
         case .item(let item):
             if item.kind == .file {
-                FileThumbnail(item: item, side: 80)
+                FileThumbnail(item: item, side: artHeight)
             } else {
                 Image(nsImage: IconCache.icon(for: item))
                     .resizable()
