@@ -80,6 +80,7 @@ final class WindowModel {
         case "search": openSearch()
         default: break
         }
+        isTidyPresented = UserDefaults.standard.bool(forKey: "noya.showTidy")
     }
 
     /// The browser that menu commands and the sidebar act on.

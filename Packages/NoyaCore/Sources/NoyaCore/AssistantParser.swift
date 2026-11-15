@@ -91,6 +91,9 @@ public struct AssistantRequest: Equatable, Sendable {
     }
 
     /// The Spotlight query finding the files, or `nil` when there is nothing to look for.
+    ///
+    /// The year is not part of it: Spotlight dates vary from one file type to another, so
+    /// ``matchesYear(fileName:dates:)`` checks it on each file found.
     public var spotlightQuery: String? {
         var clauses: [String] = []
         if let topic {
@@ -102,19 +105,23 @@ public struct AssistantRequest: Equatable, Sendable {
                 clauses.append("kMDItemIsScreenCapture == 1")
             }
             clauses.append("(" + topic.kind.contentTypes.map { "kMDItemContentTypeTree == \"\($0)\"" }.joined(separator: " || ") + ")")
-        } else {
-            guard !keywords.isEmpty else { return nil }
-            for word in keywords {
-                let pattern = "\"*\(SearchCriteria.escape(word))*\"cd"
-                clauses.append("(kMDItemFSName == \(pattern) || kMDItemTextContent == \(pattern))")
-            }
+        } else if keywords.isEmpty {
+            return nil
         }
-        if let year {
-            clauses.append(
-                "(kMDItemFSName == \"*\(year)*\" || (kMDItemContentCreationDate >= $time.iso(\(year)-01-01T00:00:00Z) && kMDItemContentCreationDate < $time.iso(\(year + 1)-01-01T00:00:00Z)))"
-            )
+        // Each extra word, such as a company name, must appear in the name or the contents.
+        for word in keywords {
+            let pattern = "\"*\(SearchCriteria.escape(word))*\"cd"
+            clauses.append("(kMDItemFSName == \(pattern) || kMDItemTextContent == \(pattern))")
         }
         return clauses.joined(separator: " && ")
+    }
+
+    /// Whether a file belongs to the year asked for: its name mentions it, or one of its dates
+    /// (created, modified, added) falls in it. Always true when no year was asked for.
+    public func matchesYear(fileName: String, dates: [Date], calendar: Calendar = .current) -> Bool {
+        guard let year else { return true }
+        if fileName.contains(String(year)) { return true }
+        return dates.contains { calendar.component(.year, from: $0) == year }
     }
 }
 

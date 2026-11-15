@@ -45,6 +45,8 @@ CALLS = (
 CALL_PATTERN = re.compile(r"(?:%s)%s" % ("|".join(CALLS), LITERAL))
 # Ternaries typed as LocalizedStringKey: `flag ? "Hide X" : "Show X"`.
 KEY_TERNARY = re.compile(r"LocalizedStringKey\s*\{\s*[^\n]*\?\s*%s\s*:\s*%s" % (LITERAL, LITERAL))
+# A ternary of two literals passed straight to a view is a String, which SwiftUI shows untranslated.
+UNTRANSLATED_TERNARY = re.compile(r'(?:Text|Label|Button|Toggle|Section)\(\s*[^"\n]*\?\s*"[^"\n]*"\s*:\s*"[^"\n]*"')
 PLACEHOLDER = re.compile(r"\\\((?:[^()]|\([^()]*\))*\)|%(?:\d+\$)?(?:lld|ld|d|@|f|\.\d+f)")
 
 
@@ -64,7 +66,19 @@ def source_strings() -> dict[str, pathlib.Path]:
     return found
 
 
+def untranslated_ternaries() -> list[str]:
+    problems = []
+    for path in sorted(SOURCES.rglob("*.swift")):
+        for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if UNTRANSLATED_TERNARY.search(line) and "LocalizedStringKey" not in line:
+                problems.append(f"{path.relative_to(ROOT)}:{number}: wrap each text of this ternary in LocalizedStringKey(...)")
+    return problems
+
+
 def main() -> int:
+    ternaries = untranslated_ternaries()
+    for problem in ternaries:
+        print(problem)
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     translated = {
         normalize(key)
@@ -80,6 +94,8 @@ def main() -> int:
         print(f"{path}: missing '{LANGUAGE}' translation for \"{literal}\"")
     if missing:
         print(f"\n{len(missing)} string(s) need a translation in {CATALOG.relative_to(ROOT)}.")
+        return 1
+    if ternaries:
         return 1
     print(f"All user-facing strings have a '{LANGUAGE}' translation.")
     return 0

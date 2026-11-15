@@ -1,6 +1,16 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@ (default)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (par défaut)"
+          }
+        }
+      }
+    },
     "%@ available": {
       "localizations": {
         "fr": {
@@ -1761,6 +1771,26 @@
         }
       }
     },
+    "A clear preview before anything moves.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un aperçu clair avant chaque déplacement."
+          }
+        }
+      }
+    },
+    "A smarter home for your files.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un chez-soi plus intelligent pour vos fichiers."
+          }
+        }
+      }
+    },
     "A workspace gathers files without moving them: the originals stay where they are.": {
       "localizations": {
         "fr": {
@@ -1787,6 +1817,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Couleur d'accent"
+          }
+        }
+      }
+    },
+    "Access granted. Thank you!": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accès accordé. Merci !"
           }
         }
       }
@@ -1991,6 +2031,16 @@
         }
       }
     },
+    "Allow access to your files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autoriser l'accès à vos fichiers"
+          }
+        }
+      }
+    },
     "Allowed": {
       "localizations": {
         "fr": {
@@ -2171,6 +2221,16 @@
         }
       }
     },
+    "Apple Intelligence, on this Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence, sur ce Mac"
+          }
+        }
+      }
+    },
     "Application": {
       "localizations": {
         "fr": {
@@ -2257,6 +2317,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Croissant"
+          }
+        }
+      }
+    },
+    "Ask before moving items to the Trash": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demander avant de placer dans la Corbeille"
           }
         }
       }
@@ -2441,6 +2511,46 @@
         }
       }
     },
+    "Calculating sizes… %lld of %lld folders": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Calculating sizes… %lld of %lld folders"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Calculating sizes… %lld of %lld folders"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Calcul des tailles… %1$lld dossier sur %2$lld"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Calcul des tailles… %1$lld dossiers sur %2$lld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Can keep the disk busy in very large folders.": {
       "localizations": {
         "fr": {
@@ -2491,12 +2601,32 @@
         }
       }
     },
+    "Check the spelling or broaden the search.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifiez l'orthographe ou élargissez la recherche."
+          }
+        }
+      }
+    },
     "Choose": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Choisir"
+          }
+        }
+      }
+    },
+    "Choose **Full Disk Access**.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez **Accès complet au disque**."
           }
         }
       }
@@ -2687,6 +2817,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comparer…"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuer"
           }
         }
       }
@@ -3181,6 +3321,16 @@
         }
       }
     },
+    "Drag files here, or create a folder with ⇧⌘N.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez des fichiers ici, ou créez un dossier avec ⇧⌘N."
+          }
+        }
+      }
+    },
     "Drop files here, use Add Files, or create a smart rule. Files stay where they are.": {
       "localizations": {
         "fr": {
@@ -3231,6 +3381,16 @@
         }
       }
     },
+    "Each folder shows its size and what it holds.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque dossier montre sa taille et ce qu'il contient."
+          }
+        }
+      }
+    },
     "Earlier This Year": {
       "localizations": {
         "fr": {
@@ -3267,6 +3427,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Éditeur"
+          }
+        }
+      }
+    },
+    "Empty the Trash after 30 days": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vider la Corbeille au bout de 30 jours"
           }
         }
       }
@@ -3327,6 +3497,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tout reste sur ce Mac"
+          }
+        }
+      }
+    },
+    "Everything stays on your Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout reste sur votre Mac"
           }
         }
       }
@@ -3531,6 +3711,16 @@
         }
       }
     },
+    "Get Started": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commencer"
+          }
+        }
+      }
+    },
     "Git": {
       "localizations": {
         "fr": {
@@ -3627,6 +3817,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Grille"
+          }
+        }
+      }
+    },
+    "Grid by Kind": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grille par type"
           }
         }
       }
@@ -3867,6 +4067,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Images"
+          }
+        }
+      }
+    },
+    "In %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dans %@"
           }
         }
       }
@@ -4127,6 +4337,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dernier dossier ouvert"
+          }
+        }
+      }
+    },
+    "Later": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus tard"
           }
         }
       }
@@ -4471,6 +4691,16 @@
         }
       }
     },
+    "Move “%@” to the Trash?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Placer « %@ » dans la Corbeille ?"
+          }
+        }
+      }
+    },
     "Moves to the Trash": {
       "localizations": {
         "fr": {
@@ -4601,12 +4831,42 @@
         }
       }
     },
+    "New download: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau téléchargement : %@"
+          }
+        }
+      }
+    },
     "New files that match are added automatically. Downloads, Desktop and Documents are checked every 10 minutes.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Les nouveaux fichiers qui correspondent sont ajoutés automatiquement. Téléchargements, Bureau et Documents sont vérifiés toutes les 10 minutes."
+          }
+        }
+      }
+    },
+    "New Folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau dossier"
+          }
+        }
+      }
+    },
+    "New Folder…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau dossier…"
           }
         }
       }
@@ -4647,6 +4907,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nouvel espace de travail"
+          }
+        }
+      }
+    },
+    "No account, and no file is ever sent anywhere.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun compte, aucun envoi de fichiers."
           }
         }
       }
@@ -4767,6 +5037,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aucun projet ici"
+          }
+        }
+      }
+    },
+    "No Results": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun résultat"
+          }
+        }
+      }
+    },
+    "No Results for “%@”": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun résultat pour « %@ »"
           }
         }
       }
@@ -5021,6 +5311,16 @@
         }
       }
     },
+    "Open **System Settings › Privacy & Security**.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez **Réglages Système › Confidentialité et sécurité**."
+          }
+        }
+      }
+    },
     "Open Free Up Space": {
       "localizations": {
         "fr": {
@@ -5071,6 +5371,16 @@
         }
       }
     },
+    "Open Settings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir les réglages"
+          }
+        }
+      }
+    },
     "Open them from the list, or name a workspace to gather them in, such as “… in the workspace Taxes”.": {
       "localizations": {
         "fr": {
@@ -5097,6 +5407,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fonction facultative, désactivée par défaut. Vous pouvez la couper dans Réglages › Assistant IA."
+          }
+        }
+      }
+    },
+    "Optional. Off by default. Everything runs on this Mac.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facultatif. Désactivé par défaut. Tout se passe sur ce Mac."
           }
         }
       }
@@ -5137,6 +5457,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Autres"
+          }
+        }
+      }
+    },
+    "Other…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autre…"
           }
         }
       }
@@ -5337,6 +5667,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confidentialité"
+          }
+        }
+      }
+    },
+    "Processed on this Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traitement sur ce Mac"
           }
         }
       }
@@ -5871,6 +6211,16 @@
         }
       }
     },
+    "Search the Whole Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chercher dans tout le Mac"
+          }
+        }
+      }
+    },
     "Search your Mac": {
       "localizations": {
         "fr": {
@@ -5887,6 +6237,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sections"
+          }
+        }
+      }
+    },
+    "See what takes up space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voyez ce qui occupe l'espace"
           }
         }
       }
@@ -5967,6 +6327,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Partager"
+          }
+        }
+      }
+    },
+    "Show": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher"
           }
         }
       }
@@ -6171,6 +6541,16 @@
         }
       }
     },
+    "Sidebar favorites": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoris de la barre latérale"
+          }
+        }
+      }
+    },
     "Simulator caches": {
       "localizations": {
         "fr": {
@@ -6197,6 +6577,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Règles intelligentes"
+          }
+        }
+      }
+    },
+    "Some items could not be put back. They are still in the Trash.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Certains éléments n'ont pas pu être remis en place. Ils sont toujours dans la Corbeille."
           }
         }
       }
@@ -6287,6 +6677,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "État"
+          }
+        }
+      }
+    },
+    "Step %lld of 3": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Étape %lld sur 3"
           }
         }
       }
@@ -6481,6 +6881,16 @@
         }
       }
     },
+    "Tell me about new downloads": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me prévenir des nouveaux téléchargements"
+          }
+        }
+      }
+    },
     "Terminal": {
       "localizations": {
         "fr": {
@@ -6527,6 +6937,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "La copie la plus récente de chaque fichier est gardée. Cela libère %@."
+          }
+        }
+      }
+    },
+    "The same setting as in the Finder.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le même réglage que dans le Finder."
           }
         }
       }
@@ -6771,6 +7191,16 @@
         }
       }
     },
+    "Tidy up your downloads": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rangez vos téléchargements"
+          }
+        }
+      }
+    },
     "Tidy-up done: %lld files put away": {
       "localizations": {
         "en": {
@@ -6821,6 +7251,16 @@
         }
       }
     },
+    "To measure all your folders and open the Trash, NOYA Files needs Full Disk Access. You can take it back at any time.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pour mesurer tous vos dossiers et ouvrir la Corbeille, NOYA Files a besoin de l'accès complet au disque. Vous pouvez le retirer à tout moment."
+          }
+        }
+      }
+    },
     "Today": {
       "localizations": {
         "fr": {
@@ -6861,6 +7301,16 @@
         }
       }
     },
+    "Turn on **NOYA Files**, then come back here.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez **NOYA Files**, puis revenez ici."
+          }
+        }
+      }
+    },
     "Turn on the AI assistant": {
       "localizations": {
         "fr": {
@@ -6872,6 +7322,16 @@
       }
     },
     "Turn On the Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activer l'assistant"
+          }
+        }
+      }
+    },
+    "Turn on the assistant": {
       "localizations": {
         "fr": {
           "stringUnit": {
@@ -6917,6 +7377,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Désépingler"
+          }
+        }
+      }
+    },
+    "untitled folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dossier sans titre"
           }
         }
       }
@@ -7021,6 +7491,26 @@
         }
       }
     },
+    "Waiting for permission…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En attente de l'autorisation…"
+          }
+        }
+      }
+    },
+    "Welcome to NOYA Files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bienvenue dans NOYA Files"
+          }
+        }
+      }
+    },
     "What can I delete?": {
       "localizations": {
         "fr": {
@@ -7081,6 +7571,16 @@
         }
       }
     },
+    "Without this access, NOYA Files still works: macOS will ask for permission folder by folder.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans cet accès, NOYA Files fonctionne quand même : macOS vous demandera l'autorisation dossier par dossier."
+          }
+        }
+      }
+    },
     "Working…": {
       "localizations": {
         "fr": {
@@ -7121,6 +7621,26 @@
         }
       }
     },
+    "You can change everything later in Settings (⌘,).": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout se change ensuite dans les Réglages (⌘,)."
+          }
+        }
+      }
+    },
+    "You can keep browsing while sizes are calculated.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous pouvez continuer à naviguer pendant le calcul."
+          }
+        }
+      }
+    },
     "You can still recover them from the Trash until you empty it.": {
       "localizations": {
         "fr": {
@@ -7151,6 +7671,16 @@
         }
       }
     },
+    "Your preferences": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos préférences"
+          }
+        }
+      }
+    },
     "Your workspaces could not be read: %@": {
       "localizations": {
         "fr": {
@@ -7167,6 +7697,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vos espaces de travail n'ont pas pu être enregistrés : %@"
+          }
+        }
+      }
+    },
+    "“%@” moved to the Trash": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "« %@ » placé dans la Corbeille"
           }
         }
       }

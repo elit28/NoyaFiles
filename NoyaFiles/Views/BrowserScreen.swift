@@ -22,8 +22,21 @@ struct BrowserScreen: View {
                 BrowserToolbar(model: model, window: window)
             }
             .searchable(text: $model.searchText, placement: .toolbar, prompt: Text("Filter this folder"))
+            .modifier(BrowserPresentations(model: model))
+    }
+}
+
+/// The sheets, dialogs and Quick Look of a browser, shared by the single and dual-pane screens.
+struct BrowserPresentations: ViewModifier {
+    @Bindable var model: BrowserModel
+
+    func body(content: Content) -> some View {
+        content
             .sheet(isPresented: $model.isGoToFolderPresented) {
                 GoToFolderSheet(model: model)
+            }
+            .sheet(isPresented: $model.isNewFolderPresented) {
+                NewFolderSheet(model: model)
             }
             .sheet(isPresented: $model.isDuplicatesSheetPresented) {
                 DuplicatesSheet(model: model)

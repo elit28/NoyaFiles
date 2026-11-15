@@ -6,6 +6,7 @@ struct ContentView: View {
     @State private var sidebar = SidebarModel()
     @AppStorage(PreferenceKey.appearance) private var appearance = AppearancePreference.system
     @AppStorage(PreferenceKey.accent) private var accent = AccentPreference.teal
+    @AppStorage(PreferenceKey.onboardingCompleted) private var hasCompletedOnboarding = false
     private let workspaces = WorkspaceStore.shared
     private let notices = NoticeCenter.shared
     @MainActor private static var hasCheckedWeeklyTidy = false
@@ -57,7 +58,13 @@ struct ContentView: View {
         .sheet(isPresented: $window.isTidyPresented) {
             TidySheet()
         }
+        .sheet(isPresented: isShowingWelcome) {
+            WelcomeView { hasCompletedOnboarding = true }
+                .interactiveDismissDisabled()
+        }
         .task {
+            watchDownloads()
+            guard hasCompletedOnboarding else { return }
             await Self.runWeeklyTidyIfDue(window: window)
         }
         .alert("Something went wrong", isPresented: errorBinding, presenting: currentError) { _ in
@@ -78,6 +85,31 @@ struct ContentView: View {
         .onChange(of: appearance, initial: true) {
             appearance.apply()
         }
+    }
+
+    private var isShowingWelcome: Binding<Bool> {
+        Binding(
+            get: { !hasCompletedOnboarding },
+            set: { isPresented in
+                if !isPresented { hasCompletedOnboarding = true }
+            }
+        )
+    }
+
+    /// Offers to show each new download, in this window.
+    private func watchDownloads() {
+        let window = self.window
+        DownloadWatcher.shared.onNewDownload = { url in
+            NoticeCenter.shared.show(
+                String(localized: "New download: \(url.lastPathComponent)"),
+                symbolName: "arrow.down.circle",
+                actionTitle: String(localized: "Show")
+            ) {
+                window.destination = .browser
+                window.activeBrowser.reveal(url)
+            }
+        }
+        DownloadWatcher.shared.start()
     }
 
     /// Once per launch, tidies up Downloads if the weekly tidy-up is due.

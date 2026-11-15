@@ -59,16 +59,29 @@ struct AssistantParserTests {
         #expect(AssistantParser.parse("et les") == .unknown)
     }
 
-    @Test("Builds a Spotlight query for a topic and a year")
+    @Test("Builds a Spotlight query for a topic and keywords")
     func query() {
-        let request = AssistantRequest(topic: .invoices, year: 2026)
+        let request = AssistantRequest(topic: .invoices, keywords: ["EDF"], year: 2026)
         let query = request.spotlightQuery ?? ""
         #expect(query.hasPrefix(#"(kMDItemFSName == "*facture*"cd || kMDItemTextContent == "*facture*"cd || kMDItemFSName == "*invoice*"cd"#))
         #expect(query.contains(#"kMDItemContentTypeTree == "com.adobe.pdf""#))
-        #expect(query.contains("$time.iso(2026-01-01T00:00:00Z)"))
-        #expect(query.contains("$time.iso(2027-01-01T00:00:00Z)"))
+        #expect(query.hasSuffix(#"(kMDItemFSName == "*EDF*"cd || kMDItemTextContent == "*EDF*"cd)"#))
+        #expect(!query.contains("2026"))
         #expect(AssistantRequest().spotlightQuery == nil)
         #expect(AssistantRequest(topic: .screenshots).spotlightQuery?.contains("kMDItemIsScreenCapture == 1") == true)
+    }
+
+    @Test("Checks the year on each file")
+    func year() {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let request = AssistantRequest(topic: .invoices, year: 2026)
+        let in2025 = calendar.date(from: DateComponents(year: 2025, month: 12, day: 30))!
+        let in2026 = calendar.date(from: DateComponents(year: 2026, month: 3, day: 2))!
+        #expect(request.matchesYear(fileName: "Facture 2026-118.pdf", dates: [in2025], calendar: calendar))
+        #expect(request.matchesYear(fileName: "scan0012.pdf", dates: [in2025, in2026], calendar: calendar))
+        #expect(!request.matchesYear(fileName: "scan0012.pdf", dates: [in2025], calendar: calendar))
+        #expect(AssistantRequest(topic: .invoices).matchesYear(fileName: "old.pdf", dates: [in2025]))
     }
 
     private func date(_ year: Int, _ month: Int, _ day: Int) -> Date {

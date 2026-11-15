@@ -11,7 +11,11 @@ struct StatusBar: View {
             if model.isMeasuring {
                 ProgressView()
                     .controlSize(.mini)
-                Text("Calculating sizes…")
+                let done = model.measurementTotal - model.pendingMeasurementCount
+                let total = model.measurementTotal
+                Text("Calculating sizes… \(done) of \(total) folders")
+                    .monospacedDigit()
+                    .help("You can keep browsing while sizes are calculated.")
             }
         }
         .font(.caption)

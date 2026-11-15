@@ -61,3 +61,42 @@ struct GoToFolderSheet: View {
         dismiss()
     }
 }
+
+/// Asks for the name of a new folder in the current folder.
+struct NewFolderSheet: View {
+    let model: BrowserModel
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var name = String(localized: "untitled folder")
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("New Folder")
+                .font(.headline)
+            Text("In \(model.title)")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+
+            TextField("Name", text: $name)
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 340)
+                .onSubmit(create)
+
+            HStack {
+                Spacer()
+                Button("Cancel", role: .cancel) { dismiss() }
+                    .keyboardShortcut(.cancelAction)
+                Button("Create", action: create)
+                    .keyboardShortcut(.defaultAction)
+                    .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
+        }
+        .padding(20)
+    }
+
+    private func create() {
+        if model.createFolder(named: name) {
+            dismiss()
+        }
+    }
+}

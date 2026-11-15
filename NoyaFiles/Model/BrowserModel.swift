@@ -27,6 +27,8 @@ final class BrowserModel {
     private(set) var loadState: LoadState = .loading
     private(set) var availableCapacity: Int64?
     private(set) var pendingMeasurementCount = 0
+    /// How many folders the current measuring pass started with.
+    private(set) var measurementTotal = 0
 
     // MARK: - What the views display
 
@@ -84,6 +86,7 @@ final class BrowserModel {
     var selection: Set<BrowserNode.ID> = []
     var dismissedSuggestions: Set<CleanupSuggestion.Kind> = []
     var isGoToFolderPresented = false
+    var isNewFolderPresented = false
     var errorMessage: String?
     var pendingTrash: PendingTrash?
     /// In dual-pane comparison, the names that exist only in this pane.
@@ -99,6 +102,7 @@ final class BrowserModel {
     private let persistsLocation: Bool
     @ObservationIgnored private var nodesByID: [BrowserNode.ID: BrowserNode] = [:]
     @ObservationIgnored private var measuredStamps: [URL: Date] = [:]
+    @ObservationIgnored private var pendingReveal: String?
     @ObservationIgnored private var installedAppNames: [String] = []
     @ObservationIgnored private var loadTask: Task<Void, Never>?
     @ObservationIgnored private var measureTask: Task<Void, Never>?
@@ -231,6 +235,18 @@ final class BrowserModel {
         refreshDuplicates()
     }
 
+    /// Opens the folder holding a file and selects the file.
+    func reveal(_ url: URL) {
+        let folder = url.deletingLastPathComponent()
+        if folder.canonicalDirectory == location.url {
+            selection = [url.path]
+            reload()
+        } else {
+            pendingReveal = url.path
+            navigate(to: folder)
+        }
+    }
+
     // MARK: - Loading
 
     /// Reads the folder again and re-measures every subfolder.
@@ -264,6 +280,10 @@ final class BrowserModel {
             case .success(let items):
                 self.items = items
                 self.loadState = .loaded
+                if let path = self.pendingReveal, items.contains(where: { $0.url.path == path }) {
+                    self.selection = [path]
+                }
+                self.pendingReveal = nil
                 self.availableCapacity = Self.availableCapacity(at: url)
                 self.rebuild()
                 self.refreshDuplicates()
@@ -289,6 +309,7 @@ final class BrowserModel {
             return measuredStamps[item.url] != item.modificationDate
         }
         pendingMeasurementCount = targets.count
+        measurementTotal = targets.count
         guard !targets.isEmpty else { return }
 
         measureTask = Task { [weak self] in
@@ -601,13 +622,33 @@ final class BrowserModel {
         moveToTrash(urls: items(for: ids).map(\.url))
     }
 
-    /// Moves files to the Trash, where the user can still recover them.
+    /// Moves items to the Trash, after asking when the person chose so in Settings.
+    func requestMoveToTrash(_ ids: Set<BrowserNode.ID>) {
+        let urls = items(for: ids).map(\.url)
+        guard !urls.isEmpty else { return }
+        if defaults.bool(forKey: PreferenceKey.confirmTrash) {
+            pendingTrash = PendingTrash(
+                urls: urls,
+                title: urls.count == 1
+                    ? String(localized: "Move “\(urls[0].lastPathComponent)” to the Trash?")
+                    : String(localized: "Move \(urls.count) items to the Trash?"),
+                message: String(localized: "You can still recover them from the Trash until you empty it.")
+            )
+        } else {
+            moveToTrash(urls: urls)
+        }
+    }
+
+    /// Moves files to the Trash, where the user can still recover them, and offers to undo.
     func moveToTrash(urls: [URL]) {
         guard !urls.isEmpty else { return }
         var failures: [String] = []
+        var trashed: [(original: URL, inTrash: URL)] = []
         for url in urls {
             do {
-                try FileManager.default.trashItem(at: url, resultingItemURL: nil)
+                var resulting: NSURL?
+                try FileManager.default.trashItem(at: url, resultingItemURL: &resulting)
+                if let resulting { trashed.append((url, resulting as URL)) }
             } catch {
                 failures.append(url.lastPathComponent)
             }
@@ -618,6 +659,48 @@ final class BrowserModel {
         }
         selection.subtract(urls.map(\.path))
         load(remeasureAll: false)
+
+        guard !trashed.isEmpty else { return }
+        let message = trashed.count == 1
+            ? String(localized: "“\(trashed[0].original.lastPathComponent)” moved to the Trash")
+            : String(localized: "\(trashed.count) items moved to the Trash")
+        NoticeCenter.shared.show(message, symbolName: "trash", actionTitle: String(localized: "Undo")) { [weak self] in
+            self?.putBack(trashed)
+        }
+    }
+
+    /// Moves items back from the Trash to where they were.
+    private func putBack(_ trashed: [(original: URL, inTrash: URL)]) {
+        var restored = 0
+        for item in trashed where (try? FileManager.default.moveItem(at: item.inTrash, to: item.original)) != nil {
+            restored += 1
+        }
+        selection = Set(trashed.map(\.original.path))
+        load(remeasureAll: false)
+        if restored < trashed.count {
+            errorMessage = String(localized: "Some items could not be put back. They are still in the Trash.")
+        }
+    }
+
+    // MARK: - New folder
+
+    /// Creates a folder in the current folder and selects it.
+    @discardableResult
+    func createFolder(named name: String) -> Bool {
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "/", with: "-")
+            .replacingOccurrences(of: ":", with: "-")
+        guard !trimmed.isEmpty else { return false }
+        let destination = FileOperationCenter.uniqueDestination(for: trimmed, in: location.url)
+        do {
+            try FileManager.default.createDirectory(at: destination, withIntermediateDirectories: false)
+            pendingReveal = destination.path
+            load(remeasureAll: false)
+            return true
+        } catch {
+            errorMessage = error.localizedDescription
+            return false
+        }
     }
 
     /// Asks for confirmation before trashing installers whose app is already installed.

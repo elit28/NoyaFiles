@@ -118,6 +118,8 @@ private struct GeneralSettings: View {
                 }
             }
 
+            TrashSettings()
+
             Section {
                 Toggle("Show hidden files", isOn: $showHidden)
                 Toggle(isOn: $measureFolders) {
@@ -459,8 +461,30 @@ private struct AdvancedSettings: View {
     }
 }
 
+/// Trash preferences. Emptying old items is the macOS setting the Finder uses too.
+private struct TrashSettings: View {
+    @AppStorage(PreferenceKey.confirmTrash) private var confirmsTrash = false
+    @State private var removesOldItems = TrashSettings.finderDefaults?.bool(forKey: "FXRemoveOldTrashItems") ?? false
+
+    private static let finderDefaults = UserDefaults(suiteName: "com.apple.finder")
+
+    var body: some View {
+        Section("Trash") {
+            Toggle("Ask before moving items to the Trash", isOn: $confirmsTrash)
+            Toggle(isOn: $removesOldItems) {
+                Text("Empty the Trash after 30 days")
+                Text("The same setting as in the Finder.")
+            }
+            .onChange(of: removesOldItems) {
+                Self.finderDefaults?.set(removesOldItems, forKey: "FXRemoveOldTrashItems")
+            }
+        }
+    }
+}
+
 private struct TidySettings: View {
     @Bindable private var tidy = TidyController.shared
+    @AppStorage(PreferenceKey.notifyDownloads) private var notifiesDownloads = true
 
     var body: some View {
         Form {
@@ -468,6 +492,7 @@ private struct TidySettings: View {
                 Toggle("Tidy up Downloads automatically every week", isOn: $tidy.tidiesWeekly)
                 Toggle("Show the preview before tidying", isOn: $tidy.showsPreview)
                     .disabled(!tidy.tidiesWeekly)
+                Toggle("Tell me about new downloads", isOn: $notifiesDownloads)
             }
             Section("Rules") {
                 ForEach(tidy.rules) { rule in

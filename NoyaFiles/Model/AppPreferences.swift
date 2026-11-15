@@ -17,7 +17,9 @@ enum PreferenceKey {
     static let sidebarVisibility = "sidebar.visibility"
     static let dualPane = "window.dualPane"
     static let assistantEnabled = "assistant.enabled"
-    static let assistantRenames = "assistant.renames"
+    static let onboardingCompleted = "onboarding.completed"
+    static let confirmTrash = "trash.confirm"
+    static let notifyDownloads = "downloads.notify"
 }
 
 /// The window appearance chosen by the user, or the system's.

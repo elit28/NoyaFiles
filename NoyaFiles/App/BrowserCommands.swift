@@ -9,6 +9,9 @@ struct BrowserCommands: Commands {
 
     var body: some Commands {
         CommandGroup(after: .newItem) {
+            Button("New Folder…") { newFolder() }
+                .keyboardShortcut("n", modifiers: [.command, .shift])
+                .disabled(model == nil)
             Divider()
             Button("Find…") { window?.openSearch() }
                 .keyboardShortcut("f")
@@ -138,7 +141,13 @@ struct BrowserCommands: Commands {
             return
         }
         guard let model else { return }
-        model.moveToTrash(model.selection)
+        model.requestMoveToTrash(model.selection)
+    }
+
+    private func newFolder() {
+        guard let window, let model else { return }
+        window.destination = .browser
+        model.isNewFolderPresented = true
     }
 
     private func go(to url: URL) {

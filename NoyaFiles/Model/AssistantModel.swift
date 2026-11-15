@@ -170,6 +170,11 @@ final class AssistantModel {
             let hits = await Spotlight.find(query, in: Self.searchFolders, limit: 400)
             let urls = hits.map(\.url)
                 .filter { !$0.path.contains("/Library/") && !$0.path.contains(".app/") }
+                .filter { url in
+                    let values = try? url.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+                    let dates = [values?.creationDate, values?.contentModificationDate].compactMap { $0 }
+                    return request.matchesYear(fileName: url.lastPathComponent, dates: dates)
+                }
                 .sorted { $0.lastPathComponent.localizedStandardCompare($1.lastPathComponent) == .orderedAscending }
             guard let self, !Task.isCancelled else { return }
             self.files = urls.map { AssistantFile(url: $0) }

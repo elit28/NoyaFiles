@@ -25,10 +25,13 @@ fi
 mkdir -p dist/screenshots
 
 # The appearance argument is the app's own View › Appearance setting.
+# Every run but the welcome one skips the first-launch steps.
 run() {
   local name="$1" appearance="$2"; shift 2
+  local onboarding=YES
+  [[ "$name" == welcome* ]] && onboarding=NO
   "$binary" "$@" -appearance "$appearance" -browser.lastPath "$demo" -browser.insightsVisible YES \
-    -ApplePersistenceIgnoreState YES > "dist/screenshots/$name.log" 2>&1 &
+    -onboarding.completed "$onboarding" -ApplePersistenceIgnoreState YES > "dist/screenshots/$name.log" 2>&1 &
   local pid=$!
   sleep 10
   if ! kill -0 "$pid" 2>/dev/null; then
@@ -44,12 +47,14 @@ run() {
   echo "The app ran fine: $name"
 }
 
+run welcome-light light -AppleLanguages "(fr)"
 run grid-light light -browser.viewMode grid -browser.grouping kind -AppleLanguages "(en)"
 run grid-dark dark -browser.viewMode grid -browser.grouping kind -AppleLanguages "(fr)"
 run list-dark dark -browser.viewMode list -browser.grouping kind -AppleLanguages "(en)"
 run columns-dark dark -browser.viewMode columns -AppleLanguages "(fr)"
 run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"
 run space-dark dark -noya.startDestination freeUpSpace -AppleLanguages "(fr)"
+run tidy-light light -noya.showTidy YES -AppleLanguages "(fr)"
 run search-light light -noya.startDestination search -AppleLanguages "(fr)"
 run developer-dark dark -noya.startDestination developer -developer.root "$projects" -AppleLanguages "(fr)"
 run assistant-light light -noya.startDestination assistant -assistant.enabled YES -developer.root "$projects" \

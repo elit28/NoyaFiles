@@ -226,7 +226,10 @@ private struct AssistantChat: View {
                 Label("Assistant", systemImage: "sparkles")
                     .font(.headline)
                 Spacer()
-                Label(LocalIntelligence.isAvailable ? "Apple Intelligence, on this Mac" : "Processed on this Mac", systemImage: "lock.fill")
+                Label(
+                    LocalIntelligence.isAvailable ? LocalizedStringKey("Apple Intelligence, on this Mac") : LocalizedStringKey("Processed on this Mac"),
+                    systemImage: "lock.fill"
+                )
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

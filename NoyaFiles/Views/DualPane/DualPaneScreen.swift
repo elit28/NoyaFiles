@@ -174,6 +174,7 @@ private struct PaneView: View {
             drop(urls)
             return true
         }
+        .modifier(BrowserPresentations(model: model))
     }
 }
 

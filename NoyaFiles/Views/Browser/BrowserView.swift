@@ -53,7 +53,13 @@ struct BrowserView: View {
                 description: Text("No items match this filter.")
             )
         } else {
-            ContentUnavailableView("This folder is empty", systemImage: "folder")
+            ContentUnavailableView {
+                Label("This folder is empty", systemImage: "folder")
+            } description: {
+                Text("Drag files here, or create a folder with ⇧⌘N.")
+            } actions: {
+                Button("New Folder…") { model.isNewFolderPresented = true }
+            }
         }
     }
 }

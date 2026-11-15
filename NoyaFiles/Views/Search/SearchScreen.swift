@@ -106,8 +106,18 @@ struct SearchScreen: View {
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else if search.results.isEmpty && !search.isSearching {
-            ContentUnavailableView.search(text: search.criteria.text)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            let text = search.criteria.text.trimmingCharacters(in: .whitespaces)
+            ContentUnavailableView {
+                Label(text.isEmpty ? String(localized: "No Results") : String(localized: "No Results for “\(text)”"), systemImage: "magnifyingglass")
+            } description: {
+                Text("Check the spelling or broaden the search.")
+            } actions: {
+                if search.scope != .thisMac {
+                    Button("Search the Whole Mac") { search.scope = .thisMac }
+                        .buttonStyle(.borderedProminent)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 8) {
