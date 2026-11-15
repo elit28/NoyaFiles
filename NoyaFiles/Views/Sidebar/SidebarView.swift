@@ -6,6 +6,7 @@ struct SidebarView: View {
     @Binding var selection: SidebarSelection?
     @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
     @Environment(WorkspaceStore.self) private var workspaces
+    @Environment(SavedSearchStore.self) private var savedSearches
     @State private var isCreatingWorkspace = false
 
     var body: some View {
@@ -30,6 +31,20 @@ struct SidebarView: View {
                             .foregroundStyle(.secondary)
                     }
                     .buttonStyle(.plain)
+                }
+            }
+
+            Section("Search") {
+                Label("Advanced Search", systemImage: "magnifyingglass")
+                    .tag(SidebarSelection.search)
+                ForEach(savedSearches.searches) { search in
+                    Label(search.name, systemImage: "text.magnifyingglass")
+                        .tag(SidebarSelection.savedSearch(search.id))
+                        .contextMenu {
+                            Button("Delete Saved Search", role: .destructive) {
+                                savedSearches.delete(search.id)
+                            }
+                        }
                 }
             }
 

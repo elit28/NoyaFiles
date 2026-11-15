@@ -5,12 +5,15 @@ import Observation
 enum Destination: Hashable {
     case browser
     case workspace(UUID)
+    case search
 }
 
 /// What a sidebar row leads to.
 enum SidebarSelection: Hashable {
     case folder(URL)
     case workspace(UUID)
+    case search
+    case savedSearch(UUID)
 }
 
 enum Pane: Hashable {
@@ -25,6 +28,9 @@ final class WindowModel {
     let browser = BrowserModel()
     let operations = FileOperationCenter()
     private(set) var secondary: BrowserModel?
+    private(set) var search: SearchModel?
+    /// The saved search shown, if the search came from the sidebar.
+    private(set) var savedSearchID: UUID?
     var destination: Destination = .browser
     var activePane: Pane = .primary
 
@@ -74,6 +80,7 @@ final class WindowModel {
             switch destination {
             case .browser: .folder(activeBrowser.location.url)
             case .workspace(let id): .workspace(id)
+            case .search: savedSearchID.map { .savedSearch($0) } ?? .search
             }
         }
         set {
@@ -83,10 +90,32 @@ final class WindowModel {
                 activeBrowser.navigate(to: url)
             case .workspace(let id)?:
                 destination = .workspace(id)
+            case .search?:
+                openSearch()
+            case .savedSearch(let id)?:
+                openSearch(saved: SavedSearchStore.shared.search(id))
             case nil:
                 break
             }
         }
+    }
+
+    // MARK: - Search
+
+    /// Shows the advanced search, optionally filled in from a saved search.
+    func openSearch(saved: SavedSearch? = nil) {
+        let model = search ?? SearchModel(currentFolder: activeBrowser.location.url)
+        if destination != .search {
+            model.currentFolder = activeBrowser.location.url
+        }
+        if let saved {
+            model.criteria = saved.criteria
+            savedSearchID = saved.id
+        } else {
+            savedSearchID = nil
+        }
+        search = model
+        destination = .search
     }
 
     // MARK: - Dual pane

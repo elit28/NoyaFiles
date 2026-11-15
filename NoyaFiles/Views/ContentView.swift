@@ -22,6 +22,10 @@ struct ContentView: View {
                 }
             case .workspace(let id):
                 WorkspaceScreen(workspaceID: id)
+            case .search:
+                if let search = window.search {
+                    SearchScreen(search: search, window: window)
+                }
             }
         }
         .overlay(alignment: .bottomTrailing) {
@@ -42,6 +46,7 @@ struct ContentView: View {
             Text(message)
         }
         .environment(workspaces)
+        .environment(SavedSearchStore.shared)
         .focusedSceneValue(\.browserModel, window.activeBrowser)
         .focusedSceneValue(\.windowModel, window)
         .tint(accent.color)

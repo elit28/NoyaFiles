@@ -10,6 +10,9 @@ struct BrowserCommands: Commands {
     var body: some Commands {
         CommandGroup(after: .newItem) {
             Divider()
+            Button("Find…") { window?.openSearch() }
+                .keyboardShortcut("f")
+                .disabled(window == nil)
             Button("Open") { openSelection() }
                 .keyboardShortcut("o")
                 .disabled(!hasSelection)

@@ -20,6 +20,14 @@ struct SearchResult: Identifiable, Hashable {
     var folder: URL { item.url.deletingLastPathComponent() }
 }
 
+/// Search results in one folder.
+struct SearchResultGroup: Identifiable {
+    let folder: URL
+    let results: [SearchResult]
+
+    var id: URL { folder }
+}
+
 /// A search the user saved, listed in the sidebar.
 struct SavedSearch: Identifiable, Codable, Hashable {
     var id = UUID()
@@ -107,14 +115,14 @@ final class SearchModel {
         workspaceURLs = urls
     }
 
-    var resultsByFolder: [(folder: URL, results: [SearchResult])] {
+    var resultsByFolder: [SearchResultGroup] {
         var order: [URL] = []
         var groups: [URL: [SearchResult]] = [:]
         for result in results {
             if groups[result.folder] == nil { order.append(result.folder) }
             groups[result.folder, default: []].append(result)
         }
-        return order.map { ($0, groups[$0] ?? []) }
+        return order.map { SearchResultGroup(folder: $0, results: groups[$0] ?? []) }
     }
 
     // MARK: - Running the query

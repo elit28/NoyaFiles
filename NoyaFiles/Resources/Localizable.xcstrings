@@ -381,6 +381,86 @@
         }
       }
     },
+    "%lld results": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld result"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld results"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld résultat"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld résultats"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld results in %@ s": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld result in %@ s"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld results in %@ s"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld résultat en %@ s"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld résultats en %@ s"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld selected in %@": {
       "localizations": {
         "en": {
@@ -451,6 +531,16 @@
         }
       }
     },
+    "Add a tag": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un tag"
+          }
+        }
+      }
+    },
     "Add Files": {
       "localizations": {
         "fr": {
@@ -517,6 +607,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Avancé"
+          }
+        }
+      }
+    },
+    "Advanced Search": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche avancée"
           }
         }
       }
@@ -607,6 +707,26 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Any Date": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "N'importe quand"
+          }
+        }
+      }
+    },
+    "Any size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toute taille"
           }
         }
       }
@@ -807,6 +927,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vérifier à nouveau"
+          }
+        }
+      }
+    },
+    "Clear": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Effacer"
           }
         }
       }
@@ -1057,6 +1187,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Supprimer la règle"
+          }
+        }
+      }
+    },
+    "Delete Saved Search": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la recherche enregistrée"
           }
         }
       }
@@ -1337,6 +1477,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filtrer ce dossier"
+          }
+        }
+      }
+    },
+    "Filters": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filtres"
+          }
+        }
+      }
+    },
+    "Find…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher…"
           }
         }
       }
@@ -1771,6 +1931,26 @@
         }
       }
     },
+    "Mail": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Courriels"
+          }
+        }
+      }
+    },
+    "Minimum size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille minimale"
+          }
+        }
+      }
+    },
     "Modified": {
       "localizations": {
         "fr": {
@@ -1991,6 +2171,16 @@
         }
       }
     },
+    "My search": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ma recherche"
+          }
+        }
+      }
+    },
     "Name": {
       "localizations": {
         "fr": {
@@ -2007,6 +2197,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noms contenant « %@ »"
+          }
+        }
+      }
+    },
+    "Names only": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noms seulement"
           }
         }
       }
@@ -2531,6 +2731,16 @@
         }
       }
     },
+    "Remove filter": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retirer le filtre"
+          }
+        }
+      }
+    },
     "Remove from Workspace": {
       "localizations": {
         "fr": {
@@ -2621,12 +2831,72 @@
         }
       }
     },
+    "Save Search…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer la recherche…"
+          }
+        }
+      }
+    },
     "Screenshots": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Captures d'écran"
+          }
+        }
+      }
+    },
+    "Search": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche"
+          }
+        }
+      }
+    },
+    "Search in": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chercher dans"
+          }
+        }
+      }
+    },
+    "Search inside documents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chercher dans le contenu des documents"
+          }
+        }
+      }
+    },
+    "Search names and contents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chercher dans les noms et le contenu"
+          }
+        }
+      }
+    },
+    "Search your Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chercher sur votre Mac"
           }
         }
       }
@@ -2721,12 +2991,32 @@
         }
       }
     },
+    "Show in Folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher dans le dossier"
+          }
+        }
+      }
+    },
     "Show Insights": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Afficher l'analyse"
+          }
+        }
+      }
+    },
+    "Show or hide filters": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher ou masquer les filtres"
           }
         }
       }
@@ -3051,6 +3341,36 @@
         }
       }
     },
+    "This Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce Mac"
+          }
+        }
+      }
+    },
+    "This Month": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce mois-ci"
+          }
+        }
+      }
+    },
+    "This Week": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette semaine"
+          }
+        }
+      }
+    },
     "This workspace is empty": {
       "localizations": {
         "fr": {
@@ -3067,6 +3387,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cet espace de travail n'existe plus"
+          }
+        }
+      }
+    },
+    "This Year": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette année"
           }
         }
       }
@@ -3097,6 +3427,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Réessayer"
+          }
+        }
+      }
+    },
+    "Type a word to find it in file names and inside documents. Add filters on the right.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tapez un mot pour le trouver dans les noms de fichiers et dans les documents. Ajoutez des filtres à droite."
           }
         }
       }
