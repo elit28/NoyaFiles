@@ -55,15 +55,15 @@ struct BrowserCommands: Commands {
                 .keyboardShortcut(.upArrow)
                 .disabled(!(model?.canGoUp ?? false))
             Divider()
-            Button("Home") { go(to: FileManager.default.homeDirectoryForCurrentUser) }
+            Button("Home") { go(to: .homeDirectory) }
                 .keyboardShortcut("h", modifiers: [.command, .shift])
             Button("Desktop") { go(to: .desktopDirectory) }
                 .keyboardShortcut("d", modifiers: [.command, .shift])
-            Button("Documents") { go(to: .documentDirectory) }
+            Button("Documents") { go(to: .documentsDirectory) }
                 .keyboardShortcut("o", modifiers: [.command, .shift])
             Button("Downloads") { go(to: .downloadsDirectory) }
                 .keyboardShortcut("l", modifiers: [.command, .option])
-            Button("Applications") { go(to: URL(fileURLWithPath: "/Applications")) }
+            Button("Applications") { go(to: URL(fileURLWithPath: "/Applications", isDirectory: true)) }
                 .keyboardShortcut("a", modifiers: [.command, .shift])
             Divider()
             Button("Go to Folder…") { model?.isGoToFolderPresented = true }
@@ -101,11 +101,6 @@ struct BrowserCommands: Commands {
         }
         guard let model else { return }
         model.moveToTrash(model.selection)
-    }
-
-    private func go(to directory: FileManager.SearchPathDirectory) {
-        guard let url = FileManager.default.urls(for: directory, in: .userDomainMask).first else { return }
-        go(to: url)
     }
 
     private func go(to url: URL) {
