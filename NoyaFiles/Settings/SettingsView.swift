@@ -7,6 +7,8 @@ enum SettingsSection: String, CaseIterable, Identifiable {
     case appearance
     case sidebar
     case tidying
+    case developer
+    case assistant
     case privacy
     case advanced
 
@@ -18,6 +20,8 @@ enum SettingsSection: String, CaseIterable, Identifiable {
         case .appearance: String(localized: "Appearance")
         case .sidebar: String(localized: "Sidebar")
         case .tidying: String(localized: "Tidying")
+        case .developer: String(localized: "Developers")
+        case .assistant: String(localized: "AI Assistant")
         case .privacy: String(localized: "Privacy")
         case .advanced: String(localized: "Advanced")
         }
@@ -29,6 +33,8 @@ enum SettingsSection: String, CaseIterable, Identifiable {
         case .appearance: "circle.lefthalf.filled"
         case .sidebar: "sidebar.left"
         case .tidying: "tray.and.arrow.down"
+        case .developer: "chevron.left.forwardslash.chevron.right"
+        case .assistant: "sparkles"
         case .privacy: "hand.raised"
         case .advanced: "slider.horizontal.3"
         }
@@ -55,6 +61,8 @@ struct SettingsView: View {
                 case .appearance: AppearanceSettings()
                 case .sidebar: SidebarSettings()
                 case .tidying: TidySettings()
+                case .developer: DeveloperSettings()
+                case .assistant: AssistantSettings()
                 case .privacy: PrivacySettings()
                 case .advanced: AdvancedSettings()
                 }
@@ -232,6 +240,9 @@ private struct SidebarSettings: View {
     private let sections = [
         Entry(id: "workspaces", title: "Workspaces"),
         Entry(id: "tools", title: "Tools"),
+        Entry(id: "developer", title: "Developer Tools"),
+        Entry(id: "repositories", title: "Detected Repositories"),
+        Entry(id: "assistant", title: "AI Assistant"),
     ]
 
     private let favorites = [
@@ -277,6 +288,112 @@ private struct SidebarSettings: View {
             get: { visibility.shows(id) },
             set: { visibility.set(id, visible: $0) }
         )
+    }
+}
+
+private struct DeveloperSettings: View {
+    @Bindable private var model = DeveloperModel.shared
+    @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
+
+    var body: some View {
+        Form {
+            Section {
+                Toggle("Show the developer tools in the sidebar", isOn: binding(for: "developer"))
+                Toggle("List the detected repositories in the sidebar", isOn: binding(for: "repositories"))
+                    .disabled(!visibility.shows("developer"))
+            }
+            Section("Projects") {
+                LabeledContent("Projects folder") {
+                    HStack {
+                        Text(DeveloperScreen.abbreviated(model.root))
+                            .font(.callout.monospaced())
+                            .foregroundStyle(.secondary)
+                        Button("Choose…", action: chooseRoot)
+                    }
+                }
+                Picker("Editor", selection: $model.editorID) {
+                    if model.editors.isEmpty {
+                        Text("Default app").tag("")
+                    }
+                    ForEach(model.editors) { app in
+                        Text(app.name).tag(app.bundleIdentifier)
+                    }
+                }
+                Picker("Terminal", selection: $model.terminalID) {
+                    ForEach(model.terminals) { app in
+                        Text(app.name).tag(app.bundleIdentifier)
+                    }
+                }
+            }
+            Section {
+                LabeledContent("Git") {
+                    Text(model.hasGit || !model.hasDetails ? LocalizedStringKey("Branches and changes are read with Git, without ever changing your repositories.") : LocalizedStringKey("Git was not found. Install the Command Line Tools with xcode-select --install."))
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.trailing)
+                }
+            }
+        }
+    }
+
+    private func binding(for id: String) -> Binding<Bool> {
+        Binding(
+            get: { visibility.shows(id) },
+            set: { visibility.set(id, visible: $0) }
+        )
+    }
+
+    private func chooseRoot() {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.directoryURL = model.root
+        panel.prompt = String(localized: "Choose")
+        if panel.runModal() == .OK, let url = panel.url {
+            model.setRoot(url)
+        }
+    }
+}
+
+private struct AssistantSettings: View {
+    @AppStorage(PreferenceKey.assistantEnabled) private var isEnabled = false
+    @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
+
+    var body: some View {
+        Form {
+            Section {
+                Toggle("Turn on the AI assistant", isOn: $isEnabled)
+                Toggle("Show the assistant in the sidebar", isOn: Binding(
+                    get: { visibility.shows("assistant") },
+                    set: { visibility.set("assistant", visible: $0) }
+                ))
+            } footer: {
+                Text("Optional feature, off by default. The assistant proposes; nothing changes without your agreement.")
+                    .foregroundStyle(.secondary)
+            }
+            Section("Processing") {
+                LabeledContent("Apple Intelligence") {
+                    if let reason = LocalIntelligence.unavailableReason {
+                        Text(reason)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.trailing)
+                    } else {
+                        Label("Ready on this Mac", systemImage: "checkmark.circle.fill")
+                            .foregroundStyle(.green)
+                    }
+                }
+                LabeledContent("Privacy") {
+                    Text("Requests and files are processed on this Mac. Nothing is sent over the internet.")
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.trailing)
+                }
+            }
+            Section("What it can do") {
+                Label("Find documents by kind, year or name, and gather them in a workspace", systemImage: "magnifyingglass")
+                Label("Propose clear names for files named like “scan0012.pdf”, from their contents", systemImage: "character.cursor.ibeam")
+                Label("Summarize a PDF", systemImage: "text.alignleft")
+                Label("Rename screenshots from the text they show", systemImage: "camera.viewfinder")
+            }
+        }
     }
 }
 

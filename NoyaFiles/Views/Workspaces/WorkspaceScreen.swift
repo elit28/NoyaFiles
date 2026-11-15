@@ -153,7 +153,7 @@ struct WorkspaceScreen: View {
                 }
                 ForEach(workspace.collections) { collection in
                     let count = workspace.entries.filter { $0.collectionID == collection.id }.count
-                    CollectionChip(title: "\(collection.name) · \(count)", isSelected: !showsAll && collectionFilter == collection.id) {
+                    CollectionChip(title: collection.name + " · \(count)", isSelected: !showsAll && collectionFilter == collection.id) {
                         showsAll = false
                         collectionFilter = collection.id
                     }

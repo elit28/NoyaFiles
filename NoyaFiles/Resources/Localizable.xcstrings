@@ -41,6 +41,16 @@
         }
       }
     },
+    "%@ freed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ libérés"
+          }
+        }
+      }
+    },
     "%@ in %@": {
       "localizations": {
         "fr": {
@@ -61,6 +71,16 @@
         }
       }
     },
+    "%@ · name proposed from the content": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · nom proposé d'après le contenu"
+          }
+        }
+      }
+    },
     "%@ · never opened": {
       "localizations": {
         "fr": {
@@ -77,6 +97,166 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ · ouvert %2$@"
+          }
+        }
+      }
+    },
+    "%lld commits ahead": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commit ahead"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commits ahead"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commit d'avance"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commits d'avance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld commits behind": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commit behind"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commits behind"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commit de retard"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld commits de retard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld contracts": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contract"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contracts"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contrat"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contrats"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld contracts found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contract found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contracts found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contrat trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld contrats trouvés"
+                }
+              }
+            }
           }
         }
       }
@@ -201,6 +381,126 @@
         }
       }
     },
+    "%lld files added to %@": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file added to %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files added to %@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichier ajouté à %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichiers ajoutés à %@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld files found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichier trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichiers trouvés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld files renamed": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file renamed"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files renamed"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichier renommé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichiers renommés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld folders": {
       "localizations": {
         "en": {
@@ -274,6 +574,86 @@
                 "stringUnit": {
                   "state": "translated",
                   "value": "%lld installateurs"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld invoices": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld invoice"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld invoices"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld facture"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld factures"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld invoices found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld invoice found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld invoices found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld facture trouvée"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld factures trouvées"
                 }
               }
             }
@@ -491,6 +871,46 @@
         }
       }
     },
+    "%lld modified": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld modified"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld modified"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld modifié"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld modifiés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld of %lld selected": {
       "localizations": {
         "fr": {
@@ -534,6 +954,326 @@
                 "stringUnit": {
                   "state": "translated",
                   "value": "%lld fichiers anciens"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld payslips": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld payslip"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld payslips"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld bulletin de paie"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld bulletins de paie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld payslips found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld payslip found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld payslips found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld bulletin de paie trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld bulletins de paie trouvés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld photos": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photo"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photos"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photo"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld photos found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photo found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photos found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photo trouvée"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photos trouvées"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld quotes": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld quote"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld quotes"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld devis"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld devis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld quotes found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld quote found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld quotes found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld devis trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld devis trouvés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld receipts": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld receipt"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld receipts"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld reçu"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld reçus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld receipts found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld receipt found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld receipts found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld reçu trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld reçus trouvés"
                 }
               }
             }
@@ -621,6 +1361,126 @@
         }
       }
     },
+    "%lld screenshots": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshot"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshots"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld capture d'écran"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld captures d'écran"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld screenshots found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshot found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshots found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld capture d'écran trouvée"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld captures d'écran trouvées"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld screenshots with a default name": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshot with a default name"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld screenshots with a default name"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld capture d'écran au nom par défaut"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld captures d'écran au nom par défaut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld selected in %@": {
       "localizations": {
         "en": {
@@ -661,12 +1521,262 @@
         }
       }
     },
+    "%lld statements": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld statement"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld statements"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld relevé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld relevés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld statements found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld statement found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld statements found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld relevé trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld relevés trouvés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld tax documents": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld tax document"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld tax documents"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld document fiscal"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld documents fiscaux"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld tax documents found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld tax document found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld tax documents found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld document fiscal trouvé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld documents fiscaux trouvés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld videos": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld video"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld videos"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vidéo"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vidéos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld videos found": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld video found"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld videos found"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vidéo trouvée"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vidéos trouvées"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "A workspace gathers files without moving them: the originals stay where they are.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Un espace de travail regroupe des fichiers sans les déplacer : les originaux restent à leur place."
+          }
+        }
+      }
+    },
+    "About **%@** can be freed: big files you no longer open, developer caches, duplicates and installers of apps already installed.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Environ **%@** peuvent être libérés : gros fichiers que vous n'ouvrez plus, caches de développement, doublons et installateurs d'apps déjà installées."
           }
         }
       }
@@ -751,6 +1861,46 @@
         }
       }
     },
+    "Add the %lld files to it. The originals stay where they are.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Add the %lld file to it. The original stays where it is."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Add the %lld files to it. The originals stay where they are."
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Y ajouter le fichier. L'original reste à sa place."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Y ajouter les %lld fichiers. Les originaux restent à leur place."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Added": {
       "localizations": {
         "fr": {
@@ -791,12 +1941,42 @@
         }
       }
     },
+    "AI Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistant IA"
+          }
+        }
+      }
+    },
     "All %@": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Type : %@"
+          }
+        }
+      }
+    },
+    "All right, nothing was changed.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "D'accord, rien n'a été modifié."
+          }
+        }
+      }
+    },
+    "All your screenshots already have a clear name.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toutes vos captures d'écran ont déjà un nom clair."
           }
         }
       }
@@ -921,6 +2101,76 @@
         }
       }
     },
+    "Apple Intelligence": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence"
+          }
+        }
+      }
+    },
+    "Apple Intelligence is not available right now.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence n'est pas disponible pour le moment."
+          }
+        }
+      }
+    },
+    "Apple Intelligence is ready on this Mac.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence est prêt sur ce Mac."
+          }
+        }
+      }
+    },
+    "Apple Intelligence is still getting ready on this Mac.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence est encore en préparation sur ce Mac."
+          }
+        }
+      }
+    },
+    "Apple Intelligence is turned off in System Settings.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence est désactivé dans les Réglages Système."
+          }
+        }
+      }
+    },
+    "Apple Intelligence needs macOS 26 or later.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence nécessite macOS 26 ou une version ultérieure."
+          }
+        }
+      }
+    },
+    "Apple Intelligence when available": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Intelligence quand il est disponible"
+          }
+        }
+      }
+    },
     "Application": {
       "localizations": {
         "fr": {
@@ -937,6 +2187,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Applications"
+          }
+        }
+      }
+    },
+    "Apply": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appliquer"
           }
         }
       }
@@ -1001,6 +2261,56 @@
         }
       }
     },
+    "Ask for files by kind, year or name, and say where to gather them. For example: “Find my 2026 invoices and put them in the Taxes workspace”.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demandez des fichiers par type, année ou nom, et dites où les rassembler. Par exemple : « Trouve mes factures de 2026 et range-les dans l'espace Impôts »."
+          }
+        }
+      }
+    },
+    "Ask in your own words, such as “Find my 2026 invoices and put them in the Taxes workspace”. The assistant proposes a plan and changes nothing without your agreement.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demandez avec vos mots, par exemple « Trouve mes factures de 2026 et range-les dans l'espace Impôts ». L'assistant propose un plan et ne change rien sans votre accord."
+          }
+        }
+      }
+    },
+    "Ask the Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demandez à l'assistant"
+          }
+        }
+      }
+    },
+    "Ask the Assistant…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demander à l'assistant…"
+          }
+        }
+      }
+    },
+    "Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistant"
+          }
+        }
+      }
+    },
     "atlas": {
       "localizations": {
         "fr": {
@@ -1051,6 +2361,36 @@
         }
       }
     },
+    "Beta": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bêta"
+          }
+        }
+      }
+    },
+    "Branch": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branche"
+          }
+        }
+      }
+    },
+    "Branches and changes are read with Git, without ever changing your repositories.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les branches et les modifications sont lues avec Git, sans jamais modifier vos dépôts."
+          }
+        }
+      }
+    },
     "By Format": {
       "localizations": {
         "fr": {
@@ -1067,6 +2407,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Par type"
+          }
+        }
+      }
+    },
+    "Caches": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches"
           }
         }
       }
@@ -1121,6 +2471,16 @@
         }
       }
     },
+    "Changes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifications"
+          }
+        }
+      }
+    },
     "Check Again": {
       "localizations": {
         "fr": {
@@ -1141,6 +2501,16 @@
         }
       }
     },
+    "Choose a File…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir un fichier…"
+          }
+        }
+      }
+    },
     "Choose another folder": {
       "localizations": {
         "fr": {
@@ -1151,12 +2521,52 @@
         }
       }
     },
+    "Choose Folder…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir un dossier…"
+          }
+        }
+      }
+    },
+    "Choose the folder where you keep your code, such as ~/Developer.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez le dossier où vous rangez votre code, par exemple ~/Developer."
+          }
+        }
+      }
+    },
+    "Choose the folder where you keep your projects": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir le dossier où vous rangez vos projets"
+          }
+        }
+      }
+    },
     "Choose…": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Choisir…"
+          }
+        }
+      }
+    },
+    "Clean": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nettoyer"
           }
         }
       }
@@ -1241,6 +2651,26 @@
         }
       }
     },
+    "Command": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commande"
+          }
+        }
+      }
+    },
+    "Company Name March 2026": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Société mars 2026"
+          }
+        }
+      }
+    },
     "Compare Folders": {
       "localizations": {
         "fr": {
@@ -1257,6 +2687,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Comparer…"
+          }
+        }
+      }
+    },
+    "Contract": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contrat"
+          }
+        }
+      }
+    },
+    "Contracts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contrats"
+          }
+        }
+      }
+    },
+    "contracts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "contrats"
           }
         }
       }
@@ -1351,12 +2811,42 @@
         }
       }
     },
+    "Create the collection **%@** in the workspace %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créer la collection **%1$@** dans l'espace %2$@."
+          }
+        }
+      }
+    },
+    "Create the workspace **%@** with a collection **%@**.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créer l'espace **%1$@** avec une collection **%2$@**."
+          }
+        }
+      }
+    },
     "Created": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Créé"
+          }
+        }
+      }
+    },
+    "Created by the Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé par l'assistant"
           }
         }
       }
@@ -1397,6 +2887,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Date de modification"
+          }
+        }
+      }
+    },
+    "Default app": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App par défaut"
           }
         }
       }
@@ -1481,6 +2981,16 @@
         }
       }
     },
+    "Describe what you are looking for or what you want to tidy up. The files it finds appear here.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Décrivez ce que vous cherchez ou ce que vous voulez ranger. Les fichiers trouvés s'affichent ici."
+          }
+        }
+      }
+    },
     "Description": {
       "localizations": {
         "fr": {
@@ -1507,6 +3017,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aperçu détaillé…"
+          }
+        }
+      }
+    },
+    "Detected Repositories": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dépôts détectés"
+          }
+        }
+      }
+    },
+    "Developer Caches": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches de développement"
+          }
+        }
+      }
+    },
+    "Developer Tools": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Outils développeur"
+          }
+        }
+      }
+    },
+    "Developers": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Développeurs"
           }
         }
       }
@@ -1621,6 +3171,16 @@
         }
       }
     },
+    "Downloads, Documents and Desktop": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargements, Documents et Bureau"
+          }
+        }
+      }
+    },
     "Drop files here, use Add Files, or create a smart rule. Files stay where they are.": {
       "localizations": {
         "fr": {
@@ -1661,6 +3221,16 @@
         }
       }
     },
+    "Each change is shown first, and can be undone right after.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque changement est montré d'abord, et s'annule juste après."
+          }
+        }
+      }
+    },
     "Earlier This Year": {
       "localizations": {
         "fr": {
@@ -1687,6 +3257,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Modifier l'espace…"
+          }
+        }
+      }
+    },
+    "Editor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éditeur"
           }
         }
       }
@@ -1741,6 +3321,26 @@
         }
       }
     },
+    "Everything stays on this Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout reste sur ce Mac"
+          }
+        }
+      }
+    },
+    "Exited with code %lld": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminé avec le code %lld"
+          }
+        }
+      }
+    },
     "F5 copy · F6 move · ⌃Tab other pane": {
       "localizations": {
         "fr": {
@@ -1757,6 +3357,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Favoris"
+          }
+        }
+      }
+    },
+    "files matching “%@”": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "fichiers correspondant à « %@ »"
           }
         }
       }
@@ -1811,6 +3421,16 @@
         }
       }
     },
+    "Find documents by kind, year or name, and gather them in a workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trouver des documents par type, année ou nom, et les rassembler dans un espace de travail"
+          }
+        }
+      }
+    },
     "Find…": {
       "localizations": {
         "fr": {
@@ -1851,12 +3471,32 @@
         }
       }
     },
+    "Found by the Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trouvés par l'assistant"
+          }
+        }
+      }
+    },
     "Free Up Space": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Libérer de l'espace"
+          }
+        }
+      }
+    },
+    "Free Up Space looks for big files you no longer open, developer caches, duplicates and installers of apps already installed. Nothing is deleted without your agreement.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libérer de l'espace cherche les gros fichiers que vous n'ouvrez plus, les caches de développement, les doublons et les installateurs d'apps déjà installées. Rien n'est supprimé sans votre accord."
           }
         }
       }
@@ -1887,6 +3527,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Général"
+          }
+        }
+      }
+    },
+    "Git": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Git"
+          }
+        }
+      }
+    },
+    "Git not found: install the Command Line Tools to see branches and changes.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Git introuvable : installez les outils en ligne de commande pour voir les branches et les modifications."
+          }
+        }
+      }
+    },
+    "Git repository": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dépôt Git"
+          }
+        }
+      }
+    },
+    "Git was not found. Install the Command Line Tools with xcode-select --install.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Git est introuvable. Installez les outils en ligne de commande avec xcode-select --install."
           }
         }
       }
@@ -1981,6 +3661,16 @@
         }
       }
     },
+    "Here is what I suggest:": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voici ce que je propose :"
+          }
+        }
+      }
+    },
     "Hidden items": {
       "localizations": {
         "fr": {
@@ -2061,6 +3751,96 @@
         }
       }
     },
+    "I can give **%lld screenshots** a name taken from what they show.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "I can give **%lld screenshot** a name taken from what it shows."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "I can give **%lld screenshots** a name taken from what they show."
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Je peux donner à **%lld capture d'écran** un nom tiré de ce qu'elle montre."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Je peux donner à **%lld captures d'écran** un nom tiré de ce qu'elles montrent."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "I could not read any text in “%@”.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je n'ai trouvé aucun texte dans « %@ »."
+          }
+        }
+      }
+    },
+    "I could not read enough text in these screenshots to name them.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je n'ai pas pu lire assez de texte dans ces captures pour les nommer."
+          }
+        }
+      }
+    },
+    "I did not understand. Try “Find my invoices from 2026”, “Rename my screenshots” or “What can I delete?”.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je n'ai pas compris. Essayez « Trouve mes factures de 2026 », « Renomme mes captures d'écran » ou « Que puis-je supprimer ? »."
+          }
+        }
+      }
+    },
+    "I found **%@** in %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "J'ai trouvé **%1$@** dans %2$@."
+          }
+        }
+      }
+    },
+    "I found no %@ in %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun résultat pour « %1$@ » dans %2$@."
+          }
+        }
+      }
+    },
     "iCloud Drive": {
       "localizations": {
         "fr": {
@@ -2111,6 +3891,16 @@
         }
       }
     },
+    "Inspector": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inspecteur"
+          }
+        }
+      }
+    },
     "Installers": {
       "localizations": {
         "fr": {
@@ -2122,6 +3912,16 @@
       }
     },
     "Installers already installed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installateurs déjà installés"
+          }
+        }
+      }
+    },
+    "Installers Already Installed": {
       "localizations": {
         "fr": {
           "stringUnit": {
@@ -2151,12 +3951,62 @@
         }
       }
     },
+    "Invoice": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facture"
+          }
+        }
+      }
+    },
+    "Invoice EDF October 2026": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facture EDF octobre 2026"
+          }
+        }
+      }
+    },
+    "Invoices": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Factures"
+          }
+        }
+      }
+    },
+    "invoices": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "factures"
+          }
+        }
+      }
+    },
     "It may have been moved, renamed or deleted.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Il a peut-être été déplacé, renommé ou supprimé."
+          }
+        }
+      }
+    },
+    "It will be recreated by %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il sera recréé par %@."
           }
         }
       }
@@ -2251,6 +4101,26 @@
         }
       }
     },
+    "Large Files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gros fichiers"
+          }
+        }
+      }
+    },
+    "Last Commit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dernier commit"
+          }
+        }
+      }
+    },
     "Last Folder Opened": {
       "localizations": {
         "fr": {
@@ -2291,6 +4161,16 @@
         }
       }
     },
+    "List the detected repositories in the sidebar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lister les dépôts détectés dans la barre latérale"
+          }
+        }
+      }
+    },
     "Locations": {
       "localizations": {
         "fr": {
@@ -2311,12 +4191,32 @@
         }
       }
     },
+    "Looking for %@…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche : %@…"
+          }
+        }
+      }
+    },
     "Looking for duplicates…": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Recherche des doublons…"
+          }
+        }
+      }
+    },
+    "Looking for screenshots…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche des captures d'écran…"
           }
         }
       }
@@ -2397,6 +4297,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Déplacer"
+          }
+        }
+      }
+    },
+    "Move %@ to the Trash?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Placer %@ dans la Corbeille ?"
           }
         }
       }
@@ -2681,6 +4591,16 @@
         }
       }
     },
+    "New Conversation": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle conversation"
+          }
+        }
+      }
+    },
     "New files that match are added automatically. Downloads, Desktop and Documents are checked every 10 minutes.": {
       "localizations": {
         "fr": {
@@ -2731,12 +4651,32 @@
         }
       }
     },
+    "No account, and no file is ever sent over the internet.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun compte, et aucun fichier n'est jamais envoyé sur Internet."
+          }
+        }
+      }
+    },
     "No Collection": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Aucune collection"
+          }
+        }
+      }
+    },
+    "No developer cache worth cleaning.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun cache de développement à nettoyer."
           }
         }
       }
@@ -2771,6 +4711,16 @@
         }
       }
     },
+    "No file over 500 MB in your home folder.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun fichier de plus de 500 Mo dans votre dossier de départ."
+          }
+        }
+      }
+    },
     "No folder exists at this path.": {
       "localizations": {
         "fr": {
@@ -2791,12 +4741,52 @@
         }
       }
     },
+    "No leftover installer in Downloads.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun installateur oublié dans Téléchargements."
+          }
+        }
+      }
+    },
+    "No Project Selected": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun projet sélectionné"
+          }
+        }
+      }
+    },
+    "No Projects Here": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun projet ici"
+          }
+        }
+      }
+    },
     "None": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Aucun"
+          }
+        }
+      }
+    },
+    "Not a repository": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas un dépôt"
           }
         }
       }
@@ -2827,6 +4817,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rien ici pour l'instant."
+          }
+        }
+      }
+    },
+    "Nothing needed to change.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien n'avait besoin de changer."
           }
         }
       }
@@ -3021,12 +5021,82 @@
         }
       }
     },
+    "Open Free Up Space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir Libérer de l'espace"
+          }
+        }
+      }
+    },
+    "Open in %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir dans %@"
+          }
+        }
+      }
+    },
+    "Open in Editor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir dans l'éditeur"
+          }
+        }
+      }
+    },
+    "Open in Terminal": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir dans le Terminal"
+          }
+        }
+      }
+    },
     "Open Privacy Settings": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ouvrir les réglages de confidentialité"
+          }
+        }
+      }
+    },
+    "Open them from the list, or name a workspace to gather them in, such as “… in the workspace Taxes”.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez-les depuis la liste, ou nommez un espace où les rassembler, par exemple « … dans l'espace Impôts »."
+          }
+        }
+      }
+    },
+    "Optional feature, off by default. The assistant proposes; nothing changes without your agreement.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonction facultative, désactivée par défaut. L'assistant propose ; rien ne change sans votre accord."
+          }
+        }
+      }
+    },
+    "Optional feature, off by default. You can turn it off in Settings › AI Assistant.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fonction facultative, désactivée par défaut. Vous pouvez la couper dans Réglages › Assistant IA."
           }
         }
       }
@@ -3101,6 +5171,36 @@
         }
       }
     },
+    "Payslip": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bulletin de paie"
+          }
+        }
+      }
+    },
+    "Payslips": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bulletins de paie"
+          }
+        }
+      }
+    },
+    "payslips": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bulletins de paie"
+          }
+        }
+      }
+    },
     "pdf, docx": {
       "localizations": {
         "fr": {
@@ -3117,6 +5217,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "PDF"
+          }
+        }
+      }
+    },
+    "Photo": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo"
+          }
+        }
+      }
+    },
+    "Photos": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photos"
+          }
+        }
+      }
+    },
+    "photos": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "photos"
           }
         }
       }
@@ -3211,6 +5341,56 @@
         }
       }
     },
+    "Processing": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traitement"
+          }
+        }
+      }
+    },
+    "Projects": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projets"
+          }
+        }
+      }
+    },
+    "Projects Folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dossier des projets"
+          }
+        }
+      }
+    },
+    "Projects folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dossier des projets"
+          }
+        }
+      }
+    },
+    "Propose clear names for files named like “scan0012.pdf”, from their contents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proposer des noms clairs pour les fichiers nommés comme « scan0012.pdf », d'après leur contenu"
+          }
+        }
+      }
+    },
     "Purple": {
       "localizations": {
         "fr": {
@@ -3231,6 +5411,36 @@
         }
       }
     },
+    "Quote": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devis"
+          }
+        }
+      }
+    },
+    "Quotes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Devis"
+          }
+        }
+      }
+    },
+    "quotes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "devis"
+          }
+        }
+      }
+    },
     "R": {
       "localizations": {
         "fr": {
@@ -3241,12 +5451,72 @@
         }
       }
     },
+    "Read the projects again": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relire les projets"
+          }
+        }
+      }
+    },
+    "Ready on this Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prêt sur ce Mac"
+          }
+        }
+      }
+    },
     "Rebuilt automatically the next time you build": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Recréé automatiquement à la prochaine compilation"
+          }
+        }
+      }
+    },
+    "Rebuilt with %@. The folder goes to the Trash.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se recrée avec %@. Le dossier part dans la Corbeille."
+          }
+        }
+      }
+    },
+    "Receipt": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reçu"
+          }
+        }
+      }
+    },
+    "Receipts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reçus"
+          }
+        }
+      }
+    },
+    "receipts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "reçus"
           }
         }
       }
@@ -3267,6 +5537,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se réinstalle avec npm install"
+          }
+        }
+      }
+    },
+    "Remote": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Distant"
           }
         }
       }
@@ -3297,6 +5577,86 @@
           "stringUnit": {
             "state": "translated",
             "value": "Retirer le tag"
+          }
+        }
+      }
+    },
+    "Rename %lld files with unclear names, from their contents.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Rename %lld file with an unclear name, from its contents."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Rename %lld files with unclear names, from their contents."
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Renommer %lld fichier au nom peu clair, d'après son contenu."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Renommer %lld fichiers au nom peu clair, d'après leur contenu."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Rename my screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renomme mes captures d'écran"
+          }
+        }
+      }
+    },
+    "Rename screenshots from the text they show": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renommer les captures d'écran d'après le texte qu'elles montrent"
+          }
+        }
+      }
+    },
+    "Rename them in place. You can undo it right after.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les renommer sur place. Vous pourrez annuler juste après."
+          }
+        }
+      }
+    },
+    "Requests and files are processed on this Mac. Nothing is sent over the internet.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les demandes et les fichiers sont traités sur ce Mac. Rien n'est envoyé sur Internet."
           }
         }
       }
@@ -3431,12 +5791,42 @@
         }
       }
     },
+    "Screenshot": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture"
+          }
+        }
+      }
+    },
+    "Screenshot – Flight booking Paris Tokyo": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture – Réservation vol Paris Tokyo"
+          }
+        }
+      }
+    },
     "Screenshots": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Captures d'écran"
+          }
+        }
+      }
+    },
+    "screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "captures d'écran"
           }
         }
       }
@@ -3501,6 +5891,16 @@
         }
       }
     },
+    "Select a PDF or a text file in a folder, then ask again, or choose one now.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionnez un PDF ou un fichier texte dans un dossier puis redemandez, ou choisissez-en un maintenant."
+          }
+        }
+      }
+    },
     "Select items to copy or move them.": {
       "localizations": {
         "fr": {
@@ -3547,6 +5947,16 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Send": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Envoyer"
           }
         }
       }
@@ -3671,6 +6081,46 @@
         }
       }
     },
+    "Show or hide the details": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher ou masquer les détails"
+          }
+        }
+      }
+    },
+    "Show or hide the terminal (⌃`)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher ou masquer le terminal (⌃`)"
+          }
+        }
+      }
+    },
+    "Show the assistant in the sidebar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher l'assistant dans la barre latérale"
+          }
+        }
+      }
+    },
+    "Show the developer tools in the sidebar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher les outils développeur dans la barre latérale"
+          }
+        }
+      }
+    },
     "Show the Insights panel in new windows": {
       "localizations": {
         "fr": {
@@ -3791,12 +6241,102 @@
         }
       }
     },
+    "Start a new conversation": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commencer une nouvelle conversation"
+          }
+        }
+      }
+    },
+    "Statement": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relevé"
+          }
+        }
+      }
+    },
+    "Statements": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relevés"
+          }
+        }
+      }
+    },
+    "statements": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "relevés"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "État"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrêter"
+          }
+        }
+      }
+    },
     "Suggestions": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Suggestions"
+          }
+        }
+      }
+    },
+    "Summarize a PDF": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Résumer un PDF"
+          }
+        }
+      }
+    },
+    "Summarize this PDF": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Résume ce PDF"
+          }
+        }
+      }
+    },
+    "Summary of “%@”:": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Résumé de « %@ » :"
           }
         }
       }
@@ -3901,6 +6441,36 @@
         }
       }
     },
+    "tax documents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "documents fiscaux"
+          }
+        }
+      }
+    },
+    "Tax notice": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avis d'impôt"
+          }
+        }
+      }
+    },
+    "Taxes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impôts"
+          }
+        }
+      }
+    },
     "Teal": {
       "localizations": {
         "fr": {
@@ -3911,12 +6481,32 @@
         }
       }
     },
+    "Terminal": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminal"
+          }
+        }
+      }
+    },
     "Text": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Texte"
+          }
+        }
+      }
+    },
+    "The assistant then uses simple rules, which understand fewer requests.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'assistant utilise alors des règles simples, qui comprennent moins de demandes."
           }
         }
       }
@@ -4037,6 +6627,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ce Mac"
+          }
+        }
+      }
+    },
+    "This Mac does not support Apple Intelligence.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce Mac ne prend pas en charge Apple Intelligence."
           }
         }
       }
@@ -4261,6 +6861,26 @@
         }
       }
     },
+    "Turn on the AI assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activer l'assistant IA"
+          }
+        }
+      }
+    },
+    "Turn On the Assistant": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activer l'assistant"
+          }
+        }
+      }
+    },
     "Type a word to find it in file names and inside documents. Add filters on the right.": {
       "localizations": {
         "fr": {
@@ -4277,6 +6897,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Annuler"
+          }
+        }
+      }
+    },
+    "Undone: everything is back as it was.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulé : tout est revenu comme avant."
           }
         }
       }
@@ -4341,6 +6971,26 @@
         }
       }
     },
+    "Up to date": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À jour"
+          }
+        }
+      }
+    },
+    "Video": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vidéo"
+          }
+        }
+      }
+    },
     "Videos": {
       "localizations": {
         "fr": {
@@ -4351,12 +7001,42 @@
         }
       }
     },
+    "videos": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vidéos"
+          }
+        }
+      }
+    },
     "View": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Présentation"
+          }
+        }
+      }
+    },
+    "What can I delete?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Que puis-je supprimer ?"
+          }
+        }
+      }
+    },
+    "What it can do": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce qu'il sait faire"
           }
         }
       }
@@ -4387,6 +7067,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "dont le nom contient"
+          }
+        }
+      }
+    },
+    "Without Renaming": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans renommer"
+          }
+        }
+      }
+    },
+    "Working…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En cours…"
           }
         }
       }
@@ -4431,6 +7131,16 @@
         }
       }
     },
+    "You stay in control": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous gardez la main"
+          }
+        }
+      }
+    },
     "Your files are not affected.": {
       "localizations": {
         "fr": {
@@ -4467,6 +7177,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "⇧⌘G pour aller à un dossier"
+          }
+        }
+      }
+    },
+    "⌃` to show or hide": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌃` pour afficher ou masquer"
           }
         }
       }

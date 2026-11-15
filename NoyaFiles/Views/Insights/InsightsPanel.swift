@@ -135,7 +135,7 @@ struct InsightsPanel: View {
     }
 }
 
-private struct PanelSectionTitle: View {
+struct PanelSectionTitle: View {
     let title: LocalizedStringKey
 
     init(_ title: LocalizedStringKey) {

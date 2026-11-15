@@ -1,12 +1,14 @@
 import Foundation
 import Observation
 
-/// What the main area of a window shows.
 /// A tool with its own screen in the main area.
 enum Tool: String, Hashable, CaseIterable {
     case freeUpSpace
+    case developer
+    case assistant
 }
 
+/// What the main area of a window shows.
 enum Destination: Hashable {
     case browser
     case workspace(UUID)
@@ -21,6 +23,8 @@ enum SidebarSelection: Hashable {
     case search
     case savedSearch(UUID)
     case tool(Tool)
+    /// A Git repository, shown in the developer tools.
+    case repository(URL)
 }
 
 enum Pane: Hashable {
@@ -71,6 +75,8 @@ final class WindowModel {
         // A launch argument used by the automated screenshots, such as `-noya.startDestination search`.
         switch UserDefaults.standard.string(forKey: "noya.startDestination") {
         case "freeUpSpace": destination = .tool(.freeUpSpace)
+        case "developer": destination = .tool(.developer)
+        case "assistant": destination = .tool(.assistant)
         case "search": openSearch()
         default: break
         }
@@ -95,6 +101,11 @@ final class WindowModel {
             case .browser: .folder(activeBrowser.location.url)
             case .workspace(let id): .workspace(id)
             case .search: savedSearchID.map { .savedSearch($0) } ?? .search
+            case .tool(.developer):
+                // The selected repository when the sidebar lists repositories, the tool otherwise.
+                Self.sidebarListsRepositories
+                    ? DeveloperModel.shared.selectedProject.flatMap { $0.isRepository ? .repository($0.url) : nil } ?? .tool(.developer)
+                    : .tool(.developer)
             case .tool(let tool): .tool(tool)
             }
         }
@@ -111,10 +122,19 @@ final class WindowModel {
                 openSearch(saved: SavedSearchStore.shared.search(id))
             case .tool(let tool)?:
                 destination = .tool(tool)
+            case .repository(let url)?:
+                DeveloperModel.shared.selection = url
+                destination = .tool(.developer)
             case nil:
                 break
             }
         }
+    }
+
+    private static var sidebarListsRepositories: Bool {
+        let stored = UserDefaults.standard.string(forKey: PreferenceKey.sidebarVisibility)
+        let visibility = stored.flatMap(SidebarVisibility.init(rawValue:)) ?? .standard
+        return visibility.shows("developer") && visibility.shows("repositories")
     }
 
     // MARK: - Search

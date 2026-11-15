@@ -32,6 +32,10 @@ struct ContentView: View {
                 }
             case .tool(.freeUpSpace):
                 FreeUpSpaceScreen()
+            case .tool(.developer):
+                DeveloperScreen()
+            case .tool(.assistant):
+                AssistantScreen(window: window)
             }
         }
         .overlay(alignment: .bottomTrailing) {

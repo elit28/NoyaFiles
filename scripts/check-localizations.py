@@ -39,6 +39,8 @@ CALLS = (
     r"(?<![\w.])fact\(",
     r"Entry\(id: \"[^\"]*\", title: ",
     r"LocalizedStringKey\(",
+    # Literals passed to the labeled parameters of the app's own views, such as `Card(title: "Trash")`.
+    r"(?<![\w.])(?:title|empty|message|subtitle|caption|prompt|placeholder|headline):\s*",
 )
 CALL_PATTERN = re.compile(r"(?:%s)%s" % ("|".join(CALLS), LITERAL))
 # Ternaries typed as LocalizedStringKey: `flag ? "Hide X" : "Show X"`.

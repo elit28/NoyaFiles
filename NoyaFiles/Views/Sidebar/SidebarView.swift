@@ -8,7 +8,9 @@ struct SidebarView: View {
     @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
     @Environment(WorkspaceStore.self) private var workspaces
     @Environment(SavedSearchStore.self) private var savedSearches
+    @AppStorage(PreferenceKey.assistantEnabled) private var isAssistantEnabled = false
     @State private var isCreatingWorkspace = false
+    private let developer = DeveloperModel.shared
 
     var body: some View {
         List(selection: $selection) {
@@ -68,6 +70,36 @@ struct SidebarView: View {
                         Label("Tidy Up Downloads", systemImage: "tray.and.arrow.down")
                     }
                     .buttonStyle(.plain)
+                    if visibility.shows("developer") {
+                        Label("Developer Tools", systemImage: "chevron.left.forwardslash.chevron.right")
+                            .tag(SidebarSelection.tool(.developer))
+                    }
+                    if visibility.shows("assistant") {
+                        Label {
+                            HStack(spacing: 6) {
+                                Text("AI Assistant")
+                                Text("Beta")
+                                    .font(.caption2.weight(.semibold))
+                                    .padding(.horizontal, 5)
+                                    .padding(.vertical, 1)
+                                    .background(Color.accentColor.opacity(0.15), in: Capsule())
+                                    .foregroundStyle(.tint)
+                            }
+                        } icon: {
+                            Image(systemName: "sparkles")
+                        }
+                        .tag(SidebarSelection.tool(.assistant))
+                        .opacity(isAssistantEnabled ? 1 : 0.6)
+                    }
+                }
+            }
+
+            if visibility.shows("developer"), visibility.shows("repositories"), !developer.repositories.isEmpty {
+                Section("Detected Repositories") {
+                    ForEach(developer.repositories) { project in
+                        Label(project.name, systemImage: "arrow.triangle.branch")
+                            .tag(SidebarSelection.repository(project.url))
+                    }
                 }
             }
 
@@ -90,6 +122,11 @@ struct SidebarView: View {
         .safeAreaInset(edge: .bottom, spacing: 0) {
             if visibility.shows("disk") {
                 DiskUsageFooter(disk: sidebar.disk)
+            }
+        }
+        .task(id: visibility.shows("developer") && visibility.shows("repositories")) {
+            if visibility.shows("developer"), visibility.shows("repositories") {
+                developer.listIfNeeded()
             }
         }
         .task {

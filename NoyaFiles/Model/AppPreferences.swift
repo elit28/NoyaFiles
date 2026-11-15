@@ -16,6 +16,8 @@ enum PreferenceKey {
     static let lastPath = "browser.lastPath"
     static let sidebarVisibility = "sidebar.visibility"
     static let dualPane = "window.dualPane"
+    static let assistantEnabled = "assistant.enabled"
+    static let assistantRenames = "assistant.renames"
 }
 
 /// The window appearance chosen by the user, or the system's.

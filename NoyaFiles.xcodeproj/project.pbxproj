@@ -279,6 +279,11 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+				"OTHER_LDFLAGS[sdk=macosx26*]" = (
+					"$(inherited)",
+					"-weak_framework",
+					FoundationModels,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noya360.NoyaFiles;
 				PRODUCT_MODULE_NAME = NoyaFiles;
 				PRODUCT_NAME = "NOYA Files";
@@ -313,6 +318,11 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+				"OTHER_LDFLAGS[sdk=macosx26*]" = (
+					"$(inherited)",
+					"-weak_framework",
+					FoundationModels,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noya360.NoyaFiles;
 				PRODUCT_MODULE_NAME = NoyaFiles;
 				PRODUCT_NAME = "NOYA Files";
