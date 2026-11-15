@@ -244,6 +244,11 @@ final class WorkspaceStore {
     }
 
     nonisolated private static func scanCandidates() async -> [RuleCandidate] {
+        collectCandidates()
+    }
+
+    /// Directory enumerators cannot be iterated from asynchronous code, hence this synchronous helper.
+    nonisolated private static func collectCandidates() -> [RuleCandidate] {
         let fileManager = FileManager.default
         let folders: [(url: URL, depth: Int)] = [
             (.downloadsDirectory, 1),
