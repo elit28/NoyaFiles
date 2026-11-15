@@ -116,6 +116,31 @@ public struct AssistantRequest: Equatable, Sendable {
         return clauses.joined(separator: " && ")
     }
 
+    /// Whether a file has the right kind for the request, judging by its name alone.
+    public func matchesKind(fileName: String) -> Bool {
+        guard let topic else { return true }
+        let category = FileCategory.classify(fileName: fileName)
+        switch topic.kind {
+        case .pdfs: return category == .pdfs
+        case .images: return topic == .screenshots ? category == .screenshots : category == .images || category == .screenshots
+        case .videos: return category == .videos
+        default: return true
+        }
+    }
+
+    /// Whether a file found without Spotlight fits the request, from its name and, for
+    /// documents, the beginning of its text. The year is checked separately.
+    public func matches(fileName: String, text: String?) -> Bool {
+        guard matchesKind(fileName: fileName) else { return false }
+        let haystack = AssistantParser.normalize(fileName + "\n" + (text ?? ""))
+        if let terms = topic?.searchTerms, !terms.isEmpty,
+           !terms.contains(where: { haystack.contains(AssistantParser.normalize($0)) }) {
+            return false
+        }
+        if topic == nil, keywords.isEmpty { return false }
+        return keywords.allSatisfy { haystack.contains(AssistantParser.normalize($0)) }
+    }
+
     /// Whether a file belongs to the year asked for: its name mentions it, or one of its dates
     /// (created, modified, added) falls in it. Always true when no year was asked for.
     public func matchesYear(fileName: String, dates: [Date], calendar: Calendar = .current) -> Bool {

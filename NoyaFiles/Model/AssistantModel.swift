@@ -167,8 +167,12 @@ final class AssistantModel {
         resultsSubtitle = Self.folderList
 
         work = Task { [weak self] in
-            let hits = await Spotlight.find(query, in: Self.searchFolders, limit: 400)
-            let urls = hits.map(\.url)
+            var found = await Spotlight.find(query, in: Self.searchFolders, limit: 400).map(\.url)
+            if found.isEmpty {
+                // Spotlight may be turned off or still indexing: looks through the folders directly.
+                found = await Self.scanFolders(for: request)
+            }
+            let urls = found
                 .filter { !$0.path.contains("/Library/") && !$0.path.contains(".app/") }
                 .filter { url in
                     let values = try? url.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
@@ -247,6 +251,45 @@ final class AssistantModel {
             collectionName: collectionName,
             messageID: message.id
         )
+    }
+
+    /// Finds matching files without Spotlight, by name and, for documents, by the start of their text.
+    nonisolated private static func scanFolders(for request: AssistantRequest) async -> [URL] {
+        let candidates = collectFiles(in: [.downloadsDirectory, .documentsDirectory, .desktopDirectory], limit: 6000)
+        var matches: [URL] = []
+        var textReads = 0
+        for url in candidates {
+            if Task.isCancelled { break }
+            let name = url.lastPathComponent
+            guard request.matchesKind(fileName: name) else { continue }
+            if request.matches(fileName: name, text: nil) {
+                matches.append(url)
+            } else if request.topic?.isDocument == true, textReads < 300 {
+                textReads += 1
+                let text = await LocalIntelligence.text(of: url, limit: 1500, recognizesText: false)
+                if request.matches(fileName: name, text: text) { matches.append(url) }
+            }
+        }
+        return matches
+    }
+
+    nonisolated private static func collectFiles(in folders: [URL], limit: Int) -> [URL] {
+        var files: [URL] = []
+        for folder in folders {
+            guard let enumerator = FileManager.default.enumerator(
+                at: folder,
+                includingPropertiesForKeys: [.isRegularFileKey],
+                options: [.skipsHiddenFiles, .skipsPackageDescendants],
+                errorHandler: { _, _ in true }
+            ) else { continue }
+            for case let url as URL in enumerator {
+                if enumerator.level > 5 { enumerator.skipDescendants() }
+                guard (try? url.resourceValues(forKeys: [.isRegularFileKey]))?.isRegularFile == true else { continue }
+                files.append(url)
+                if files.count >= limit { return files }
+            }
+        }
+        return files
     }
 
     // MARK: - Screenshots

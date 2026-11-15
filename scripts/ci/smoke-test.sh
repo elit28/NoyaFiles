@@ -53,7 +53,6 @@ run grid-light light -browser.viewMode grid -browser.grouping kind -AppleLanguag
 run grid-dark dark -browser.viewMode grid -browser.grouping kind -AppleLanguages "(fr)"
 run list-dark dark -browser.viewMode list -browser.grouping kind -AppleLanguages "(en)"
 run columns-dark dark -browser.viewMode columns -AppleLanguages "(fr)"
-run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"
 run space-dark dark -noya.startDestination freeUpSpace -AppleLanguages "(fr)"
 run tidy-light light -noya.showTidy YES -AppleLanguages "(fr)"
 run workspace-dark dark -noya.startDestination workspace -AppleLanguages "(fr)"
@@ -61,3 +60,5 @@ run search-light light -noya.startDestination search -AppleLanguages "(fr)"
 run developer-dark dark -noya.startDestination developer -developer.root "$projects" -AppleLanguages "(fr)"
 run assistant-light light -noya.startDestination assistant -assistant.enabled YES -developer.root "$projects" \
   -noya.assistantPrompt "Trouve mes factures de 2026 et range-les dans l'espace Impôts 2026" -AppleLanguages "(fr)"
+# Last, because the app remembers that two panes are shown.
+run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"

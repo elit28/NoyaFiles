@@ -121,7 +121,9 @@ enum LocalIntelligence {
     // MARK: - Reading files
 
     /// The text of a PDF, a text file or a picture, up to `limit` characters.
-    static func text(of url: URL, limit: Int) async -> String? {
+    ///
+    /// - Parameter recognizesText: Whether to read the text of pictures and scanned PDFs, which is slower.
+    static func text(of url: URL, limit: Int, recognizesText: Bool = true) async -> String? {
         guard let type = UTType(filenameExtension: url.pathExtension) else { return nil }
         if type.conforms(to: .pdf) {
             guard let document = PDFDocument(url: url) else { return nil }
@@ -131,7 +133,7 @@ enum LocalIntelligence {
                 if text.count >= limit { break }
             }
             // A scanned PDF has no text layer: reads its first page as a picture.
-            if text.filter(\.isLetter).count < 20, let page = document.page(at: 0) {
+            if recognizesText, text.filter(\.isLetter).count < 20, let page = document.page(at: 0) {
                 let thumbnail = page.thumbnail(of: CGSize(width: 1700, height: 2200), for: .mediaBox)
                 if let image = thumbnail.cgImage(forProposedRect: nil, context: nil, hints: nil),
                    let recognized = recognizeText(in: image) {
@@ -141,7 +143,7 @@ enum LocalIntelligence {
             return String(text.prefix(limit))
         }
         if type.conforms(to: .image) {
-            guard let source = CGImageSourceCreateWithURL(url as CFURL, nil),
+            guard recognizesText, let source = CGImageSourceCreateWithURL(url as CFURL, nil),
                   let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else { return nil }
             return recognizeText(in: image).map { String($0.prefix(limit)) }
         }

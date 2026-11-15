@@ -71,6 +71,25 @@ struct AssistantParserTests {
         #expect(AssistantRequest(topic: .screenshots).spotlightQuery?.contains("kMDItemIsScreenCapture == 1") == true)
     }
 
+    @Test("Matches files found without Spotlight")
+    func directMatching() {
+        let invoices = AssistantRequest(topic: .invoices)
+        #expect(invoices.matches(fileName: "Facture 2026-118.pdf", text: nil))
+        #expect(invoices.matches(fileName: "scan0012.pdf", text: "EDF\nFACTURE n° 4471"))
+        #expect(!invoices.matches(fileName: "scan0013.pdf", text: "Contrat de location"))
+        #expect(!invoices.matches(fileName: "Facture.docx", text: nil))
+
+        let edf = AssistantRequest(topic: .invoices, keywords: ["EDF"])
+        #expect(edf.matches(fileName: "scan0012.pdf", text: "Facture EDF"))
+        #expect(!edf.matches(fileName: "document(3).pdf", text: "Facture Free"))
+
+        let photos = AssistantRequest(topic: .photos)
+        #expect(photos.matches(fileName: "IMG_4021.HEIC", text: nil))
+        #expect(!photos.matches(fileName: "notes.txt", text: nil))
+        #expect(AssistantRequest(keywords: ["budget"]).matches(fileName: "Budget vacances.numbers", text: nil))
+        #expect(!AssistantRequest().matches(fileName: "anything.pdf", text: nil))
+    }
+
     @Test("Checks the year on each file")
     func year() {
         var calendar = Calendar(identifier: .gregorian)
