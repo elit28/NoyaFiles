@@ -1,4 +1,5 @@
 import AppKit
+import NoyaCore
 import SwiftUI
 
 enum SettingsSection: String, CaseIterable, Identifiable {
