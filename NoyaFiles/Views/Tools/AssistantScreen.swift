@@ -166,6 +166,7 @@ private struct AssistantFileRow: View {
                     Text(file.name)
                         .lineLimit(1)
                         .truncationMode(.middle)
+                        .frame(minWidth: file.proposedFileName == nil ? nil : 96, alignment: .leading)
                         .layoutPriority(file.proposedFileName == nil ? 1 : 0)
                         .strikethrough(file.proposedFileName != nil, color: .secondary)
                         .foregroundStyle(file.proposedFileName != nil ? HierarchicalShapeStyle.secondary : .primary)
