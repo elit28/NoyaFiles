@@ -14,8 +14,17 @@ demo="$(mktemp -d)/Downloads"
 scripts/ci/make-demo-folder.sh "$demo"
 mkdir -p dist/screenshots
 
+# The appearance is a system-wide setting: the app ignores it as a launch argument.
+restore_appearance() { defaults delete -g AppleInterfaceStyle >/dev/null 2>&1 || true; }
+trap restore_appearance EXIT
+
 run() {
-  local name="$1"; shift
+  local name="$1" appearance="$2"; shift 2
+  if [[ "$appearance" == dark ]]; then
+    defaults write -g AppleInterfaceStyle Dark
+  else
+    restore_appearance
+  fi
   "$binary" "$@" -browser.lastPath "$demo" -browser.insightsVisible YES \
     -ApplePersistenceIgnoreState YES > "dist/screenshots/$name.log" 2>&1 &
   local pid=$!
@@ -33,6 +42,6 @@ run() {
   echo "The app ran fine: $name"
 }
 
-run grid-light -browser.viewMode grid -browser.grouping kind -AppleLanguages "(en)"
-run grid-dark -browser.viewMode grid -browser.grouping kind -AppleInterfaceStyle Dark -AppleLanguages "(fr)"
-run list-dark -browser.viewMode list -browser.grouping kind -AppleInterfaceStyle Dark -AppleLanguages "(en)"
+run grid-light light -browser.viewMode grid -browser.grouping kind -AppleLanguages "(en)"
+run grid-dark dark -browser.viewMode grid -browser.grouping kind -AppleLanguages "(fr)"
+run list-dark dark -browser.viewMode list -browser.grouping kind -AppleLanguages "(en)"
