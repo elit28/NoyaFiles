@@ -61,13 +61,14 @@ struct FileInfoPanel: View {
 
     private var actions: some View {
         HStack(spacing: 8) {
-            Button("Open") { model.open([item.url.path]) }
+            Button("Open") { model.open(urls: [item.url]) }
             ShareLink(item: item.url) {
                 Text("Share")
             }
             Menu {
-                Button("Show in Finder") { model.revealInFinder([item.url.path]) }
-                Button("Copy Path") { model.copyPaths([item.url.path]) }
+                Button("Show in Finder") { model.revealInFinder(urls: [item.url]) }
+                Button("Copy Path") { model.copyPaths(urls: [item.url]) }
+                AddToWorkspaceMenu(urls: [item.url])
                 Divider()
                 Button("Move to Trash", role: .destructive) { model.moveToTrash(urls: [item.url]) }
             } label: {

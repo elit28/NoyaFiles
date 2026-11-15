@@ -5,16 +5,21 @@ import SwiftUI
 /// A folder in the main area, with its toolbar, filter field and side panel.
 struct BrowserScreen: View {
     @Bindable var model: BrowserModel
+    let window: WindowModel
 
     var body: some View {
         BrowserView(model: model)
+            .dropDestination(for: URL.self) { urls, _ in
+                window.drop(urls, into: model.location.url)
+                return true
+            }
             .inspector(isPresented: $model.isInsightsVisible) {
                 InspectorPanel(model: model)
                     .inspectorColumnWidth(min: 260, ideal: 300, max: 420)
             }
             .navigationTitle(model.title)
             .toolbar {
-                BrowserToolbar(model: model)
+                BrowserToolbar(model: model, window: window)
             }
             .searchable(text: $model.searchText, placement: .toolbar, prompt: Text("Filter this folder"))
             .sheet(isPresented: $model.isGoToFolderPresented) {

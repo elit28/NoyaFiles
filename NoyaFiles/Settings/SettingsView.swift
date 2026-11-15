@@ -224,6 +224,10 @@ private struct SidebarSettings: View {
         let title: LocalizedStringKey
     }
 
+    private let sections = [
+        Entry(id: "workspaces", title: "Workspaces"),
+    ]
+
     private let favorites = [
         Entry(id: "desktop", title: "Desktop"),
         Entry(id: "documents", title: "Documents"),
@@ -244,6 +248,11 @@ private struct SidebarSettings: View {
 
     var body: some View {
         Form {
+            Section("Sections") {
+                ForEach(sections) { entry in
+                    Toggle(entry.title, isOn: binding(for: entry.id))
+                }
+            }
             Section("Favorites") {
                 ForEach(favorites) { entry in
                     Toggle(entry.title, isOn: binding(for: entry.id))

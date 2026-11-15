@@ -121,6 +121,46 @@
         }
       }
     },
+    "%lld files added": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld file added"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld files added"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichier ajouté"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld fichiers ajoutés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld folders": {
       "localizations": {
         "en": {
@@ -241,6 +281,16 @@
         }
       }
     },
+    "%lld items from %lld folders": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld éléments venant de %2$lld dossiers"
+          }
+        }
+      }
+    },
     "%lld loose files": {
       "localizations": {
         "en": {
@@ -331,12 +381,112 @@
         }
       }
     },
+    "%lld selected in %@": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld selected in %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld selected in %@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld sélectionné dans %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld sélectionnés dans %@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "A workspace gathers files without moving them: the originals stay where they are.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un espace de travail regroupe des fichiers sans les déplacer : les originaux restent à leur place."
+          }
+        }
+      }
+    },
     "Accent color": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Couleur d'accent"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter"
+          }
+        }
+      }
+    },
+    "Add Files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter des fichiers"
+          }
+        }
+      }
+    },
+    "Add files": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter les fichiers"
+          }
+        }
+      }
+    },
+    "Add files or folders to this workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter des fichiers ou des dossiers à cet espace"
+          }
+        }
+      }
+    },
+    "Add Files…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter des fichiers…"
           }
         }
       }
@@ -367,6 +517,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Avancé"
+          }
+        }
+      }
+    },
+    "All %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Type : %@"
+          }
+        }
+      }
+    },
+    "All · %lld": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout · %lld"
           }
         }
       }
@@ -521,6 +691,16 @@
         }
       }
     },
+    "atlas": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "atlas"
+          }
+        }
+      }
+    },
     "Audio": {
       "localizations": {
         "fr": {
@@ -537,6 +717,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Précédent"
+          }
+        }
+      }
+    },
+    "Back to a single folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenir à un seul dossier"
           }
         }
       }
@@ -621,6 +811,16 @@
         }
       }
     },
+    "Clients, quotes and invoices": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clients, devis et factures"
+          }
+        }
+      }
+    },
     "Code": {
       "localizations": {
         "fr": {
@@ -631,12 +831,52 @@
         }
       }
     },
+    "Collection": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collection"
+          }
+        }
+      }
+    },
+    "Collection name": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom de la collection"
+          }
+        }
+      }
+    },
+    "Color": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couleur"
+          }
+        }
+      }
+    },
     "Columns": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Colonnes"
+          }
+        }
+      }
+    },
+    "Compare Folders": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer les dossiers"
           }
         }
       }
@@ -657,6 +897,86 @@
           "stringUnit": {
             "state": "translated",
             "value": "Copier le chemin"
+          }
+        }
+      }
+    },
+    "Copy to %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier vers %@"
+          }
+        }
+      }
+    },
+    "Copy to Other Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier vers l'autre volet"
+          }
+        }
+      }
+    },
+    "Copying %lld items to %@": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copying %lld item to %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copying %lld items to %@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copie de %lld élément vers %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copie de %lld éléments vers %@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Create": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créer"
+          }
+        }
+      }
+    },
+    "Create Rule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créer la règle"
           }
         }
       }
@@ -721,12 +1041,72 @@
         }
       }
     },
+    "Delete Collection": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la collection"
+          }
+        }
+      }
+    },
+    "Delete Rule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la règle"
+          }
+        }
+      }
+    },
+    "Delete this workspace?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer cet espace de travail ?"
+          }
+        }
+      }
+    },
+    "Delete Workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer l'espace"
+          }
+        }
+      }
+    },
+    "Delete Workspace…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer l'espace…"
+          }
+        }
+      }
+    },
     "Descending": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Décroissant"
+          }
+        }
+      }
+    },
+    "Description": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Description"
           }
         }
       }
@@ -831,6 +1211,26 @@
         }
       }
     },
+    "Drop files here, use Add Files, or create a smart rule. Files stay where they are.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déposez des fichiers ici, utilisez « Ajouter des fichiers » ou créez une règle intelligente. Les fichiers restent à leur place."
+          }
+        }
+      }
+    },
+    "Dual Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Double volet"
+          }
+        }
+      }
+    },
     "Duplicates": {
       "localizations": {
         "fr": {
@@ -861,6 +1261,26 @@
         }
       }
     },
+    "Edit Workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier l'espace"
+          }
+        }
+      }
+    },
+    "Edit Workspace…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier l'espace…"
+          }
+        }
+      }
+    },
     "Enclosing Folder": {
       "localizations": {
         "fr": {
@@ -871,12 +1291,32 @@
         }
       }
     },
+    "F5 copy · F6 move · ⌃Tab other pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "F5 copier · F6 déplacer · ⌃Tab autre volet"
+          }
+        }
+      }
+    },
     "Favorites": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Favoris"
+          }
+        }
+      }
+    },
+    "Files tagged “%@”": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fichiers tagués « %@ »"
           }
         }
       }
@@ -927,6 +1367,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Suivant"
+          }
+        }
+      }
+    },
+    "Freelance": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Freelance"
           }
         }
       }
@@ -1041,6 +1491,16 @@
         }
       }
     },
+    "Hide Dual Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer le double volet"
+          }
+        }
+      }
+    },
     "Hide Hidden Files": {
       "localizations": {
         "fr": {
@@ -1057,6 +1517,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Masquer l'analyse"
+          }
+        }
+      }
+    },
+    "Highlight items that exist in only one folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repérer les éléments présents dans un seul dossier"
           }
         }
       }
@@ -1131,12 +1601,42 @@
         }
       }
     },
+    "Into": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dans"
+          }
+        }
+      }
+    },
+    "invoice": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "facture"
+          }
+        }
+      }
+    },
     "It may have been moved, renamed or deleted.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Il a peut-être été déplacé, renommé ou supprimé."
+          }
+        }
+      }
+    },
+    "Its files are not deleted: only the workspace is.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ses fichiers ne sont pas supprimés : seul l'espace l'est."
           }
         }
       }
@@ -1177,6 +1677,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Type"
+          }
+        }
+      }
+    },
+    "L": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "G"
           }
         }
       }
@@ -1291,6 +1801,16 @@
         }
       }
     },
+    "Move": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déplacer"
+          }
+        }
+      }
+    },
     "Move %lld duplicates to the Trash?": {
       "localizations": {
         "en": {
@@ -1371,6 +1891,16 @@
         }
       }
     },
+    "Move to Other Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déplacer vers l'autre volet"
+          }
+        }
+      }
+    },
     "Move to Trash": {
       "localizations": {
         "fr": {
@@ -1411,6 +1941,46 @@
         }
       }
     },
+    "Moving %lld items to %@": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Moving %lld item to %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Moving %lld items to %@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Déplacement de %lld élément vers %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Déplacement de %lld éléments vers %@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Music": {
       "localizations": {
         "fr": {
@@ -1431,12 +2001,82 @@
         }
       }
     },
+    "Names containing “%@”": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noms contenant « %@ »"
+          }
+        }
+      }
+    },
+    "New Collection…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle collection…"
+          }
+        }
+      }
+    },
+    "New files that match are added automatically. Downloads, Desktop and Documents are checked every 10 minutes.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les nouveaux fichiers qui correspondent sont ajoutés automatiquement. Téléchargements, Bureau et Documents sont vérifiés toutes les 10 minutes."
+          }
+        }
+      }
+    },
+    "New Rule…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle règle…"
+          }
+        }
+      }
+    },
+    "New Smart Rule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle règle intelligente"
+          }
+        }
+      }
+    },
     "New windows open": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Les nouvelles fenêtres ouvrent"
+          }
+        }
+      }
+    },
+    "New Workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvel espace de travail"
+          }
+        }
+      }
+    },
+    "No Collection": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune collection"
           }
         }
       }
@@ -1497,6 +2137,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Non autorisé"
+          }
+        }
+      }
+    },
+    "Not found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introuvable"
           }
         }
       }
@@ -1571,6 +2221,16 @@
         }
       }
     },
+    "of the kind": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "du type"
+          }
+        }
+      }
+    },
     "OK": {
       "localizations": {
         "fr": {
@@ -1631,6 +2291,26 @@
         }
       }
     },
+    "Only here": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seulement ici"
+          }
+        }
+      }
+    },
+    "Only these extensions": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seulement ces extensions"
+          }
+        }
+      }
+    },
     "Open": {
       "localizations": {
         "fr": {
@@ -1671,6 +2351,16 @@
         }
       }
     },
+    "Original Location": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Emplacement d'origine"
+          }
+        }
+      }
+    },
     "Other": {
       "localizations": {
         "fr": {
@@ -1701,6 +2391,26 @@
         }
       }
     },
+    "Paused": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En pause"
+          }
+        }
+      }
+    },
+    "pdf, docx": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pdf, docx"
+          }
+        }
+      }
+    },
     "PDFs": {
       "localizations": {
         "fr": {
@@ -1721,12 +2431,32 @@
         }
       }
     },
+    "Pin": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épingler"
+          }
+        }
+      }
+    },
     "Pink": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Rose"
+          }
+        }
+      }
+    },
+    "Pinned": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épinglés"
           }
         }
       }
@@ -1781,12 +2511,32 @@
         }
       }
     },
+    "R": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "D"
+          }
+        }
+      }
+    },
     "Refresh": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Actualiser"
+          }
+        }
+      }
+    },
+    "Remove from Workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retirer de l'espace"
           }
         }
       }
@@ -1861,6 +2611,16 @@
         }
       }
     },
+    "Save": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer"
+          }
+        }
+      }
+    },
     "Screenshots": {
       "localizations": {
         "fr": {
@@ -1871,12 +2631,42 @@
         }
       }
     },
+    "Sections": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sections"
+          }
+        }
+      }
+    },
+    "Select items to copy or move them.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionnez des éléments pour les copier ou les déplacer."
+          }
+        }
+      }
+    },
     "Share": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Partager"
+          }
+        }
+      }
+    },
+    "Show Dual Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher le double volet"
           }
         }
       }
@@ -1951,12 +2741,32 @@
         }
       }
     },
+    "Show or hide smart rules": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher ou masquer les règles intelligentes"
+          }
+        }
+      }
+    },
     "Show the Insights panel in new windows": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Afficher le panneau Analyse dans les nouvelles fenêtres"
+          }
+        }
+      }
+    },
+    "Show two folders side by side": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher deux dossiers côte à côte"
           }
         }
       }
@@ -1977,6 +2787,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Taille"
+          }
+        }
+      }
+    },
+    "Smart Rules": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Règles intelligentes"
           }
         }
       }
@@ -2031,6 +2851,36 @@
         }
       }
     },
+    "Swap Panes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Échanger les volets"
+          }
+        }
+      }
+    },
+    "Swap the two folders": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Échanger les deux dossiers"
+          }
+        }
+      }
+    },
+    "Switch Pane": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Changer de volet"
+          }
+        }
+      }
+    },
     "System": {
       "localizations": {
         "fr": {
@@ -2057,6 +2907,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tag"
+          }
+        }
+      }
+    },
+    "tagged": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tagués"
           }
         }
       }
@@ -2091,12 +2951,32 @@
         }
       }
     },
+    "Text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texte"
+          }
+        }
+      }
+    },
     "The most recent copy of each file is kept. This frees %@.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "La copie la plus récente de chaque fichier est gardée. Cela libère %@."
+          }
+        }
+      }
+    },
+    "The whole workspace": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout l'espace"
           }
         }
       }
@@ -2111,12 +2991,32 @@
         }
       }
     },
+    "These items could not be copied or moved: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ces éléments n'ont pas pu être copiés ou déplacés : %@"
+          }
+        }
+      }
+    },
     "These items could not be moved to the Trash: %@": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Ces éléments n'ont pas pu être placés dans la Corbeille : %@"
+          }
+        }
+      }
+    },
+    "This file can no longer be found.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce fichier est introuvable."
           }
         }
       }
@@ -2151,6 +3051,26 @@
         }
       }
     },
+    "This workspace is empty": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cet espace de travail est vide"
+          }
+        }
+      }
+    },
+    "This workspace no longer exists": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cet espace de travail n'existe plus"
+          }
+        }
+      }
+    },
     "Today": {
       "localizations": {
         "fr": {
@@ -2177,6 +3097,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Réessayer"
+          }
+        }
+      }
+    },
+    "Unpin": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désépingler"
           }
         }
       }
@@ -2261,6 +3191,26 @@
         }
       }
     },
+    "whose name contains": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dont le nom contient"
+          }
+        }
+      }
+    },
+    "Workspaces": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espaces de travail"
+          }
+        }
+      }
+    },
     "Yesterday": {
       "localizations": {
         "fr": {
@@ -2277,6 +3227,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vos fichiers ne sont pas touchés."
+          }
+        }
+      }
+    },
+    "Your workspaces could not be read: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos espaces de travail n'ont pas pu être lus : %@"
+          }
+        }
+      }
+    },
+    "Your workspaces could not be saved: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos espaces de travail n'ont pas pu être enregistrés : %@"
           }
         }
       }

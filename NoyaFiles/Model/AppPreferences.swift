@@ -15,6 +15,7 @@ enum PreferenceKey {
     static let insightsVisible = "browser.insightsVisible"
     static let lastPath = "browser.lastPath"
     static let sidebarVisibility = "sidebar.visibility"
+    static let dualPane = "window.dualPane"
 }
 
 /// The window appearance chosen by the user, or the system's.

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BrowserToolbar: ToolbarContent {
     @Bindable var model: BrowserModel
+    let window: WindowModel
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigation) {
@@ -64,6 +65,15 @@ struct BrowserToolbar: ToolbarContent {
             .pickerStyle(.segmented)
             .labelStyle(.iconOnly)
             .help("Change how items are shown")
+        }
+
+        ToolbarItem {
+            Button {
+                window.isDualPane = true
+            } label: {
+                Label("Dual Pane", systemImage: "rectangle.split.2x1")
+            }
+            .help("Show two folders side by side")
         }
 
         ToolbarItem {

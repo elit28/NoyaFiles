@@ -4,6 +4,7 @@ import SwiftUI
 /// The File, View and Go menu items that act on the focused browser window.
 struct BrowserCommands: Commands {
     @FocusedValue(\.browserModel) private var model: BrowserModel?
+    @FocusedValue(\.windowModel) private var window: WindowModel?
     @AppStorage(PreferenceKey.appearance) private var appearance = AppearancePreference.system
 
     var body: some Commands {
@@ -38,6 +39,21 @@ struct BrowserCommands: Commands {
             Button("as Columns") { model?.viewMode = .columns }
                 .keyboardShortcut("3")
                 .disabled(model == nil)
+            Divider()
+            Button(window?.isDualPane == true ? LocalizedStringKey("Hide Dual Pane") : LocalizedStringKey("Show Dual Pane")) {
+                window?.isDualPane.toggle()
+            }
+            .keyboardShortcut("p", modifiers: [.command, .option])
+            .disabled(window == nil)
+            Button("Switch Pane") { window?.toggleActivePane() }
+                .keyboardShortcut(.tab, modifiers: .control)
+                .disabled(window?.isDualPane != true)
+            Button("Copy to Other Pane") { window?.transferSelection(.copy) }
+                .keyboardShortcut(Self.functionKey(NSF5FunctionKey), modifiers: [])
+                .disabled(window?.isDualPane != true || !hasSelection)
+            Button("Move to Other Pane") { window?.transferSelection(.move) }
+                .keyboardShortcut(Self.functionKey(NSF6FunctionKey), modifiers: [])
+                .disabled(window?.isDualPane != true || !hasSelection)
             Divider()
             Button(insightsTitle) { model?.isInsightsVisible.toggle() }
                 .keyboardShortcut("i", modifiers: [.command, .option])
@@ -82,6 +98,10 @@ struct BrowserCommands: Commands {
                 .keyboardShortcut("g", modifiers: [.command, .shift])
                 .disabled(model == nil)
         }
+    }
+
+    private static func functionKey(_ code: Int) -> KeyEquivalent {
+        KeyEquivalent(Character(UnicodeScalar(UInt32(code)) ?? " "))
     }
 
     private var hasSelection: Bool {

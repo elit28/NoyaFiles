@@ -38,6 +38,7 @@ CALLS = (
     r"\.confirmationDialog\(\s*",
     r"(?<![\w.])fact\(",
     r"Entry\(id: \"[^\"]*\", title: ",
+    r"LocalizedStringKey\(",
 )
 CALL_PATTERN = re.compile(r"(?:%s)%s" % ("|".join(CALLS), LITERAL))
 # Ternaries typed as LocalizedStringKey: `flag ? "Hide X" : "Show X"`.

@@ -86,6 +86,8 @@ final class BrowserModel {
     var isGoToFolderPresented = false
     var errorMessage: String?
     var pendingTrash: PendingTrash?
+    /// In dual-pane comparison, the names that exist only in this pane.
+    var comparisonNames: Set<String>?
     var isDuplicatesSheetPresented = false
     var quickLookURL: URL?
     private(set) var quickLookList: [URL] = []
@@ -93,6 +95,8 @@ final class BrowserModel {
     // MARK: - Private state
 
     private let defaults: UserDefaults
+    /// Whether navigating remembers the folder for the next window. Off for the second pane.
+    private let persistsLocation: Bool
     @ObservationIgnored private var nodesByID: [BrowserNode.ID: BrowserNode] = [:]
     @ObservationIgnored private var measuredStamps: [URL: Date] = [:]
     @ObservationIgnored private var installedAppNames: [String] = []
@@ -105,8 +109,9 @@ final class BrowserModel {
 
     private static let maxConcurrentMeasurements = 4
 
-    init(defaults: UserDefaults = .standard, startingAt startURL: URL? = nil) {
+    init(defaults: UserDefaults = .standard, startingAt startURL: URL? = nil, persistsLocation: Bool = true) {
         self.defaults = defaults
+        self.persistsLocation = persistsLocation
         viewMode = defaults.string(forKey: PreferenceKey.viewMode).flatMap(ViewMode.init(rawValue:)) ?? .grid
         grouping = defaults.string(forKey: PreferenceKey.grouping).flatMap(GroupingMode.init(rawValue:)) ?? .kind
         showHidden = defaults.bool(forKey: PreferenceKey.showHidden)
@@ -214,7 +219,9 @@ final class BrowserModel {
         searchText = ""
 
         if folderChanged {
-            defaults.set(destination.url.path, forKey: PreferenceKey.lastPath)
+            if persistsLocation {
+                defaults.set(destination.url.path, forKey: PreferenceKey.lastPath)
+            }
             dismissedSuggestions = []
             items = []
             loadState = .loading

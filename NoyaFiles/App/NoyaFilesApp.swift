@@ -25,4 +25,7 @@ struct NoyaFilesApp: App {
 extension FocusedValues {
     /// The browser of the window that has keyboard focus, so menu commands can act on it.
     @Entry var browserModel: BrowserModel?
+
+    /// The window that has keyboard focus, for dual-pane commands.
+    @Entry var windowModel: WindowModel?
 }

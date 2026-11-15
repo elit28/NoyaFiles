@@ -12,7 +12,7 @@ struct FileListView: View {
             sortOrder: $model.sortOrder
         ) {
             TableColumn("Name", value: \.name) { node in
-                NameCell(node: node)
+                NameCell(node: node, isOnlyHere: model.comparisonNames?.contains(node.name) == true)
             }
             .width(min: 180, ideal: 320)
 
@@ -56,6 +56,7 @@ struct FileListView: View {
 
 private struct NameCell: View {
     let node: BrowserNode
+    var isOnlyHere = false
 
     var body: some View {
         HStack(spacing: 7) {
@@ -63,6 +64,13 @@ private struct NameCell: View {
             Text(node.name)
                 .lineLimit(1)
                 .truncationMode(.middle)
+            if isOnlyHere {
+                Text("Only here")
+                    .font(.caption2.weight(.semibold))
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 1)
+                    .background(.tint.opacity(0.18), in: Capsule())
+            }
         }
         .opacity(node.isHidden ? 0.55 : 1)
     }

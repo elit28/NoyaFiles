@@ -58,7 +58,7 @@ struct BrowserView: View {
     }
 }
 
-private struct FolderErrorView: View {
+struct FolderErrorView: View {
     let error: BrowserError
     let retry: () -> Void
 

@@ -18,6 +18,7 @@ struct FileContextMenu: View {
                 }
                 Button("Show in Finder") { model.revealInFinder(ids) }
                 Button("Copy Path") { model.copyPaths(ids) }
+                AddToWorkspaceMenu(urls: model.items(for: ids).map(\.url))
                 Divider()
                 Button("Move to Trash", role: .destructive) { model.moveToTrash(ids) }
             }

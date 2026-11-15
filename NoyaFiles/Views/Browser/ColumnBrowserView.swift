@@ -193,6 +193,7 @@ private struct ColumnContextMenu: View {
             Divider()
             Button("Show in Finder") { model.revealInFinder(urls: list) }
             Button("Copy Path") { model.copyPaths(urls: list) }
+            AddToWorkspaceMenu(urls: list)
             Divider()
             Button("Move to Trash", role: .destructive) { model.moveToTrash(urls: list) }
         }

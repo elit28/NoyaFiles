@@ -38,3 +38,4 @@ run grid-light light -browser.viewMode grid -browser.grouping kind -AppleLanguag
 run grid-dark dark -browser.viewMode grid -browser.grouping kind -AppleLanguages "(fr)"
 run list-dark dark -browser.viewMode list -browser.grouping kind -AppleLanguages "(en)"
 run columns-dark dark -browser.viewMode columns -AppleLanguages "(fr)"
+run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"

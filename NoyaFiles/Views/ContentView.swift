@@ -6,6 +6,7 @@ struct ContentView: View {
     @State private var sidebar = SidebarModel()
     @AppStorage(PreferenceKey.appearance) private var appearance = AppearancePreference.system
     @AppStorage(PreferenceKey.accent) private var accent = AccentPreference.teal
+    private let workspaces = WorkspaceStore.shared
 
     var body: some View {
         NavigationSplitView {
@@ -14,15 +15,56 @@ struct ContentView: View {
         } detail: {
             switch window.destination {
             case .browser:
-                BrowserScreen(model: window.browser)
+                if window.isDualPane {
+                    DualPaneScreen(window: window)
+                } else {
+                    BrowserScreen(model: window.browser, window: window)
+                }
+            case .workspace(let id):
+                WorkspaceScreen(workspaceID: id)
             }
         }
-        .focusedSceneValue(\.browserModel, window.browser)
+        .overlay(alignment: .bottomTrailing) {
+            if let operation = window.operations.current {
+                OperationToast(operation: operation) {
+                    window.operations.cancel()
+                }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+        }
+        .animation(.easeOut(duration: 0.2), value: window.operations.current?.id)
+        .alert("Something went wrong", isPresented: errorBinding, presenting: currentError) { _ in
+            Button("OK") {
+                window.operations.lastError = nil
+                workspaces.lastError = nil
+            }
+        } message: { message in
+            Text(message)
+        }
+        .environment(workspaces)
+        .focusedSceneValue(\.browserModel, window.activeBrowser)
+        .focusedSceneValue(\.windowModel, window)
         .tint(accent.color)
         .frame(minWidth: 900, minHeight: 540)
         .onChange(of: appearance, initial: true) {
             appearance.apply()
         }
+    }
+
+    private var currentError: String? {
+        window.operations.lastError ?? workspaces.lastError
+    }
+
+    private var errorBinding: Binding<Bool> {
+        Binding(
+            get: { currentError != nil },
+            set: { isPresented in
+                if !isPresented {
+                    window.operations.lastError = nil
+                    workspaces.lastError = nil
+                }
+            }
+        )
     }
 }
 

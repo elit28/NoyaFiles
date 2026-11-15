@@ -5,9 +5,34 @@ struct SidebarView: View {
     let sidebar: SidebarModel
     @Binding var selection: SidebarSelection?
     @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
+    @Environment(WorkspaceStore.self) private var workspaces
+    @State private var isCreatingWorkspace = false
 
     var body: some View {
         List(selection: $selection) {
+            if visibility.shows("workspaces") {
+                Section("Workspaces") {
+                    ForEach(workspaces.workspaces) { workspace in
+                        Label {
+                            Text(workspace.name)
+                        } icon: {
+                            RoundedRectangle(cornerRadius: 3, style: .continuous)
+                                .fill(workspace.color.color)
+                                .frame(width: 11, height: 11)
+                        }
+                        .badge(workspace.entries.count)
+                        .tag(SidebarSelection.workspace(workspace.id))
+                    }
+                    Button {
+                        isCreatingWorkspace = true
+                    } label: {
+                        Label("New Workspace", systemImage: "plus")
+                            .foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+
             Section("Favorites") {
                 ForEach(sidebar.favorites.filter { visibility.shows($0.key) }) { item in
                     Label(item.title, systemImage: item.symbolName)
@@ -23,6 +48,11 @@ struct SidebarView: View {
             }
         }
         .listStyle(.sidebar)
+        .sheet(isPresented: $isCreatingWorkspace) {
+            WorkspaceEditorSheet(workspace: nil) { id in
+                selection = .workspace(id)
+            }
+        }
         .safeAreaInset(edge: .top, spacing: 0) {
             BrandHeader()
         }
