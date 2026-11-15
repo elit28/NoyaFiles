@@ -77,6 +77,8 @@ final class WindowModel {
         case "freeUpSpace": destination = .tool(.freeUpSpace)
         case "developer": destination = .tool(.developer)
         case "assistant": destination = .tool(.assistant)
+        case "workspace":
+            if let first = WorkspaceStore.shared.workspaces.first { destination = .workspace(first.id) }
         case "search": openSearch()
         default: break
         }

@@ -166,6 +166,7 @@ private struct AssistantFileRow: View {
                     Text(file.name)
                         .lineLimit(1)
                         .truncationMode(.middle)
+                        .layoutPriority(file.proposedFileName == nil ? 1 : 0)
                         .strikethrough(file.proposedFileName != nil, color: .secondary)
                         .foregroundStyle(file.proposedFileName != nil ? HierarchicalShapeStyle.secondary : .primary)
                     if let proposed = file.proposedFileName {
@@ -176,6 +177,7 @@ private struct AssistantFileRow: View {
                             .fontWeight(.medium)
                             .lineLimit(1)
                             .truncationMode(.middle)
+                            .layoutPriority(1)
                     }
                 }
                 Text(file.proposedFileName == nil ? file.place : String(localized: "\(file.place) · name proposed from the content"))

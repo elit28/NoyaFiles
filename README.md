@@ -10,37 +10,39 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 
 ## État du projet
 
-🚧 **En développement actif.** Aucune version publique stable n'est encore disponible.
+🚧 **En développement actif.** Pas encore de version stable publiée, mais une image disque de test est produite à chaque compilation (voir [Téléchargement](#téléchargement)).
 
-## Fonctionnalités prévues
+## Fonctionnalités
 
-- [ ] Interface macOS native et élégante
-- [ ] Affichage en liste, en grille et en colonnes
-- [ ] Organisation intelligente des fichiers
-- [ ] Gestion des téléchargements
-- [ ] Espaces de travail et collections personnalisés
-- [ ] Analyse de l'espace de stockage et outils de nettoyage
-- [ ] Navigation à double volet
-- [ ] Recherche avancée
-- [ ] Intégration de Coup d'œil (Quick Look)
-- [ ] Outils pour développeurs
-- [ ] Fonctionnalités optionnelles basées sur l'IA
-- [ ] Thèmes sombre et clair
-- [ ] Interface en anglais et en français
+À chaque compilation, l'app est lancée sur macOS 15 et sur macOS 26, en français et en anglais, en thème clair et sombre, et chaque écran ci-dessous est capturé. Les cases cochées sont vérifiées de cette façon ; les autres sont codées mais restent à valider à la main sur un Mac.
 
-Les fonctionnalités ci-dessus sont prévues ; chacune sera indiquée comme disponible une fois implémentée et testée.
+- [x] Interface macOS native, thème clair ou sombre selon le système ou au choix, couleur d'accent
+- [x] Affichage en grille par type, en liste et en colonnes, groupement par type ou par date
+- [x] Taille de chaque dossier et panneau Analyse : ce qui occupe l'espace, suggestions de nettoyage
+- [x] Navigation à double volet : copier (F5), déplacer (F6), comparer les deux dossiers
+- [x] Espaces de travail et collections, avec règles intelligentes qui y rassemblent des fichiers
+- [x] Recherche avancée : noms et contenu des documents, filtres, recherches enregistrées
+- [x] Libérer de l'espace : gros fichiers, caches de développement, doublons, installateurs, Corbeille
+- [x] Ranger les téléchargements, avec aperçu avant chaque déplacement
+- [x] Outils pour développeurs : dépôts Git, branches, modifications, caches, terminal intégré
+- [x] Assistant IA facultatif et local : trouver, rassembler, renommer d'après le contenu (Apple Intelligence sur macOS 26)
+- [x] Premier lancement guidé : accès au disque, langue, présentation, favoris
+- [x] Interface en français et en anglais
+- [ ] Coup d'œil (Quick Look) avec la barre d'espace
+- [ ] Annulation après la mise à la Corbeille, nouveau dossier (⇧⌘N), « Ouvrir avec »
+- [ ] Avertissement à chaque nouveau téléchargement
 
 ## Téléchargement
 
 Les versions officielles pour macOS seront publiées dans les [versions GitHub du projet](https://github.com/elit28/NoyaFiles/releases) dès qu'elles seront disponibles.
 
-En attendant, chaque compilation automatique produit une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS**.
+En attendant, chaque compilation automatique produit une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS**. L'app fonctionne sur macOS 14 Sonoma et plus récent, sur Apple silicon comme sur Intel.
 
 Tant que l'app n'est pas signée avec un certificat Apple Developer ID, macOS affiche un avertissement au premier lancement. Pour l'ouvrir quand même : glissez **NOYA Files** dans **Applications**, lancez-la une fois, puis ouvrez **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.
 
 ## Compiler depuis les sources
 
-Prérequis : macOS 14 Sonoma ou plus récent, et Xcode 16 ou plus récent.
+Prérequis : macOS 14 Sonoma ou plus récent, et Xcode 16 ou plus récent. Avec Xcode 26, l'assistant peut en plus utiliser Apple Intelligence sur les Mac sous macOS 26 ; avec Xcode 16, il se contente de règles locales.
 
 1. Ouvrez `NoyaFiles.xcodeproj` dans Xcode.
 2. Choisissez le schéma **NoyaFiles**, puis lancez l'app avec ⌘R. Les tests se lancent avec ⌘U.
@@ -63,7 +65,7 @@ Le premier script produit `dist/NOYA Files.app`, une app universelle pour Apple 
 | --- | --- |
 | `NoyaFiles/` | L'app SwiftUI : modèle, vues, ressources et traductions. Tout fichier ajouté ici est inclus automatiquement dans le projet Xcode. |
 | `Packages/NoyaCore/` | La logique indépendante de l'interface (lecture des dossiers, catégories, tailles, suggestions) et ses tests. Elle compile aussi sous Linux. |
-| `scripts/` | Compilation, création du `.dmg` et vérification des traductions. |
+| `scripts/` | Compilation, création du `.dmg`, vérification des traductions et, dans `scripts/ci/`, les données de démonstration et les captures automatiques. |
 | `.github/workflows/` | Compilation et tests automatiques, publication des versions. |
 | `Design/` | Sources graphiques, dont l'icône de l'app. |
 
@@ -82,7 +84,7 @@ Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt 
 
 ## Confidentialité
 
-NOYA Files privilégie le traitement local de vos fichiers et vous en laisse le contrôle.
+Tout se passe sur votre Mac : pas de compte, pas de statistiques, aucun fichier envoyé sur Internet. L'assistant IA est désactivé par défaut ; une fois activé, il traite vos demandes et vos fichiers sur le Mac (Apple Intelligence quand il est disponible), propose un plan et ne change rien sans votre accord.
 
 ## Contribuer
 

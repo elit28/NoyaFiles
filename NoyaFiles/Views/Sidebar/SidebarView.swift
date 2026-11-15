@@ -13,6 +13,19 @@ struct SidebarView: View {
     private let developer = DeveloperModel.shared
 
     var body: some View {
+        // The header and the disk stay put while the list scrolls between them.
+        VStack(spacing: 0) {
+            BrandHeader()
+            list
+            if visibility.shows("disk") {
+                Divider()
+                    .padding(.horizontal, 12)
+                DiskUsageFooter(disk: sidebar.disk)
+            }
+        }
+    }
+
+    private var list: some View {
         List(selection: $selection) {
             if visibility.shows("workspaces") {
                 Section("Workspaces") {
@@ -114,14 +127,6 @@ struct SidebarView: View {
         .sheet(isPresented: $isCreatingWorkspace) {
             WorkspaceEditorSheet(workspace: nil) { id in
                 selection = .workspace(id)
-            }
-        }
-        .safeAreaInset(edge: .top, spacing: 0) {
-            BrandHeader()
-        }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            if visibility.shows("disk") {
-                DiskUsageFooter(disk: sidebar.disk)
             }
         }
         .task(id: visibility.shows("developer") && visibility.shows("repositories")) {

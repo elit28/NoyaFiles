@@ -19,6 +19,7 @@ projects="$(dirname "$demo")/Developer"
 scripts/ci/make-demo-projects.sh "$projects"
 if [[ "${CI:-}" == "true" ]]; then
   python3 scripts/ci/make-demo-invoices.py "$HOME"
+  python3 scripts/ci/make-demo-workspaces.py "$HOME"
   # Asks Spotlight to index them now rather than in a few minutes.
   find "$HOME/Downloads" "$HOME/Documents/Administratif" -name "*.pdf" -exec mdimport {} \; 2>/dev/null || true
 fi
@@ -55,6 +56,7 @@ run columns-dark dark -browser.viewMode columns -AppleLanguages "(fr)"
 run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"
 run space-dark dark -noya.startDestination freeUpSpace -AppleLanguages "(fr)"
 run tidy-light light -noya.showTidy YES -AppleLanguages "(fr)"
+run workspace-dark dark -noya.startDestination workspace -AppleLanguages "(fr)"
 run search-light light -noya.startDestination search -AppleLanguages "(fr)"
 run developer-dark dark -noya.startDestination developer -developer.root "$projects" -AppleLanguages "(fr)"
 run assistant-light light -noya.startDestination assistant -assistant.enabled YES -developer.root "$projects" \
