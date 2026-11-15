@@ -162,29 +162,34 @@ private struct AssistantFileRow: View {
                 .resizable()
                 .frame(width: 30, height: 30)
             VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: 6) {
-                    Text(file.name)
-                        .lineLimit(1)
-                        .truncationMode(.middle)
-                        .frame(minWidth: file.proposedFileName == nil ? nil : 96, alignment: .leading)
-                        .layoutPriority(file.proposedFileName == nil ? 1 : 0)
-                        .strikethrough(file.proposedFileName != nil, color: .secondary)
-                        .foregroundStyle(file.proposedFileName != nil ? HierarchicalShapeStyle.secondary : .primary)
-                    if let proposed = file.proposedFileName {
-                        Image(systemName: "arrow.right")
+                if let proposed = file.proposedFileName {
+                    // The proposed name in full, with the current one crossed out below it.
+                    HStack(spacing: 5) {
+                        Image(systemName: "sparkles")
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.tint)
                         Text(proposed)
                             .fontWeight(.medium)
                             .lineLimit(1)
                             .truncationMode(.middle)
-                            .layoutPriority(1)
                     }
+                    .help("Name proposed from the content")
+                    let currentName = Text(file.name).strikethrough()
+                    let place = file.place
+                    Text("\(currentName) · \(place)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                } else {
+                    Text(file.name)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                    Text(file.place)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
-                Text(file.proposedFileName == nil ? file.place : String(localized: "\(file.place) · name proposed from the content"))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
             }
             Spacer(minLength: 8)
             if let workspace {

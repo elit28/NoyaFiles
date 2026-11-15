@@ -81,6 +81,16 @@
         }
       }
     },
+    "%@ · %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    },
     "%@ · name proposed from the content": {
       "localizations": {
         "fr": {
@@ -4787,6 +4797,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nom"
+          }
+        }
+      }
+    },
+    "Name proposed from the content": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom proposé d'après le contenu"
           }
         }
       }
