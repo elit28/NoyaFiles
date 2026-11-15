@@ -22,6 +22,11 @@ struct NoyaFilesApp: App {
     }
 }
 
+extension EnvironmentValues {
+    /// Opens the Downloads tidy-up of the current window.
+    @Entry var tidyUp: @MainActor () -> Void = {}
+}
+
 extension FocusedValues {
     /// The browser of the window that has keyboard focus, so menu commands can act on it.
     @Entry var browserModel: BrowserModel?

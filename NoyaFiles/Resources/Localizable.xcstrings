@@ -11,6 +11,16 @@
         }
       }
     },
+    "%@ available of %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ disponibles sur %2$@"
+          }
+        }
+      }
+    },
     "%@ file": {
       "localizations": {
         "fr": {
@@ -37,6 +47,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ dans %2$@"
+          }
+        }
+      }
+    },
+    "%@ is already installed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ est déjà installé"
+          }
+        }
+      }
+    },
+    "%@ · never opened": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · jamais ouvert"
+          }
+        }
+      }
+    },
+    "%@ · opened %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · ouvert %2$@"
           }
         }
       }
@@ -287,6 +327,126 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$lld éléments venant de %2$lld dossiers"
+          }
+        }
+      }
+    },
+    "%lld items in the Trash": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item in the Trash"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items in the Trash"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld élément dans la Corbeille"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld éléments dans la Corbeille"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items left": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item left"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items left"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld élément restant"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld éléments restants"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld items moved to the Trash": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld item moved to the Trash"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld items moved to the Trash"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld élément placé dans la Corbeille"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld éléments placés dans la Corbeille"
+                }
+              }
+            }
           }
         }
       }
@@ -621,6 +781,16 @@
         }
       }
     },
+    "After Tidying": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Après rangement"
+          }
+        }
+      }
+    },
     "All %@": {
       "localizations": {
         "fr": {
@@ -647,6 +817,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Autorisé"
+          }
+        }
+      }
+    },
+    "Already in Applications: %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déjà dans Applications : %@."
           }
         }
       }
@@ -761,6 +941,16 @@
         }
       }
     },
+    "Archive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archive"
+          }
+        }
+      }
+    },
     "Archives": {
       "localizations": {
         "fr": {
@@ -827,6 +1017,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Audio"
+          }
+        }
+      }
+    },
+    "Available": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disponible"
           }
         }
       }
@@ -931,6 +1131,36 @@
         }
       }
     },
+    "Choose": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir"
+          }
+        }
+      }
+    },
+    "Choose another folder": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir un autre dossier"
+          }
+        }
+      }
+    },
+    "Choose…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir…"
+          }
+        }
+      }
+    },
     "Clear": {
       "localizations": {
         "fr": {
@@ -947,6 +1177,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Clients, devis et factures"
+          }
+        }
+      }
+    },
+    "CocoaPods cache": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache CocoaPods"
           }
         }
       }
@@ -1261,6 +1501,26 @@
         }
       }
     },
+    "Detailed Preview…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aperçu détaillé…"
+          }
+        }
+      }
+    },
+    "Development": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Développement"
+          }
+        }
+      }
+    },
     "Dimensions": {
       "localizations": {
         "fr": {
@@ -1327,6 +1587,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Documents"
+          }
+        }
+      }
+    },
+    "Downloaded": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargées"
           }
         }
       }
@@ -1421,12 +1691,52 @@
         }
       }
     },
+    "Empty the Trash?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vider la Corbeille ?"
+          }
+        }
+      }
+    },
+    "Empty Trash": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vider la Corbeille"
+          }
+        }
+      }
+    },
+    "Empty Trash…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vider la Corbeille…"
+          }
+        }
+      }
+    },
     "Enclosing Folder": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Dossier parent"
+          }
+        }
+      }
+    },
+    "Everything goes to the Trash: nothing is deleted for good.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout part dans la Corbeille : rien n'est supprimé définitivement."
           }
         }
       }
@@ -1447,6 +1757,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Favoris"
+          }
+        }
+      }
+    },
+    "Files put back where they were": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fichiers remis à leur place"
           }
         }
       }
@@ -1531,6 +1851,16 @@
         }
       }
     },
+    "Free Up Space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libérer de l'espace"
+          }
+        }
+      }
+    },
     "Freelance": {
       "localizations": {
         "fr": {
@@ -1587,6 +1917,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aller au dossier…"
+          }
+        }
+      }
+    },
+    "Gradle cache": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache Gradle"
           }
         }
       }
@@ -1651,6 +1991,16 @@
         }
       }
     },
+    "Hide Details": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer le détail"
+          }
+        }
+      }
+    },
     "Hide Dual Pane": {
       "localizations": {
         "fr": {
@@ -1697,6 +2047,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Départ"
+          }
+        }
+      }
+    },
+    "Homebrew downloads": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargements Homebrew"
           }
         }
       }
@@ -1761,6 +2121,16 @@
         }
       }
     },
+    "Installers already installed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installateurs déjà installés"
+          }
+        }
+      }
+    },
     "Into": {
       "localizations": {
         "fr": {
@@ -1811,12 +2181,32 @@
         }
       }
     },
+    "Keep only the most recent copy of each duplicate?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder seulement la copie la plus récente de chaque doublon ?"
+          }
+        }
+      }
+    },
     "Keep the Most Recent": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Garder le plus récent"
+          }
+        }
+      }
+    },
+    "Keep the Most Recent of Each…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder le plus récent de chacun…"
           }
         }
       }
@@ -1911,6 +2301,16 @@
         }
       }
     },
+    "Looking at your Downloads folder…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examen de votre dossier Téléchargements…"
+          }
+        }
+      }
+    },
     "Looking for duplicates…": {
       "localizations": {
         "fr": {
@@ -1937,6 +2337,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Courriels"
+          }
+        }
+      }
+    },
+    "Measuring…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mesure en cours…"
           }
         }
       }
@@ -2067,6 +2477,56 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Move %lld items to the Trash?": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld item to the Trash?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld items to the Trash?"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld élément dans la Corbeille ?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld éléments dans la Corbeille ?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Move Copies to Trash": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Placer les copies dans la Corbeille"
           }
         }
       }
@@ -2291,6 +2751,16 @@
         }
       }
     },
+    "No duplicates in Downloads, Desktop or Documents.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun doublon dans Téléchargements, Bureau ou Documents."
+          }
+        }
+      }
+    },
     "No extension": {
       "localizations": {
         "fr": {
@@ -2411,12 +2881,42 @@
         }
       }
     },
+    "NOYA Files needs Full Disk Access to look inside the Trash.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOYA Files a besoin de l'accès complet au disque pour regarder dans la Corbeille."
+          }
+        }
+      }
+    },
+    "NOYA Files suggests putting away %lld of %lld loose files. Nothing moves until you confirm, and you can undo it afterwards.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOYA Files propose de ranger %1$lld des %2$lld fichiers en vrac. Rien ne bouge avant votre confirmation, et vous pourrez tout annuler ensuite."
+          }
+        }
+      }
+    },
     "NOYA Files works entirely on this Mac. It has no account and sends none of your files anywhere.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "NOYA Files fonctionne entièrement sur ce Mac. Il n'a pas de compte et n'envoie aucun de vos fichiers."
+          }
+        }
+      }
+    },
+    "npm cache": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache npm"
           }
         }
       }
@@ -2621,6 +3121,16 @@
         }
       }
     },
+    "Photos and videos": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photos et vidéos"
+          }
+        }
+      }
+    },
     "Pictures": {
       "localizations": {
         "fr": {
@@ -2657,6 +3167,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Épinglés"
+          }
+        }
+      }
+    },
+    "pip cache": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache pip"
           }
         }
       }
@@ -2721,12 +3241,32 @@
         }
       }
     },
+    "Rebuilt automatically the next time you build": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recréé automatiquement à la prochaine compilation"
+          }
+        }
+      }
+    },
     "Refresh": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Actualiser"
+          }
+        }
+      }
+    },
+    "Reinstalled with npm install": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se réinstalle avec npm install"
           }
         }
       }
@@ -2811,6 +3351,16 @@
         }
       }
     },
+    "Rules": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Règles"
+          }
+        }
+      }
+    },
     "Same contents, different names, such as “%@” and “%@”.": {
       "localizations": {
         "fr": {
@@ -2837,6 +3387,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enregistrer la recherche…"
+          }
+        }
+      }
+    },
+    "Scan Again": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Relancer l'analyse"
+          }
+        }
+      }
+    },
+    "Scan the disk again": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analyser le disque à nouveau"
+          }
+        }
+      }
+    },
+    "Scanned %@ · %@ can be freed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analysé %1$@ · %2$@ récupérables"
+          }
+        }
+      }
+    },
+    "Scanning your Mac… Results appear as they are found.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analyse de votre Mac… Les résultats s'affichent au fur et à mesure."
           }
         }
       }
@@ -2917,6 +3507,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sélectionnez des éléments pour les copier ou les déplacer."
+          }
+        }
+      }
+    },
+    "Selection: %lld items · %@": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Selection: %lld item · %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Selection: %lld items · %@"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sélection : %lld élément · %@"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sélection : %lld éléments · %@"
+                }
+              }
+            }
           }
         }
       }
@@ -3051,6 +3681,26 @@
         }
       }
     },
+    "Show the preview before tidying": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Montrer l'aperçu avant de ranger"
+          }
+        }
+      }
+    },
+    "Show this preview each time": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me montrer cet aperçu à chaque fois"
+          }
+        }
+      }
+    },
     "Show two folders side by side": {
       "localizations": {
         "fr": {
@@ -3067,6 +3717,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Barre latérale"
+          }
+        }
+      }
+    },
+    "Simulator caches": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caches du simulateur"
           }
         }
       }
@@ -3181,6 +3841,16 @@
         }
       }
     },
+    "System and other": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Système et autres"
+          }
+        }
+      }
+    },
     "System Language": {
       "localizations": {
         "fr": {
@@ -3251,12 +3921,32 @@
         }
       }
     },
+    "The items in the Trash will be deleted for good. This cannot be undone.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les éléments de la Corbeille seront supprimés définitivement. C'est irréversible."
+          }
+        }
+      }
+    },
     "The most recent copy of each file is kept. This frees %@.": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "La copie la plus récente de chaque fichier est gardée. Cela libère %@."
+          }
+        }
+      }
+    },
+    "The Trash is empty.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La Corbeille est vide."
           }
         }
       }
@@ -3401,12 +4091,152 @@
         }
       }
     },
+    "Tidy Up %lld Files": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Tidy Up %lld File"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Tidy Up %lld Files"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ranger %lld fichier"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ranger %lld fichiers"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Tidy up automatically every week": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ranger automatiquement chaque semaine"
+          }
+        }
+      }
+    },
+    "Tidy Up Downloads": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ranger les téléchargements"
+          }
+        }
+      }
+    },
+    "Tidy up Downloads automatically every week": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ranger les téléchargements automatiquement chaque semaine"
+          }
+        }
+      }
+    },
+    "Tidy Up Downloads…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ranger les téléchargements…"
+          }
+        }
+      }
+    },
+    "Tidy-up done: %lld files put away": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Tidy-up done: %lld file put away"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Tidy-up done: %lld files put away"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Rangement terminé : %lld fichier rangé"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Rangement terminé : %lld fichiers rangés"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Tidying": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rangement"
+          }
+        }
+      }
+    },
     "Today": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Aujourd'hui"
+          }
+        }
+      }
+    },
+    "Tools": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Outils"
           }
         }
       }
@@ -3441,12 +4271,32 @@
         }
       }
     },
+    "Undo": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler"
+          }
+        }
+      }
+    },
     "Unpin": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Désépingler"
+          }
+        }
+      }
+    },
+    "Untouched for 90 days": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inactifs depuis 90 jours"
           }
         }
       }
@@ -3551,12 +4401,32 @@
         }
       }
     },
+    "Yarn cache": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cache Yarn"
+          }
+        }
+      }
+    },
     "Yesterday": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "Hier"
+          }
+        }
+      }
+    },
+    "You can still recover them from the Trash until you empty it.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous pouvez encore les récupérer dans la Corbeille tant que vous ne la videz pas."
           }
         }
       }

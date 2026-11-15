@@ -4,6 +4,7 @@ import SwiftUI
 struct SidebarView: View {
     let sidebar: SidebarModel
     @Binding var selection: SidebarSelection?
+    var tidyUp: () -> Void = {}
     @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
     @Environment(WorkspaceStore.self) private var workspaces
     @Environment(SavedSearchStore.self) private var savedSearches
@@ -52,6 +53,21 @@ struct SidebarView: View {
                 ForEach(sidebar.favorites.filter { visibility.shows($0.key) }) { item in
                     Label(item.title, systemImage: item.symbolName)
                         .tag(SidebarSelection.folder(item.url))
+                }
+            }
+
+            if visibility.shows("tools") {
+                Section("Tools") {
+                    Label {
+                        Text("Free Up Space")
+                    } icon: {
+                        Image(systemName: "gauge.with.dots.needle.33percent")
+                    }
+                    .tag(SidebarSelection.tool(.freeUpSpace))
+                    Button(action: tidyUp) {
+                        Label("Tidy Up Downloads", systemImage: "tray.and.arrow.down")
+                    }
+                    .buttonStyle(.plain)
                 }
             }
 

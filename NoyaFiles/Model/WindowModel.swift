@@ -2,10 +2,16 @@ import Foundation
 import Observation
 
 /// What the main area of a window shows.
+/// A tool with its own screen in the main area.
+enum Tool: String, Hashable, CaseIterable {
+    case freeUpSpace
+}
+
 enum Destination: Hashable {
     case browser
     case workspace(UUID)
     case search
+    case tool(Tool)
 }
 
 /// What a sidebar row leads to.
@@ -14,6 +20,7 @@ enum SidebarSelection: Hashable {
     case workspace(UUID)
     case search
     case savedSearch(UUID)
+    case tool(Tool)
 }
 
 enum Pane: Hashable {
@@ -33,6 +40,7 @@ final class WindowModel {
     private(set) var savedSearchID: UUID?
     var destination: Destination = .browser
     var activePane: Pane = .primary
+    var isTidyPresented = false
 
     var isDualPane = false {
         didSet {
@@ -60,6 +68,12 @@ final class WindowModel {
             isDualPane = true
             secondary = BrowserModel(startingAt: .documentsDirectory, persistsLocation: false)
         }
+        // A launch argument used by the automated screenshots, such as `-noya.startDestination search`.
+        switch UserDefaults.standard.string(forKey: "noya.startDestination") {
+        case "freeUpSpace": destination = .tool(.freeUpSpace)
+        case "search": openSearch()
+        default: break
+        }
     }
 
     /// The browser that menu commands and the sidebar act on.
@@ -81,6 +95,7 @@ final class WindowModel {
             case .browser: .folder(activeBrowser.location.url)
             case .workspace(let id): .workspace(id)
             case .search: savedSearchID.map { .savedSearch($0) } ?? .search
+            case .tool(let tool): .tool(tool)
             }
         }
         set {
@@ -94,6 +109,8 @@ final class WindowModel {
                 openSearch()
             case .savedSearch(let id)?:
                 openSearch(saved: SavedSearchStore.shared.search(id))
+            case .tool(let tool)?:
+                destination = .tool(tool)
             case nil:
                 break
             }

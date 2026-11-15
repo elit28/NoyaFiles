@@ -4,6 +4,7 @@ import SwiftUI
 /// The right-hand panel: how much space the folder takes, what takes it, and what could go.
 struct InsightsPanel: View {
     @Bindable var model: BrowserModel
+    @Environment(\.tidyUp) private var tidyUp
 
     private let maxEntries = 6
 
@@ -14,6 +15,16 @@ struct InsightsPanel: View {
                 breakdown
                 hiddenItems
                 suggestions
+                if model.isDownloadsFolder {
+                    Button {
+                        tidyUp()
+                    } label: {
+                        Label("Tidy Up Downloads…", systemImage: "tray.and.arrow.down")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                }
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)

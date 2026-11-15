@@ -5,6 +5,7 @@ enum SettingsSection: String, CaseIterable, Identifiable {
     case general
     case appearance
     case sidebar
+    case tidying
     case privacy
     case advanced
 
@@ -15,6 +16,7 @@ enum SettingsSection: String, CaseIterable, Identifiable {
         case .general: String(localized: "General")
         case .appearance: String(localized: "Appearance")
         case .sidebar: String(localized: "Sidebar")
+        case .tidying: String(localized: "Tidying")
         case .privacy: String(localized: "Privacy")
         case .advanced: String(localized: "Advanced")
         }
@@ -25,6 +27,7 @@ enum SettingsSection: String, CaseIterable, Identifiable {
         case .general: "gearshape"
         case .appearance: "circle.lefthalf.filled"
         case .sidebar: "sidebar.left"
+        case .tidying: "tray.and.arrow.down"
         case .privacy: "hand.raised"
         case .advanced: "slider.horizontal.3"
         }
@@ -50,6 +53,7 @@ struct SettingsView: View {
                 case .general: GeneralSettings()
                 case .appearance: AppearanceSettings()
                 case .sidebar: SidebarSettings()
+                case .tidying: TidySettings()
                 case .privacy: PrivacySettings()
                 case .advanced: AdvancedSettings()
                 }
@@ -226,6 +230,7 @@ private struct SidebarSettings: View {
 
     private let sections = [
         Entry(id: "workspaces", title: "Workspaces"),
+        Entry(id: "tools", title: "Tools"),
     ]
 
     private let favorites = [
@@ -333,5 +338,53 @@ private struct AdvancedSettings: View {
         } message: {
             Text("NOYA Files goes back to how it was on first launch.")
         }
+    }
+}
+
+private struct TidySettings: View {
+    @Bindable private var tidy = TidyController.shared
+
+    var body: some View {
+        Form {
+            Section {
+                Toggle("Tidy up Downloads automatically every week", isOn: $tidy.tidiesWeekly)
+                Toggle("Show the preview before tidying", isOn: $tidy.showsPreview)
+                    .disabled(!tidy.tidiesWeekly)
+            }
+            Section("Rules") {
+                ForEach(tidy.rules) { rule in
+                    LabeledContent {
+                        HStack {
+                            if let destination = rule.destination {
+                                Text(SearchScreen.folderTitle(destination))
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(1)
+                                    .truncationMode(.head)
+                                Button("Choose…") { choose(for: rule) }
+                            } else {
+                                Text("Trash")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    } label: {
+                        Toggle(rule.kind.title, isOn: Binding(
+                            get: { rule.isEnabled },
+                            set: { tidy.setRule(rule.kind, enabled: $0) }
+                        ))
+                    }
+                }
+            }
+        }
+    }
+
+    private func choose(for rule: TidyRule) {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.canCreateDirectories = true
+        panel.directoryURL = rule.destination
+        panel.prompt = String(localized: "Choose")
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+        tidy.setDestination(url, for: rule.kind)
     }
 }

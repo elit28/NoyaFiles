@@ -13,6 +13,9 @@ struct BrowserCommands: Commands {
             Button("Find…") { window?.openSearch() }
                 .keyboardShortcut("f")
                 .disabled(window == nil)
+            Button("Tidy Up Downloads…") { window?.isTidyPresented = true }
+                .keyboardShortcut("t", modifiers: [.command, .option])
+                .disabled(window == nil)
             Button("Open") { openSelection() }
                 .keyboardShortcut("o")
                 .disabled(!hasSelection)

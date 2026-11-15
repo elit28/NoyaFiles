@@ -39,3 +39,5 @@ run grid-dark dark -browser.viewMode grid -browser.grouping kind -AppleLanguages
 run list-dark dark -browser.viewMode list -browser.grouping kind -AppleLanguages "(en)"
 run columns-dark dark -browser.viewMode columns -AppleLanguages "(fr)"
 run dualpane-light light -window.dualPane YES -AppleLanguages "(fr)"
+run space-dark dark -noya.startDestination freeUpSpace -AppleLanguages "(fr)"
+run search-light light -noya.startDestination search -AppleLanguages "(fr)"
