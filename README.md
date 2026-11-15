@@ -1,58 +1,60 @@
 # NOYA Files
 
-**A smarter home for your files.**
+**Français** · [English](README.en.md)
 
-NOYA Files is an open-source, native macOS file manager built with SwiftUI and AppKit.
+**Un chez-soi plus intelligent pour vos fichiers.**
 
-Our mission is to make file management more beautiful, intuitive, powerful and efficient.
+NOYA Files est un gestionnaire de fichiers libre et open source, natif pour macOS, développé avec SwiftUI et AppKit.
 
-## Project status
+Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus puissante et plus efficace.
 
-🚧 **Under active development.** No stable public release is available yet.
+## État du projet
 
-## Planned features
+🚧 **En développement actif.** Aucune version publique stable n'est encore disponible.
 
-- [ ] Beautiful native macOS interface
-- [ ] List, grid and column views
-- [ ] Intelligent file organization
-- [ ] Downloads management
-- [ ] Custom workspaces and collections
-- [ ] Storage insights and cleanup tools
-- [ ] Dual-pane navigation
-- [ ] Advanced search
-- [ ] Quick Look integration
-- [ ] Developer tools
-- [ ] Optional AI-powered features
-- [ ] Dark and light themes
-- [ ] English and French localization
+## Fonctionnalités prévues
 
-Features listed above are planned and will be marked as available when implemented and tested.
+- [ ] Interface macOS native et élégante
+- [ ] Affichage en liste, en grille et en colonnes
+- [ ] Organisation intelligente des fichiers
+- [ ] Gestion des téléchargements
+- [ ] Espaces de travail et collections personnalisés
+- [ ] Analyse de l'espace de stockage et outils de nettoyage
+- [ ] Navigation à double volet
+- [ ] Recherche avancée
+- [ ] Intégration de Coup d'œil (Quick Look)
+- [ ] Outils pour développeurs
+- [ ] Fonctionnalités optionnelles basées sur l'IA
+- [ ] Thèmes sombre et clair
+- [ ] Interface en anglais et en français
 
-## Download
+Les fonctionnalités ci-dessus sont prévues ; chacune sera indiquée comme disponible une fois implémentée et testée.
 
-Official macOS builds will be published in [GitHub Releases](https://github.com/elit28/NoyaFiles/releases) when available.
+## Téléchargement
 
-## Technology
+Les versions officielles pour macOS seront publiées dans les [versions GitHub du projet](https://github.com/elit28/NoyaFiles/releases) dès qu'elles seront disponibles.
+
+## Technologies
 
 - Swift 6
 - SwiftUI
 - AppKit
-- Native macOS frameworks
+- Frameworks natifs de macOS
 
-## Privacy
+## Confidentialité
 
-NOYA Files is designed around local-first processing and user control.
+NOYA Files privilégie le traitement local de vos fichiers et vous en laisse le contrôle.
 
-## Contributing
+## Contribuer
 
-Contributions, bug reports and feature suggestions are welcome.
+Les contributions, les signalements de bogues et les suggestions de fonctionnalités sont les bienvenus.
 
-## License
+## Licence
 
-NOYA Files is licensed under the [GNU General Public License v3.0 or later](LICENSE).
+NOYA Files est distribué sous la [licence publique générale GNU (GPL), version 3 ou toute version ultérieure](LICENSE).
 
-## Credits
+## Crédits
 
-Developed by NOYA 360.
+Développé par NOYA 360.
 
-NOYA Files is an independent project and is not affiliated with FileOS or Apple.
+NOYA Files est un projet indépendant, sans aucun lien avec FileOS ni avec Apple.
