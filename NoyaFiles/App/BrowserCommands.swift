@@ -18,6 +18,9 @@ struct BrowserCommands: Commands {
             Button("Copy Path") { model?.copyPaths(model?.selection ?? []) }
                 .keyboardShortcut("c", modifiers: [.command, .option])
                 .disabled(!hasSelection)
+            Button("Quick Look") { model?.toggleQuickLook() }
+                .keyboardShortcut("y")
+                .disabled(!hasSelection)
             Divider()
             Button("Move to Trash") { moveSelectionToTrash() }
                 .keyboardShortcut(.delete, modifiers: .command)
@@ -31,6 +34,9 @@ struct BrowserCommands: Commands {
                 .disabled(model == nil)
             Button("as Grid") { model?.viewMode = .grid }
                 .keyboardShortcut("2")
+                .disabled(model == nil)
+            Button("as Columns") { model?.viewMode = .columns }
+                .keyboardShortcut("3")
                 .disabled(model == nil)
             Divider()
             Button(insightsTitle) { model?.isInsightsVisible.toggle() }

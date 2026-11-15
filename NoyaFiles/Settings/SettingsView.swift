@@ -83,6 +83,7 @@ private struct GeneralSettings: View {
                 Picker("Default view", selection: $viewMode) {
                     Text("Grid").tag(ViewMode.grid)
                     Text("List").tag(ViewMode.list)
+                    Text("Columns").tag(ViewMode.columns)
                 }
                 Picker("Group by default", selection: $grouping) {
                     ForEach(GroupingMode.allCases) { mode in

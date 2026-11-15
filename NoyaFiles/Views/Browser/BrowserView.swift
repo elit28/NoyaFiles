@@ -35,6 +35,8 @@ struct BrowserView: View {
                     FileListView(model: model)
                 case .grid:
                     FileGridView(model: model)
+                case .columns:
+                    ColumnBrowserView(model: model)
                 }
             }
         }

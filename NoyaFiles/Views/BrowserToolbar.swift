@@ -59,6 +59,7 @@ struct BrowserToolbar: ToolbarContent {
             Picker("View", selection: $model.viewMode) {
                 Label("List", systemImage: "list.bullet").tag(ViewMode.list)
                 Label("Grid", systemImage: "square.grid.2x2").tag(ViewMode.grid)
+                Label("Columns", systemImage: "rectangle.split.3x1").tag(ViewMode.columns)
             }
             .pickerStyle(.segmented)
             .labelStyle(.iconOnly)

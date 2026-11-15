@@ -12,6 +12,10 @@ struct FileContextMenu: View {
         } else {
             Button("Open") { model.open(ids) }
             if !model.items(for: ids).isEmpty {
+                Button("Quick Look") {
+                    model.selection = ids
+                    model.toggleQuickLook()
+                }
                 Button("Show in Finder") { model.revealInFinder(ids) }
                 Button("Copy Path") { model.copyPaths(ids) }
                 Divider()

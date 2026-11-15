@@ -35,6 +35,12 @@ final class BrowserModel {
     private(set) var insights = FolderInsights(items: [], measurements: [:], includeHidden: false)
     private(set) var suggestions: [CleanupSuggestion] = []
     private(set) var visibleItemCount = 0
+    /// The items currently shown, after the scope and the filter.
+    private(set) var shownItems: [FileItem] = []
+    /// Files in the order they are displayed, for Quick Look's previous and next.
+    private(set) var displayedFileURLs: [URL] = []
+    private(set) var duplicateGroups: [[FileItem]] = []
+    private(set) var isFindingDuplicates = false
 
     // MARK: - Presentation options
 
@@ -80,6 +86,9 @@ final class BrowserModel {
     var isGoToFolderPresented = false
     var errorMessage: String?
     var pendingTrash: PendingTrash?
+    var isDuplicatesSheetPresented = false
+    var quickLookURL: URL?
+    private(set) var quickLookList: [URL] = []
 
     // MARK: - Private state
 
@@ -92,6 +101,7 @@ final class BrowserModel {
     @ObservationIgnored private var refreshTask: Task<Void, Never>?
     @ObservationIgnored private var watcher: DirectoryWatcher?
     @ObservationIgnored private var defaultsObserver: (any NSObjectProtocol)?
+    @ObservationIgnored private var duplicatesTask: Task<Void, Never>?
 
     private static let maxConcurrentMeasurements = 4
 
@@ -211,6 +221,7 @@ final class BrowserModel {
             load(remeasureAll: true)
         }
         rebuild()
+        refreshDuplicates()
     }
 
     // MARK: - Loading
@@ -248,6 +259,7 @@ final class BrowserModel {
                 self.loadState = .loaded
                 self.availableCapacity = Self.availableCapacity(at: url)
                 self.rebuild()
+                self.refreshDuplicates()
                 self.measureContainers(in: items, remeasureAll: remeasureAll)
             case .failure(let error):
                 self.items = []
@@ -398,6 +410,7 @@ final class BrowserModel {
             shown = shown.filter { $0.name.localizedStandardContains(query) }
         }
         visibleItemCount = shown.count
+        shownItems = shown
 
         // Inside a category, grouping by kind would only produce a single group.
         let effectiveGrouping: GroupingMode =
@@ -422,6 +435,16 @@ final class BrowserModel {
         }
         addToIndex(rootNodes)
         nodesByID = index
+
+        var files: [URL] = []
+        func collectFiles(_ nodes: [BrowserNode]) {
+            for node in nodes {
+                if let item = node.item, !item.isFolder { files.append(item.url) }
+                if let children = node.children { collectFiles(children) }
+            }
+        }
+        collectFiles(rootNodes)
+        displayedFileURLs = files
 
         let validSelection = selection.filter { index[$0] != nil }
         if validSelection != selection { selection = validSelection }
@@ -484,15 +507,86 @@ final class BrowserModel {
     }
 
     func revealInFinder(_ ids: Set<BrowserNode.ID>) {
-        let urls = items(for: ids).map(\.url)
+        revealInFinder(urls: items(for: ids).map(\.url))
+    }
+
+    func revealInFinder(urls: [URL]) {
         NSWorkspace.shared.activateFileViewerSelecting(urls.isEmpty ? [location.url] : urls)
     }
 
     func copyPaths(_ ids: Set<BrowserNode.ID>) {
-        let paths = items(for: ids).map(\.url.path)
-        guard !paths.isEmpty else { return }
+        copyPaths(urls: items(for: ids).map(\.url))
+    }
+
+    func copyPaths(urls: [URL]) {
+        guard !urls.isEmpty else { return }
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(paths.joined(separator: "\n"), forType: .string)
+        NSPasteboard.general.setString(urls.map(\.path).joined(separator: "\n"), forType: .string)
+    }
+
+    /// Opens folders in the browser and everything else with its default app.
+    func open(urls: [URL]) {
+        if urls.count == 1, let url = urls.first,
+           (try? url.resourceValues(forKeys: [.isDirectoryKey, .isPackageKey])).map({ $0.isDirectory == true && $0.isPackage != true }) == true {
+            navigate(to: url)
+            return
+        }
+        for url in urls {
+            NSWorkspace.shared.open(url)
+        }
+    }
+
+    // MARK: - Quick Look
+
+    /// Shows or hides Quick Look for the selected files.
+    func toggleQuickLook() {
+        if quickLookURL != nil {
+            quickLookURL = nil
+            return
+        }
+        guard let first = selectedItems.first(where: { !$0.isFolder }) else { return }
+        quickLook(first.url, among: displayedFileURLs)
+    }
+
+    func quickLook(_ url: URL, among urls: [URL]) {
+        quickLookList = urls.contains(url) ? urls : [url] + urls
+        quickLookURL = url
+    }
+
+    // MARK: - Duplicates
+
+    /// Looks for identical files among those shown, when the browser is narrowed to one category.
+    private func refreshDuplicates() {
+        duplicatesTask?.cancel()
+        guard case .category = location.scope, loadState == .loaded else {
+            duplicateGroups = []
+            isFindingDuplicates = false
+            return
+        }
+        let candidates = shownItems
+        isFindingDuplicates = true
+        duplicatesTask = Task { [weak self] in
+            let groups = await Self.findDuplicates(in: candidates)
+            guard let self, !Task.isCancelled else { return }
+            self.duplicateGroups = groups
+            self.isFindingDuplicates = false
+        }
+    }
+
+    nonisolated private static func findDuplicates(in items: [FileItem]) async -> [[FileItem]] {
+        DuplicateFinder.duplicateGroups(in: items)
+    }
+
+    /// Asks for confirmation before trashing every copy but the most recent of each duplicate.
+    func requestTrashingDuplicates() {
+        let extras = DuplicateFinder.extraCopies(in: duplicateGroups)
+        guard !extras.isEmpty else { return }
+        let bytes = DuplicateFinder.reclaimableBytes(in: duplicateGroups)
+        pendingTrash = PendingTrash(
+            urls: extras.map(\.url),
+            title: String(localized: "Move \(extras.count) duplicates to the Trash?"),
+            message: String(localized: "The most recent copy of each file is kept. This frees \(bytes.formattedByteCount).")
+        )
     }
 
     /// Moves the items behind some nodes to the Trash, where the user can still recover them.

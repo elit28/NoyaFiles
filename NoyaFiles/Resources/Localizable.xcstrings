@@ -31,6 +31,56 @@
         }
       }
     },
+    "%@ in %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ dans %2$@"
+          }
+        }
+      }
+    },
+    "%lld duplicates": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld duplicate"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld duplicates"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld doublon"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld doublons"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld files": {
       "localizations": {
         "en": {
@@ -431,6 +481,16 @@
         }
       }
     },
+    "as Columns": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "par colonnes"
+          }
+        }
+      }
+    },
     "as Grid": {
       "localizations": {
         "fr": {
@@ -477,6 +537,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Précédent"
+          }
+        }
+      }
+    },
+    "By Format": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Par format"
           }
         }
       }
@@ -557,6 +627,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Code"
+          }
+        }
+      }
+    },
+    "Columns": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colonnes"
+          }
+        }
+      }
+    },
+    "Compare…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer…"
           }
         }
       }
@@ -741,6 +831,16 @@
         }
       }
     },
+    "Duplicates": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Doublons"
+          }
+        }
+      }
+    },
     "Duration": {
       "localizations": {
         "fr": {
@@ -777,6 +877,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Favoris"
+          }
+        }
+      }
+    },
+    "Files with exactly the same contents. The most recent copy of each is kept.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fichiers au contenu strictement identique. La copie la plus récente de chacun est gardée."
           }
         }
       }
@@ -1041,6 +1151,26 @@
         }
       }
     },
+    "Keep the Most Recent": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder le plus récent"
+          }
+        }
+      }
+    },
+    "Kept": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gardé"
+          }
+        }
+      }
+    },
     "Kind": {
       "localizations": {
         "fr": {
@@ -1111,6 +1241,16 @@
         }
       }
     },
+    "Looking for duplicates…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche des doublons…"
+          }
+        }
+      }
+    },
     "macOS needs your permission. Allow access when asked, or turn on Full Disk Access for NOYA Files in Privacy & Security settings.": {
       "localizations": {
         "fr": {
@@ -1147,6 +1287,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "Plus d'actions"
+          }
+        }
+      }
+    },
+    "Move %lld duplicates to the Trash?": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld duplicate to the Trash?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Move %lld duplicates to the Trash?"
+                }
+              }
+            }
+          }
+        },
+        "fr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld doublon dans la Corbeille ?"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Placer %lld doublons dans la Corbeille ?"
+                }
+              }
+            }
           }
         }
       }
@@ -1211,6 +1391,16 @@
         }
       }
     },
+    "Moves to the Trash": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Va dans la Corbeille"
+          }
+        }
+      }
+    },
     "Movies": {
       "localizations": {
         "fr": {
@@ -1247,6 +1437,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Les nouvelles fenêtres ouvrent"
+          }
+        }
+      }
+    },
+    "No duplicates here.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun doublon ici."
+          }
+        }
+      }
+    },
+    "No extension": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans extension"
           }
         }
       }
@@ -1561,6 +1771,16 @@
         }
       }
     },
+    "Quick Look": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coup d'œil"
+          }
+        }
+      }
+    },
     "Refresh": {
       "localizations": {
         "fr": {
@@ -1627,6 +1847,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Examiner"
+          }
+        }
+      }
+    },
+    "Same contents, different names, such as “%@” and “%@”.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Même contenu, noms différents, comme « %1$@ » et « %2$@ »."
           }
         }
       }
@@ -1857,6 +2087,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sarcelle"
+          }
+        }
+      }
+    },
+    "The most recent copy of each file is kept. This frees %@.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La copie la plus récente de chaque fichier est gardée. Cela libère %@."
           }
         }
       }

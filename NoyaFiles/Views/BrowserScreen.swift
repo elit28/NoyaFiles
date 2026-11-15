@@ -1,4 +1,5 @@
 import NoyaCore
+import QuickLook
 import SwiftUI
 
 /// A folder in the main area, with its toolbar, filter field and side panel.
@@ -19,6 +20,10 @@ struct BrowserScreen: View {
             .sheet(isPresented: $model.isGoToFolderPresented) {
                 GoToFolderSheet(model: model)
             }
+            .sheet(isPresented: $model.isDuplicatesSheetPresented) {
+                DuplicatesSheet(model: model)
+            }
+            .quickLookPreview($model.quickLookURL, in: model.quickLookList)
             .alert(
                 "Something went wrong",
                 isPresented: isShowingError,
@@ -67,8 +72,10 @@ struct InspectorPanel: View {
     let model: BrowserModel
 
     var body: some View {
-        if let item = model.singleSelectedItem {
+        if let item = model.singleSelectedItem, model.viewMode != .columns {
             FileInfoPanel(item: item, model: model)
+        } else if case .category(let category) = model.location.scope {
+            CategoryInsightsPanel(model: model, category: category)
         } else {
             InsightsPanel(model: model)
         }

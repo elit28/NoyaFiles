@@ -40,6 +40,12 @@ struct FileGridView: View {
                 }
             }
         }
+        .focusable()
+        .focusEffectDisabled()
+        .onKeyPress(.space) {
+            model.toggleQuickLook()
+            return .handled
+        }
     }
 
     private func tile(for node: BrowserNode) -> some View {

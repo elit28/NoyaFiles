@@ -47,6 +47,10 @@ struct FileListView: View {
         } primaryAction: { ids in
             model.open(ids)
         }
+        .onKeyPress(.space) {
+            model.toggleQuickLook()
+            return .handled
+        }
     }
 }
 

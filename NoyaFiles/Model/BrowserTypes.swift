@@ -17,6 +17,7 @@ struct BrowserLocation: Hashable, Sendable {
 enum ViewMode: String, CaseIterable, Identifiable {
     case list
     case grid
+    case columns
 
     var id: Self { self }
 }
