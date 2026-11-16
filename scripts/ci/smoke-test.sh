@@ -13,9 +13,16 @@ cd "$(dirname "$0")/../.."
 binary="dist/NOYA Files.app/Contents/MacOS/NOYA Files"
 [[ -x "$binary" ]] || { echo "error: $binary not found. Run scripts/build-app.sh first." >&2; exit 1; }
 
-demo="$(mktemp -d)/Downloads"
+# On CI, the demo files go to the real home folder, so the screenshots show familiar places
+# such as Downloads instead of temporary paths. Elsewhere, they stay in a temporary folder.
+if [[ "${CI:-}" == "true" ]]; then
+  demo="$HOME/Downloads"
+  projects="$HOME/Developer"
+else
+  demo="$(mktemp -d)/Downloads"
+  projects="$(dirname "$demo")/Developer"
+fi
 scripts/ci/make-demo-folder.sh "$demo"
-projects="$(dirname "$demo")/Developer"
 scripts/ci/make-demo-projects.sh "$projects"
 if [[ "${CI:-}" == "true" ]]; then
   python3 scripts/ci/make-demo-invoices.py "$HOME"

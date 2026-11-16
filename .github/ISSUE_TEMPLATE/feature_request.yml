@@ -1,0 +1,20 @@
+name: Proposer une idée
+description: Une fonctionnalité ou une amélioration pour NOYA Files.
+labels: ["idée"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Quel est le besoin ?
+      description: Ce que vous cherchez à faire, et ce qui vous en empêche aujourd'hui.
+      placeholder: "Je range souvent mes captures d'écran par projet, et je dois le faire à la main."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: À quoi pourrait ressembler la solution ?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Autres solutions envisagées

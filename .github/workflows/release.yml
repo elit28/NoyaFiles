@@ -101,6 +101,10 @@ jobs:
         if: env.SPARKLE_PRIVATE_KEY != ''
         run: scripts/ci/make-appcast.sh "${{ needs.version.outputs.version }}"
 
+      - name: Add a download link that never changes
+        # README links to releases/latest/download/NOYA-Files.dmg, which always gives the latest version.
+        run: cp "dist/NOYA-Files-${{ needs.version.outputs.version }}.dmg" dist/NOYA-Files.dmg
+
       - name: Warn that installed apps will not see this update
         if: env.SPARKLE_PRIVATE_KEY == ''
         run: |

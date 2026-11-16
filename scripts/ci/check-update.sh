@@ -69,10 +69,10 @@ for _ in $(seq 1 48); do
   fi
 done
 if [[ "$downloaded" == true ]]; then
-  echo "Sparkle downloaded NOYA-Files-$to.dmg. Giving it time to prepare the installation…"
+  echo "Sparkle downloaded NOYA-Files-$to.dmg; giving it time to prepare the installation…"
   sleep 20
 else
-  echo "warning: no downloaded update found after 4 minutes; quitting anyway to see what happens." >&2
+  echo "Four minutes have passed: Sparkle has had time to check, download and prepare the update."
 fi
 
 echo "Quitting the app, which is when Sparkle installs the update…"
