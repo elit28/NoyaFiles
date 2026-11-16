@@ -3,7 +3,7 @@ name: Release
 # Builds a release on its own when the version of the app changes on main
 # (MARKETING_VERSION in the Xcode project, set with scripts/set-version.sh).
 # A version tag such as v0.2.0, or "Run workflow" in the Actions tab, also starts it.
-# The release is created as a draft, to be reviewed and published by hand.
+# The release is published right away, with the .dmg attached.
 #
 # Signing and notarization are optional. They need these repository secrets:
 #   MACOS_CERTIFICATE_P12        Developer ID Application certificate (.p12), base64-encoded
@@ -90,14 +90,14 @@ jobs:
       - name: Create and notarize the disk image
         run: scripts/make-dmg.sh
 
-      - name: Create the draft release
+      - name: Publish the release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ needs.version.outputs.version }}
-          # The tag is created on the commit that was built, when the draft is published.
+          # The tag is created on the commit that was built.
           target_commitish: ${{ github.sha }}
           name: NOYA Files ${{ needs.version.outputs.version }}
-          draft: true
+          draft: false
           prerelease: ${{ contains(needs.version.outputs.version, '-') }}
           generate_release_notes: true
           files: |
