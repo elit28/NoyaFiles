@@ -77,7 +77,7 @@ Changez le numéro de version, puis fusionnez ce changement dans `main` :
 scripts/set-version.sh 0.2.0
 ```
 
-Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvelle version arrive sur `main`, le workflow **Release** se lance tout seul : il compile l'app, crée le `.dmg` et prépare une version en brouillon. Relisez-la dans [Releases](https://github.com/elit28/NoyaFiles/releases), puis cliquez sur **Publish release**. Une version déjà publiée ou en brouillon n'est jamais reconstruite.
+Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvelle version arrive sur `main`, le workflow **Release** se lance tout seul : il compile l'app, crée le `.dmg` et publie la version dans [Releases](https://github.com/elit28/NoyaFiles/releases), sans autre action. Une version déjà publiée n'est jamais reconstruite.
 
 Le workflow se lance aussi à la main : en poussant un tag comme `v0.2.0`, ou avec **Run workflow** dans l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml).
 

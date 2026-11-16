@@ -40,7 +40,7 @@ if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.]+)?$ ]]; then
 fi
 
 release=true
-reason="Version $version will be built and prepared as a draft release."
+reason="Version $version will be built and published."
 if [[ "$forced" == false ]]; then
   if git ls-remote --exit-code --tags origin "refs/tags/v$version" >/dev/null 2>&1; then
     release=false
