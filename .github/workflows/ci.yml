@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+      - "Design/**"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    name: Core tests (Linux)
+    runs-on: ubuntu-latest
+    container: swift:6.1
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: swift test --package-path Packages/NoyaCore
+
+  # Checks that the project still builds with Xcode 16, which some contributors use.
+  app:
+    name: Build app (Xcode 16)
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+          echo "Installed Xcode versions:"
+          ls -d /Applications/Xcode*.app
+
+      - name: Check translations
+        run: python3 scripts/check-localizations.py
+
+      - name: Run core tests
+        run: swift test --package-path Packages/NoyaCore
+
+      - name: Build the app
+        run: scripts/build-app.sh
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+
+      - name: Launch the app
+        run: scripts/ci/smoke-test.sh
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-macos15
+          path: dist/screenshots
+          if-no-files-found: ignore
+
+  # The app people download: built with the latest Xcode, so it can use Apple Intelligence
+  # on macOS 26, while still opening on macOS 14 and 15.
+  release-build:
+    name: Build app (Xcode 26)
+    runs-on: macos-26
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+          sw_vers
+
+      - name: Build the app
+        run: scripts/build-app.sh
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+
+      - name: Check links to recent frameworks
+        run: scripts/ci/check-weak-links.sh
+
+      - name: Launch the app
+        run: scripts/ci/smoke-test.sh
+
+      - name: Create the disk image
+        run: scripts/make-dmg.sh
+
+      - name: Upload the disk image
+        uses: actions/upload-artifact@v4
+        with:
+          name: NOYA-Files-macOS
+          path: |
+            dist/*.dmg
+            dist/*.sha256
+          if-no-files-found: error
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: dist/screenshots
+          if-no-files-found: ignore

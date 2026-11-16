@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- NOYA Files app icon: a file bearing the NOYA 360 ribbon N (noya360-n.png), on the brand's night blue. -->
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#0A3BC0"/>
+      <stop offset="0.45" stop-color="#062061"/>
+      <stop offset="1" stop-color="#010A22"/>
+    </radialGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E4ECFF"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C9D7FF"/>
+      <stop offset="1" stop-color="#93AEFF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="sheetShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#00081F" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  </g>
+  <!-- Ticks from the NOYA 360 compass. -->
+  <g stroke="#FFFFFF" stroke-linecap="round" opacity="0.55">
+    <line x1="512" y1="148" x2="512" y2="184" stroke-width="10"/>
+    <line x1="512" y1="840" x2="512" y2="876" stroke-width="10"/>
+    <line x1="148" y1="512" x2="184" y2="512" stroke-width="10"/>
+    <line x1="840" y1="512" x2="876" y2="512" stroke-width="10"/>
+  </g>
+  <!-- A second sheet behind, for depth. -->
+  <path d="M318 262 h250 l112 112 v380 a36 36 0 0 1 -36 36 h-326 a36 36 0 0 1 -36 -36 v-456 a36 36 0 0 1 36 -36 z"
+        fill="#3D74FF" opacity="0.45" transform="rotate(-8 500 520)"/>
+  <!-- The file. -->
+  <g filter="url(#sheetShadow)">
+    <path d="M330 236 h272 l130 130 v412 a40 40 0 0 1 -40 40 h-362 a40 40 0 0 1 -40 -40 v-502 a40 40 0 0 1 40 -40 z" fill="url(#sheet)"/>
+  </g>
+  <path d="M602 236 v90 a40 40 0 0 0 40 40 h90 z" fill="url(#fold)"/>
+  <image x="332" y="430" width="360" height="226" preserveAspectRatio="xMidYMid meet" href="noya360-n.png"/>
+</svg>
