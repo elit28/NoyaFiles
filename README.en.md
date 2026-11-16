@@ -37,6 +37,8 @@ Every build launches the app on macOS 15 and macOS 26, in French and English, in
 
 **[Download the latest release](https://github.com/elit28/NoyaFiles/releases/latest)**: get the `NOYA-Files-<version>.dmg` file, open it and drag **NOYA Files** to **Applications**. The app runs on macOS 14 Sonoma and later, on Apple silicon and Intel. A SHA-256 checksum is published next to each disk image.
 
+Versions 0.2.0 and 0.2.1 do not start on recent Macs: install 0.2.2 or later.
+
 Until the app is signed with an Apple Developer ID certificate, macOS shows a warning on first launch. To open it anyway, launch it once, then open **System Settings › Privacy & Security** and click **Open Anyway**.
 
 To try changes that are not released yet, every automated build also produces a test disk image: open the [Actions](https://github.com/elit28/NoyaFiles/actions) tab, pick the latest successful run of the **CI** workflow, and download the **NOYA-Files-macOS** artifact (you need to be signed in to GitHub).

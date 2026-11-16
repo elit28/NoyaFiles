@@ -37,8 +37,12 @@ if [[ -n "${DEVELOPER_ID_APPLICATION:-}" ]]; then
     "OTHER_CODE_SIGN_FLAGS=--timestamp"
   )
 else
-  echo "No Developer ID identity given: signing ad hoc."
-  args+=(CODE_SIGN_STYLE=Manual "CODE_SIGN_IDENTITY=-" "DEVELOPMENT_TEAM=")
+  echo "No Developer ID identity given: signing ad hoc, without the hardened runtime."
+  # The hardened runtime only loads frameworks signed by the same team as the app. An app
+  # signed ad hoc has no team, so it could not load Sparkle, which keeps its authors'
+  # signature, and macOS would stop it at launch. The hardened runtime is only needed for
+  # notarization, which requires a Developer ID anyway.
+  args+=(CODE_SIGN_STYLE=Manual "CODE_SIGN_IDENTITY=-" "DEVELOPMENT_TEAM=" ENABLE_HARDENED_RUNTIME=NO)
 fi
 
 [[ -n "${MARKETING_VERSION:-}" ]] && args+=("MARKETING_VERSION=$MARKETING_VERSION")
@@ -54,6 +58,26 @@ mkdir -p dist
 rm -rf "dist/$app_name"
 ditto "$derived_data/Build/Products/$configuration/$app_name" "dist/$app_name"
 
+# Xcode keeps the signature of Sparkle's authors on the framework. With a Developer ID, the
+# hardened runtime only lets the app load code signed by its own team, so Sparkle's parts are
+# signed again, innermost first, as Sparkle's documentation describes.
+sparkle="dist/$app_name/Contents/Frameworks/Sparkle.framework"
+if [[ -n "${DEVELOPER_ID_APPLICATION:-}" && -d "$sparkle" ]]; then
+  sign() { codesign --force --timestamp --options runtime --sign "$DEVELOPER_ID_APPLICATION" "$@"; }
+  for part in XPCServices/Installer.xpc XPCServices/Downloader.xpc Autoupdate Updater.app; do
+    path="$sparkle/Versions/B/$part"
+    [[ -e "$path" ]] || continue
+    if [[ "$part" == *Downloader.xpc ]]; then
+      sign --preserve-metadata=entitlements "$path"
+    else
+      sign "$path"
+    fi
+  done
+  sign "$sparkle"
+  sign --preserve-metadata=entitlements,requirements,flags "dist/$app_name"
+fi
+
 codesign --verify --deep --strict --verbose=2 "dist/$app_name"
+scripts/ci/check-library-validation.sh "dist/$app_name"
 echo "Architectures: $(lipo -archs "dist/$app_name/Contents/MacOS/NOYA Files")"
 echo "Built dist/$app_name"
