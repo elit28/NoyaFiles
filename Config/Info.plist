@@ -6,6 +6,10 @@
 	<!-- The Release workflow attaches appcast.xml to each GitHub release. -->
 	<key>SUFeedURL</key>
 	<string>https://github.com/elit28/NoyaFiles/releases/latest/download/appcast.xml</string>
+	<!-- New versions download in the background and install when the app quits. -->
+	<!-- This is only the default: Settings › General › Updates can turn it off. -->
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUPublicEDKey</key>
 	<string>Pile0A+2iKyGaOm7wuO02Bg+k7mUrq2/XOUiHuDiLvw=</string>
 </dict>

@@ -476,6 +476,14 @@ private struct UpdateSettings: View {
                 Text("Check for updates automatically")
                 Text("Once a day, NOYA Files asks GitHub whether a new version exists. Nothing about your Mac or your files is sent.")
             }
+            Toggle(isOn: Binding(
+                get: { updater.installsAutomatically },
+                set: { updater.setInstallsAutomatically($0) }
+            )) {
+                Text("Install updates automatically")
+                Text("New versions download in the background and install when you quit NOYA Files. Turned off, you are asked first.")
+            }
+            .disabled(!updater.checksAutomatically)
             LabeledContent {
                 Button("Check Now") { updater.checkForUpdates() }
             } label: {
