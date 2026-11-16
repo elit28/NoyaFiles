@@ -71,7 +71,15 @@ The first script produces `dist/NOYA Files.app`, a universal app for Apple silic
 
 ## Releasing
 
-Push a version tag such as `v0.2.0`, or start the **Release** workflow from the [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) tab with **Run workflow** and the version number. The workflow builds the app, creates the `.dmg` and prepares a draft release: review it in [Releases](https://github.com/elit28/NoyaFiles/releases), then click **Publish release**.
+Change the version number, then merge that change into `main`:
+
+```bash
+scripts/set-version.sh 0.2.0
+```
+
+In Xcode, it is the **Version** field of the NoyaFiles target. As soon as the new version reaches `main`, the **Release** workflow starts on its own: it builds the app, creates the `.dmg` and prepares a draft release. Review it in [Releases](https://github.com/elit28/NoyaFiles/releases), then click **Publish release**. A version that is already published or drafted is never built again.
+
+You can also start the workflow by hand: push a tag such as `v0.2.0`, or use **Run workflow** in the [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) tab.
 
 For the app to open without any warning, add these repository secrets: `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` and `APPLE_APP_SPECIFIC_PASSWORD`. This requires an Apple Developer account. The details are at the top of `.github/workflows/release.yml`.
 

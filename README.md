@@ -71,7 +71,15 @@ Le premier script produit `dist/NOYA Files.app`, une app universelle pour Apple 
 
 ## Publier une version
 
-Poussez un tag de version, par exemple `v0.2.0`, ou lancez le workflow **Release** depuis l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) avec **Run workflow** et le numéro de version. Le workflow compile l'app, crée le `.dmg` et prépare une version en brouillon : relisez-la dans [Releases](https://github.com/elit28/NoyaFiles/releases), puis cliquez sur **Publish release**.
+Changez le numéro de version, puis fusionnez ce changement dans `main` :
+
+```bash
+scripts/set-version.sh 0.2.0
+```
+
+Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvelle version arrive sur `main`, le workflow **Release** se lance tout seul : il compile l'app, crée le `.dmg` et prépare une version en brouillon. Relisez-la dans [Releases](https://github.com/elit28/NoyaFiles/releases), puis cliquez sur **Publish release**. Une version déjà publiée ou en brouillon n'est jamais reconstruite.
+
+Le workflow se lance aussi à la main : en poussant un tag comme `v0.2.0`, ou avec **Run workflow** dans l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml).
 
 Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt : `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` et `APPLE_APP_SPECIFIC_PASSWORD`. Il faut pour cela un compte Apple Developer. Le détail se trouve en tête de `.github/workflows/release.yml`.
 

@@ -1,6 +1,8 @@
 name: Release
 
-# Builds a release when a version tag such as v0.2.0 is pushed, or on demand.
+# Builds a release on its own when the version of the app changes on main
+# (MARKETING_VERSION in the Xcode project, set with scripts/set-version.sh).
+# A version tag such as v0.2.0, or "Run workflow" in the Actions tab, also starts it.
 # The release is created as a draft, to be reviewed and published by hand.
 #
 # Signing and notarization are optional. They need these repository secrets:
@@ -13,7 +15,13 @@ name: Release
 
 on:
   push:
+    branches: [main]
     tags: ["v*"]
+    # On main, only when the project (where the version lives) or this workflow changes.
+    # GitHub ignores these paths for tag pushes.
+    paths:
+      - NoyaFiles.xcodeproj/project.pbxproj
+      - .github/workflows/release.yml
   workflow_dispatch:
     inputs:
       version:
@@ -23,9 +31,32 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
+  version:
+    name: Check the version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      release: ${{ steps.version.outputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the version
+        id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/ci/release-version.sh
+
   release:
     name: Build, sign and publish
+    needs: version
+    if: needs.version.outputs.release == 'true'
     runs-on: macos-26
     timeout-minutes: 60
     env:
@@ -36,18 +67,6 @@ jobs:
       APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Work out the version
-        id: version
-        env:
-          INPUT_VERSION: ${{ inputs.version }}
-        run: |
-          version="${INPUT_VERSION:-${GITHUB_REF_NAME#v}}"
-          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.]+)?$ ]]; then
-            echo "error: '$version' is not a version such as 1.2.3" >&2
-            exit 1
-          fi
-          echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Import the signing certificate
         if: env.MACOS_CERTIFICATE_P12 != ''
@@ -62,7 +81,7 @@ jobs:
       - name: Build the app
         run: scripts/build-app.sh
         env:
-          MARKETING_VERSION: ${{ steps.version.outputs.version }}
+          MARKETING_VERSION: ${{ needs.version.outputs.version }}
           BUILD_NUMBER: ${{ github.run_number }}
 
       - name: Check links to recent frameworks
@@ -74,10 +93,12 @@ jobs:
       - name: Create the draft release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.version.outputs.version }}
-          name: NOYA Files ${{ steps.version.outputs.version }}
+          tag_name: v${{ needs.version.outputs.version }}
+          # The tag is created on the commit that was built, when the draft is published.
+          target_commitish: ${{ github.sha }}
+          name: NOYA Files ${{ needs.version.outputs.version }}
           draft: true
-          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+          prerelease: ${{ contains(needs.version.outputs.version, '-') }}
           generate_release_notes: true
           files: |
             dist/*.dmg
