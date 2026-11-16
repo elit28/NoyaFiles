@@ -10,7 +10,7 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 
 ## État du projet
 
-🚧 **En développement actif.** Pas encore de version stable publiée, mais une image disque de test est produite à chaque compilation (voir [Téléchargement](#téléchargement)).
+🚧 **En développement actif.** La première version de test, [**0.1.0**](https://github.com/elit28/NoyaFiles/releases/tag/v0.1.0), est disponible (voir [Téléchargement](#téléchargement)).
 
 ## Fonctionnalités
 
@@ -34,11 +34,11 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 
 ## Téléchargement
 
-Les versions officielles pour macOS seront publiées dans les [versions GitHub du projet](https://github.com/elit28/NoyaFiles/releases) dès qu'elles seront disponibles.
+**[Télécharger la dernière version](https://github.com/elit28/NoyaFiles/releases/latest)** : prenez le fichier `NOYA-Files-<version>.dmg`, ouvrez-le, puis glissez **NOYA Files** dans **Applications**. L'app fonctionne sur macOS 14 Sonoma et plus récent, sur Apple silicon comme sur Intel. Une somme de contrôle SHA-256 est publiée à côté de chaque image disque.
 
-En attendant, chaque compilation automatique produit une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS**. L'app fonctionne sur macOS 14 Sonoma et plus récent, sur Apple silicon comme sur Intel.
+Tant que l'app n'est pas signée avec un certificat Apple Developer ID, macOS affiche un avertissement au premier lancement. Pour l'ouvrir quand même : lancez-la une fois, puis ouvrez **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.
 
-Tant que l'app n'est pas signée avec un certificat Apple Developer ID, macOS affiche un avertissement au premier lancement. Pour l'ouvrir quand même : glissez **NOYA Files** dans **Applications**, lancez-la une fois, puis ouvrez **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.
+Pour essayer les nouveautés pas encore publiées, chaque compilation automatique produit aussi une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS** (il faut être connecté à GitHub).
 
 ## Compiler depuis les sources
 
@@ -71,7 +71,7 @@ Le premier script produit `dist/NOYA Files.app`, une app universelle pour Apple 
 
 ## Publier une version
 
-Poussez un tag de version, par exemple `v0.2.0`. Le workflow **Release** compile l'app, crée le `.dmg` et prépare une version en brouillon à relire avant de la publier.
+Poussez un tag de version, par exemple `v0.2.0`, ou lancez le workflow **Release** depuis l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) avec **Run workflow** et le numéro de version. Le workflow compile l'app, crée le `.dmg` et prépare une version en brouillon : relisez-la dans [Releases](https://github.com/elit28/NoyaFiles/releases), puis cliquez sur **Publish release**.
 
 Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt : `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` et `APPLE_APP_SPECIFIC_PASSWORD`. Il faut pour cela un compte Apple Developer. Le détail se trouve en tête de `.github/workflows/release.yml`.
 
