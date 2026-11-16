@@ -16,7 +16,9 @@ background = defines["background"]  # noqa: F821
 format = "UDZO"
 filesystem = "HFS+"
 
-window_rect = ((200, 160), (660, 420))
+# The Finder counts the title bar (about 32 points) in the window height, so the window is
+# taller than the 660 × 420 background for all of it to show.
+window_rect = ((200, 160), (660, 452))
 default_view = "icon-view"
 show_status_bar = False
 show_tab_view = False
