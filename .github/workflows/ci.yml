@@ -94,6 +94,9 @@ jobs:
       - name: Create the disk image
         run: scripts/make-dmg.sh
 
+      - name: Check update signing
+        run: scripts/ci/make-appcast.sh --self-test
+
       - name: Upload the disk image
         uses: actions/upload-artifact@v4
         with:

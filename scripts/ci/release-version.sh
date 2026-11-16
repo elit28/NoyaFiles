@@ -5,7 +5,9 @@
 # - A push to main releases the version set in the Xcode project (MARKETING_VERSION),
 #   but only when no tag and no release, draft or published, exist for it yet.
 #
-# Writes version=… and release=true|false to $GITHUB_OUTPUT, or prints them.
+# Writes version=…, build=… and release=true|false to $GITHUB_OUTPUT, or prints them.
+# The build number, such as 0.2.0.14, always grows from one release to the next, even from
+# a beta to the final version, so Sparkle can tell which version is newer.
 set -euo pipefail
 
 cd "$(dirname "$0")/../.."
@@ -39,6 +41,8 @@ if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.]+)?$ ]]; then
   exit 1
 fi
 
+build="${version%%-*}.${GITHUB_RUN_NUMBER:-0}"
+
 release=true
 reason="Version $version will be built and published."
 if [[ "$forced" == false ]]; then
@@ -58,9 +62,11 @@ fi
 if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
   {
     echo "version=$version"
+    echo "build=$build"
     echo "release=$release"
   } >> "$GITHUB_OUTPUT"
 else
   echo "version=$version"
+  echo "build=$build"
   echo "release=$release"
 fi

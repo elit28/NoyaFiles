@@ -31,6 +31,7 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 - [ ] Coup d'œil (Quick Look) avec la barre d'espace
 - [ ] Annulation après la mise à la Corbeille, nouveau dossier (⇧⌘N), « Ouvrir avec »
 - [ ] Avertissement à chaque nouveau téléchargement
+- [ ] Mises à jour intégrées : l'app propose elle-même chaque nouvelle version (Sparkle), à partir de la 0.2.0
 
 ## Téléchargement
 
@@ -64,6 +65,7 @@ Le premier script produit `dist/NOYA Files.app`, une app universelle pour Apple 
 | Dossier | Contenu |
 | --- | --- |
 | `NoyaFiles/` | L'app SwiftUI : modèle, vues, ressources et traductions. Tout fichier ajouté ici est inclus automatiquement dans le projet Xcode. |
+| `Config/` | Réglages de l'app qui ne passent pas par Xcode, comme l'adresse et la clé publique des mises à jour. |
 | `Packages/NoyaCore/` | La logique indépendante de l'interface (lecture des dossiers, catégories, tailles, suggestions) et ses tests. Elle compile aussi sous Linux. |
 | `scripts/` | Compilation, création du `.dmg`, vérification des traductions et, dans `scripts/ci/`, les données de démonstration et les captures automatiques. |
 | `.github/workflows/` | Compilation et tests automatiques, publication des versions. |
@@ -81,6 +83,8 @@ Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvel
 
 Le workflow se lance aussi à la main : en poussant un tag comme `v0.2.0`, ou avec **Run workflow** dans l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml).
 
+Pour que les apps déjà installées proposent la nouvelle version, le dépôt doit avoir le secret `SPARKLE_PRIVATE_KEY` : c'est la clé qui signe chaque mise à jour, et elle doit correspondre à la clé publique `SUPublicEDKey` de `Config/Info.plist`. Le workflow signe alors le `.dmg` et joint un fichier `appcast.xml` à la version ; l'app le lit pour savoir qu'une mise à jour existe. Sans ce secret, la version est publiée sans ce fichier et seul le téléchargement manuel fonctionne.
+
 Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt : `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` et `APPLE_APP_SPECIFIC_PASSWORD`. Il faut pour cela un compte Apple Developer. Le détail se trouve en tête de `.github/workflows/release.yml`.
 
 ## Technologies
@@ -89,10 +93,11 @@ Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt 
 - SwiftUI
 - AppKit
 - Frameworks natifs de macOS
+- [Sparkle](https://sparkle-project.org) pour les mises à jour
 
 ## Confidentialité
 
-Tout se passe sur votre Mac : pas de compte, pas de statistiques, aucun fichier envoyé sur Internet. L'assistant IA est désactivé par défaut ; une fois activé, il traite vos demandes et vos fichiers sur le Mac (Apple Intelligence quand il est disponible), propose un plan et ne change rien sans votre accord.
+Tout se passe sur votre Mac : pas de compte, pas de statistiques, aucun fichier envoyé sur Internet. Seule exception, si vous le laissez activé : une fois par jour, l'app demande à GitHub si une nouvelle version existe, sans rien envoyer sur votre Mac ni vos fichiers (Réglages › Général › Mises à jour). L'assistant IA est désactivé par défaut ; une fois activé, il traite vos demandes et vos fichiers sur le Mac (Apple Intelligence quand il est disponible), propose un plan et ne change rien sans votre accord.
 
 ## Contribuer
 
