@@ -283,7 +283,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.3;
+				MARKETING_VERSION = 0.2.4;
 				"OTHER_LDFLAGS[sdk=macosx26*]" = (
 					"$(inherited)",
 					"-weak_framework",
@@ -323,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.3;
+				MARKETING_VERSION = 0.2.4;
 				"OTHER_LDFLAGS[sdk=macosx26*]" = (
 					"$(inherited)",
 					"-weak_framework",

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions fréquentes
+    url: https://github.com/elit28/NoyaFiles#questions-fréquentes
+    about: L'app ne s'ouvre pas, accès au disque, assistant IA… La réponse y est peut-être déjà.
+  - name: Signaler une faille de sécurité
+    url: https://github.com/elit28/NoyaFiles/security/policy
+    about: En privé, jamais dans une issue publique.

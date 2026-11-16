@@ -1,116 +1,191 @@
-# NOYA Files
+<p align="center">
+  <img src="docs/images/icon.png" width="128" height="128" alt="Icône de NOYA Files">
+</p>
 
-**Français** · [English](README.en.md)
+<h1 align="center">NOYA Files</h1>
 
-**Un chez-soi plus intelligent pour vos fichiers.**
+<p align="center">
+  <strong>Un chez-soi plus intelligent pour vos fichiers.</strong><br>
+  Gestionnaire de fichiers libre et natif pour macOS, en SwiftUI et AppKit.
+</p>
 
-NOYA Files est un gestionnaire de fichiers libre et open source, natif pour macOS, développé avec SwiftUI et AppKit.
+<p align="center">
+  <a href="https://github.com/elit28/NoyaFiles/releases/latest/download/NOYA-Files.dmg"><img src="https://img.shields.io/github/v/release/elit28/NoyaFiles?style=for-the-badge&amp;label=T%C3%A9l%C3%A9charger%20pour%20Mac&amp;logo=apple&amp;color=0A3BC0" alt="Télécharger pour Mac"></a>
+</p>
 
-Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus puissante et plus efficace.
+<p align="center">
+  <a href="https://github.com/elit28/NoyaFiles/actions/workflows/ci.yml"><img src="https://github.com/elit28/NoyaFiles/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/macOS-14%2B-0A3BC0" alt="macOS 14 ou plus récent">
+  <img src="https://img.shields.io/badge/Apple%20silicon%20%26%20Intel-universel-0A3BC0" alt="Apple silicon et Intel">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-GPL%20v3-0A3BC0" alt="Licence GPL v3"></a>
+</p>
 
-## État du projet
+<p align="center"><strong>Français</strong> · <a href="README.en.md">English</a></p>
 
-🚧 **En développement actif.** La première version de test, [**0.1.0**](https://github.com/elit28/NoyaFiles/releases/tag/v0.1.0), est disponible (voir [Téléchargement](#téléchargement)).
+![NOYA Files en affichage grille, avec le panneau Analyse](docs/images/grille.png)
+
+## Sommaire
+
+- [Fonctionnalités](#fonctionnalités)
+- [Installation](#installation)
+- [Mises à jour](#mises-à-jour)
+- [Confidentialité](#confidentialité)
+- [Questions fréquentes](#questions-fréquentes)
+- [Pour les développeurs](#pour-les-développeurs)
+- [Licence et crédits](#licence-et-crédits)
 
 ## Fonctionnalités
 
-À chaque compilation, l'app est lancée sur macOS 15 et sur macOS 26, en français et en anglais, en thème clair et sombre, et chaque écran ci-dessous est capturé. Les cases cochées sont vérifiées de cette façon ; les autres sont codées mais restent à valider à la main sur un Mac.
+### Parcourir
 
-- [x] Interface macOS native, thème clair ou sombre selon le système ou au choix, couleur d'accent
-- [x] Affichage en grille par type, en liste et en colonnes, groupement par type ou par date
-- [x] Taille de chaque dossier et panneau Analyse : ce qui occupe l'espace, suggestions de nettoyage
-- [x] Navigation à double volet : copier (F5), déplacer (F6), comparer les deux dossiers
-- [x] Espaces de travail et collections, avec règles intelligentes qui y rassemblent des fichiers
-- [x] Recherche avancée : noms et contenu des documents, filtres, recherches enregistrées
-- [x] Libérer de l'espace : gros fichiers, caches de développement, doublons, installateurs, Corbeille
-- [x] Ranger les téléchargements, avec aperçu avant chaque déplacement
-- [x] Outils pour développeurs : dépôts Git, branches, modifications, caches, terminal intégré
-- [x] Assistant IA facultatif et local : trouver, rassembler, renommer d'après le contenu (Apple Intelligence sur macOS 26)
-- [x] Premier lancement guidé : accès au disque, langue, présentation, favoris
-- [x] Interface en français et en anglais
-- [ ] Coup d'œil (Quick Look) avec la barre d'espace
-- [ ] Annulation après la mise à la Corbeille, nouveau dossier (⇧⌘N), « Ouvrir avec »
-- [ ] Avertissement à chaque nouveau téléchargement
-- [ ] Mises à jour intégrées (Sparkle), à partir de la 0.2.0 : chaque nouvelle version se télécharge en arrière-plan et s'installe quand vous quittez l'app, sans aucun clic (désactivable dans les Réglages)
+- **Trois présentations** : grille regroupée par type ou par date, liste détaillée, colonnes.
+- **La taille de chaque dossier**, calculée en arrière-plan, et un **panneau Analyse** qui montre ce qui occupe l'espace et propose des nettoyages.
+- **Coup d'œil** avec la barre d'espace, infos détaillées du fichier, tags du Finder.
+- **Double volet** pour copier (F5) ou déplacer (F6) d'un dossier à l'autre, et comparer deux dossiers.
 
-## Téléchargement
+### Organiser
 
-**[Télécharger la dernière version](https://github.com/elit28/NoyaFiles/releases/latest)** : prenez le fichier `NOYA-Files-<version>.dmg`, ouvrez-le, puis glissez **NOYA Files** dans **Applications**. L'app fonctionne sur macOS 14 Sonoma et plus récent, sur Apple silicon comme sur Intel. Une somme de contrôle SHA-256 est publiée à côté de chaque image disque.
+- **Espaces de travail et collections** : rassemblez des fichiers par projet sans les déplacer. Des **règles intelligentes** y ajoutent automatiquement les nouveaux fichiers qui correspondent.
+- **Recherche avancée** dans les noms et le contenu des documents, avec filtres par type, date, taille et tag, et recherches enregistrées.
+- **Ranger les téléchargements** en un clic, avec un aperçu avant chaque déplacement et une annulation possible.
 
-Les versions 0.2.0 et 0.2.1 refusent de démarrer sur les Mac récents : installez la 0.2.2 ou une version plus récente.
+### Faire de la place
 
-Tant que l'app n'est pas signée avec un certificat Apple Developer ID, macOS affiche un avertissement au premier lancement. Pour l'ouvrir quand même : lancez-la une fois, puis ouvrez **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.
+- **Libérer de l'espace** : gros fichiers que vous n'ouvrez plus, caches de développement, doublons, installateurs d'apps déjà installées, Corbeille. Rien n'est supprimé sans confirmation.
 
-Pour essayer les nouveautés pas encore publiées, chaque compilation automatique produit aussi une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS** (il faut être connecté à GitHub).
+### Pour les développeurs
 
-## Compiler depuis les sources
+- **Outils développeur** : vos dépôts Git avec leur branche, leurs modifications, le dernier commit et le poids des caches, un terminal intégré (⌃`) et l'ouverture dans votre éditeur.
 
-Prérequis : macOS 14 Sonoma ou plus récent, et Xcode 16 ou plus récent. Avec Xcode 26, l'assistant peut en plus utiliser Apple Intelligence sur les Mac sous macOS 26 ; avec Xcode 16, il se contente de règles locales.
+### Assistant IA, facultatif
 
-1. Ouvrez `NoyaFiles.xcodeproj` dans Xcode.
-2. Choisissez le schéma **NoyaFiles**, puis lancez l'app avec ⌘R. Les tests se lancent avec ⌘U.
+- Demandez avec vos mots : « Trouve mes factures de 2026 et range-les dans l'espace Impôts ». L'assistant trouve les fichiers, propose des noms clairs d'après leur contenu, et ne change rien sans votre accord.
+- Tout se passe sur votre Mac, avec Apple Intelligence sous macOS 26 quand il est disponible. Désactivé par défaut.
 
-En ligne de commande :
+### Vraiment Mac
 
-```bash
-scripts/build-app.sh
-```
+- Thème clair ou sombre, selon le système ou à votre choix, et couleur d'accent.
+- Interface en français et en anglais.
+- Raccourcis clavier du Finder, glisser-déposer, menu « Ouvrir avec ».
+- Mises à jour automatiques, sans rien avoir à faire.
 
-```bash
-scripts/make-dmg.sh
-```
+### En images
 
-Le premier script produit `dist/NOYA Files.app`, une app universelle pour Apple silicon et Intel. Le second l'emballe dans `dist/NOYA-Files-<version>.dmg`.
-
-## Organisation du projet
-
-| Dossier | Contenu |
+| | |
 | --- | --- |
-| `NoyaFiles/` | L'app SwiftUI : modèle, vues, ressources et traductions. Tout fichier ajouté ici est inclus automatiquement dans le projet Xcode. |
-| `Config/` | Réglages de l'app qui ne passent pas par Xcode, comme l'adresse et la clé publique des mises à jour. |
-| `Packages/NoyaCore/` | La logique indépendante de l'interface (lecture des dossiers, catégories, tailles, suggestions) et ses tests. Elle compile aussi sous Linux. |
-| `scripts/` | Compilation, création du `.dmg`, vérification des traductions et, dans `scripts/ci/`, les données de démonstration et les captures automatiques. |
-| `.github/workflows/` | Compilation et tests automatiques, publication des versions. |
-| `Design/` | Sources graphiques, dont l'icône de l'app. |
+| ![Vue en colonnes](docs/images/colonnes.png) | ![Double volet](docs/images/double-volet.png) |
+| Vue en colonnes | Double volet |
+| ![Espace de travail](docs/images/espace-de-travail.png) | ![Premier lancement](docs/images/bienvenue.png) |
+| Espace de travail avec règle intelligente | Premier lancement |
+| ![Libérer de l'espace](docs/images/liberer-espace.png) | ![Ranger les téléchargements](docs/images/ranger.png) |
+| Libérer de l'espace | Ranger les téléchargements |
+| ![Outils développeur](docs/images/developpeur.png) | ![Assistant IA](docs/images/assistant.png) |
+| Outils développeur | Assistant IA |
 
-## Publier une version
+## Installation
 
-Changez le numéro de version, puis fusionnez ce changement dans `main` :
+Il vous faut **macOS 14 Sonoma ou plus récent**, sur un Mac Apple silicon ou Intel.
 
-```bash
-scripts/set-version.sh 0.2.0
-```
+1. **[Téléchargez NOYA Files](https://github.com/elit28/NoyaFiles/releases/latest/download/NOYA-Files.dmg)**, toujours dans sa dernière version.
+2. Ouvrez le fichier `NOYA-Files.dmg`, puis glissez **NOYA Files** sur le dossier **Applications**.
 
-Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvelle version arrive sur `main`, le workflow **Release** se lance tout seul : il compile l'app, crée le `.dmg` et publie la version dans [Releases](https://github.com/elit28/NoyaFiles/releases), sans autre action. Une version déjà publiée n'est jamais reconstruite.
+   <img src="docs/images/installation.png" width="560" alt="Fenêtre d'installation de NOYA Files">
 
-Le workflow se lance aussi à la main : en poussant un tag comme `v0.2.0`, ou avec **Run workflow** dans l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml).
+3. Ouvrez NOYA Files depuis le dossier Applications.
 
-Pour que les apps déjà installées proposent la nouvelle version, le dépôt doit avoir le secret `SPARKLE_PRIVATE_KEY` : c'est la clé qui signe chaque mise à jour, et elle doit correspondre à la clé publique `SUPublicEDKey` de `Config/Info.plist`. Le workflow signe alors le `.dmg` et joint un fichier `appcast.xml` à la version ; l'app le lit pour savoir qu'une mise à jour existe. Juste après la publication, un dernier job installe la version précédente sur un Mac de test et vérifie qu'elle se met à jour toute seule vers la nouvelle. Sans ce secret, la version est publiée sans ce fichier et seul le téléchargement manuel fonctionne.
+**Au premier lancement**, macOS indique qu'il ne peut pas vérifier l'app : elle n'est pas encore signée par Apple. Cliquez sur **Terminé**, ouvrez **Réglages Système › Confidentialité et sécurité**, descendez jusqu'à la ligne « NOYA Files a été bloqué » et cliquez sur **Ouvrir quand même**. C'est à faire une seule fois.
 
-Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt : `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` et `APPLE_APP_SPECIFIC_PASSWORD`. Il faut pour cela un compte Apple Developer. Le détail se trouve en tête de `.github/workflows/release.yml`.
+L'app vous accueille ensuite en trois étapes : présentation, accès à vos fichiers, préférences.
 
-## Technologies
+Toutes les versions, avec leurs notes, sont sur la [page des versions](https://github.com/elit28/NoyaFiles/releases). L'historique détaillé est dans le [journal des modifications](CHANGELOG.md).
 
-- Swift 6
-- SwiftUI
-- AppKit
-- Frameworks natifs de macOS
-- [Sparkle](https://sparkle-project.org) pour les mises à jour
+### Désinstaller
+
+Glissez NOYA Files d'Applications à la Corbeille. Pour effacer aussi vos réglages et vos espaces de travail, supprimez le dossier `~/Library/Application Support/NOYA Files` et le fichier `~/Library/Preferences/com.noya360.NoyaFiles.plist`.
+
+## Mises à jour
+
+Depuis la version 0.2.2, NOYA Files se met à jour toute seule. Une fois par jour, elle demande à GitHub si une nouvelle version existe, la télécharge en arrière-plan et l'installe quand vous quittez l'app.
+
+- Pour vérifier tout de suite : menu **NOYA Files › Rechercher les mises à jour…**
+- Pour être prévenu avant chaque installation, ou tout désactiver : **Réglages › Général › Mises à jour**.
+
+Chaque mise à jour est signée. L'app refuse d'installer un fichier dont la signature ne correspond pas à la clé intégrée.
 
 ## Confidentialité
 
-Tout se passe sur votre Mac : pas de compte, pas de statistiques, aucun fichier envoyé sur Internet. Seule exception, si vous le laissez activé : une fois par jour, l'app demande à GitHub si une nouvelle version existe, sans rien envoyer sur votre Mac ni vos fichiers (Réglages › Général › Mises à jour). L'assistant IA est désactivé par défaut ; une fois activé, il traite vos demandes et vos fichiers sur le Mac (Apple Intelligence quand il est disponible), propose un plan et ne change rien sans votre accord.
+Tout se passe sur votre Mac : pas de compte, pas de statistiques, aucun fichier envoyé sur Internet.
 
-## Contribuer
+- **Mises à jour** : la seule connexion de l'app est la vérification quotidienne des mises à jour auprès de GitHub, qui n'envoie rien sur votre Mac ni sur vos fichiers. Vous pouvez la désactiver.
+- **Assistant IA** : désactivé par défaut. Une fois activé, il traite vos demandes et vos fichiers sur le Mac, avec Apple Intelligence quand il est disponible.
 
-Les contributions, les signalements de bogues et les suggestions de fonctionnalités sont les bienvenus.
+## Questions fréquentes
 
-## Licence
+<details>
+<summary><strong>macOS dit que NOYA Files ne peut pas être ouvert ou vérifié</strong></summary>
 
-NOYA Files est distribué sous la [licence publique générale GNU (GPL), version 3 ou toute version ultérieure](LICENSE).
+C'est normal au premier lancement : l'app n'est pas encore signée par Apple. Suivez l'étape « Au premier lancement » de la section [Installation](#installation). Si l'app refuse encore de s'ouvrir, lancez-la depuis le Terminal pour voir le message de macOS, puis [ouvrez un rapport de bug](https://github.com/elit28/NoyaFiles/issues/new/choose) avec ce message :
 
-## Crédits
+```bash
+"/Applications/NOYA Files.app/Contents/MacOS/NOYA Files"
+```
+</details>
 
-Développé par NOYA 360.
+<details>
+<summary><strong>J'ai la version 0.2.0 ou 0.2.1 et elle ne démarre pas</strong></summary>
 
-NOYA Files est un projet indépendant, sans aucun lien avec FileOS ni avec Apple.
+Ces deux versions ne démarrent pas sur les Mac récents. [Téléchargez la dernière version](https://github.com/elit28/NoyaFiles/releases/latest/download/NOYA-Files.dmg) et remplacez l'ancienne dans Applications. Les suivantes s'installeront toutes seules.
+</details>
+
+<details>
+<summary><strong>Pourquoi l'accès complet au disque ?</strong></summary>
+
+Pour mesurer tous vos dossiers et regarder dans la Corbeille. Sans lui, NOYA Files fonctionne quand même : macOS demande l'autorisation dossier par dossier. L'accès se donne ou se retire dans Réglages Système › Confidentialité et sécurité › Accès complet au disque.
+</details>
+
+<details>
+<summary><strong>L'assistant IA a-t-il besoin d'Internet ou d'un compte ?</strong></summary>
+
+Non. Il fonctionne sur le Mac. Avec Apple Intelligence (macOS 26 ou plus récent, sur un Mac compatible), il comprend mieux les documents ; sans, il utilise des règles simples. Il est désactivé tant que vous ne l'activez pas.
+</details>
+
+<details>
+<summary><strong>Comment savoir quelle version j'ai ?</strong></summary>
+
+Menu **NOYA Files › À propos de NOYA Files**, ou Réglages › Général › Mises à jour.
+</details>
+
+<details>
+<summary><strong>J'ai trouvé un bug ou j'ai une idée</strong></summary>
+
+[Ouvrez une issue](https://github.com/elit28/NoyaFiles/issues/new/choose) : un formulaire vous guide.
+</details>
+
+## Pour les développeurs
+
+```bash
+git clone https://github.com/elit28/NoyaFiles.git
+```
+
+```bash
+open NoyaFiles/NoyaFiles.xcodeproj
+```
+
+Choisissez le schéma **NoyaFiles** et lancez avec ⌘R. Il faut Xcode 16 ou plus récent ; avec Xcode 26, l'assistant peut aussi utiliser Apple Intelligence.
+
+| Document | Contenu |
+| --- | --- |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Compiler, tester, traduire, proposer une modification |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Organisation du code et fonctionnement de chaque partie |
+| [docs/RELEASING.md](docs/RELEASING.md) | Publier une version, mises à jour signées, secrets du dépôt |
+| [docs/TESTING.md](docs/TESTING.md) | Ce que la CI vérifie, et la liste des essais à la main |
+| [CHANGELOG.md](CHANGELOG.md) | Ce qui change d'une version à l'autre |
+| [SECURITY.md](SECURITY.md) | Signaler une faille de sécurité |
+
+Construit avec Swift 6, SwiftUI, AppKit et les frameworks natifs de macOS, plus [Sparkle](https://sparkle-project.org) pour les mises à jour.
+
+## Licence et crédits
+
+NOYA Files est un logiciel libre, distribué sous la [licence publique générale GNU, version 3 ou toute version ultérieure](LICENSE).
+
+Développé par NOYA 360. NOYA Files est un projet indépendant, sans lien avec FileOS ni avec Apple.
