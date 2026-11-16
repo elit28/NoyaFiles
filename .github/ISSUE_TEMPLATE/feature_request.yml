@@ -1,6 +1,6 @@
 name: Proposer une idée
 description: Une fonctionnalité ou une amélioration pour NOYA Files.
-labels: ["idée"]
+labels: ["enhancement"]
 body:
   - type: textarea
     id: need
