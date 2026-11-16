@@ -37,6 +37,8 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 
 **[Télécharger la dernière version](https://github.com/elit28/NoyaFiles/releases/latest)** : prenez le fichier `NOYA-Files-<version>.dmg`, ouvrez-le, puis glissez **NOYA Files** dans **Applications**. L'app fonctionne sur macOS 14 Sonoma et plus récent, sur Apple silicon comme sur Intel. Une somme de contrôle SHA-256 est publiée à côté de chaque image disque.
 
+Les versions 0.2.0 et 0.2.1 refusent de démarrer sur les Mac récents : installez la 0.2.2 ou une version plus récente.
+
 Tant que l'app n'est pas signée avec un certificat Apple Developer ID, macOS affiche un avertissement au premier lancement. Pour l'ouvrir quand même : lancez-la une fois, puis ouvrez **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.
 
 Pour essayer les nouveautés pas encore publiées, chaque compilation automatique produit aussi une image disque de test : ouvrez l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions), choisissez la dernière exécution réussie du workflow **CI**, puis téléchargez l'artefact **NOYA-Files-macOS** (il faut être connecté à GitHub).
