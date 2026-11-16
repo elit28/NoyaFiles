@@ -31,7 +31,7 @@ Every build launches the app on macOS 15 and macOS 26, in French and English, in
 - [ ] Quick Look with the space bar
 - [ ] Undo after moving to the Trash, New Folder (⇧⌘N), “Open With”
 - [ ] A notice for each new download
-- [ ] Built-in updates: the app offers each new version itself (Sparkle), from 0.2.0 on
+- [ ] Built-in updates (Sparkle), from 0.2.0 on: each new version downloads in the background and installs when you quit the app, without any click (can be turned off in Settings)
 
 ## Download
 
@@ -83,7 +83,7 @@ In Xcode, it is the **Version** field of the NoyaFiles target. As soon as the ne
 
 You can also start the workflow by hand: push a tag such as `v0.2.0`, or use **Run workflow** in the [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) tab.
 
-For installed apps to offer the new version, the repository needs the `SPARKLE_PRIVATE_KEY` secret: it is the key that signs each update, and it must match the `SUPublicEDKey` public key in `Config/Info.plist`. The workflow then signs the `.dmg` and attaches an `appcast.xml` file to the release; the app reads it to learn that an update exists. Without that secret, the release is published without the file and only manual downloads work.
+For installed apps to offer the new version, the repository needs the `SPARKLE_PRIVATE_KEY` secret: it is the key that signs each update, and it must match the `SUPublicEDKey` public key in `Config/Info.plist`. The workflow then signs the `.dmg` and attaches an `appcast.xml` file to the release; the app reads it to learn that an update exists. Right after publishing, a last job installs the previous version on a test Mac and checks that it updates itself to the new one. Without that secret, the release is published without the file and only manual downloads work.
 
 For the app to open without any warning, add these repository secrets: `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` and `APPLE_APP_SPECIFIC_PASSWORD`. This requires an Apple Developer account. The details are at the top of `.github/workflows/release.yml`.
 

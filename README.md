@@ -31,7 +31,7 @@ Notre mission : rendre la gestion de fichiers plus belle, plus intuitive, plus p
 - [ ] Coup d'œil (Quick Look) avec la barre d'espace
 - [ ] Annulation après la mise à la Corbeille, nouveau dossier (⇧⌘N), « Ouvrir avec »
 - [ ] Avertissement à chaque nouveau téléchargement
-- [ ] Mises à jour intégrées : l'app propose elle-même chaque nouvelle version (Sparkle), à partir de la 0.2.0
+- [ ] Mises à jour intégrées (Sparkle), à partir de la 0.2.0 : chaque nouvelle version se télécharge en arrière-plan et s'installe quand vous quittez l'app, sans aucun clic (désactivable dans les Réglages)
 
 ## Téléchargement
 
@@ -83,7 +83,7 @@ Dans Xcode, c'est le champ **Version** de la cible NoyaFiles. Dès que la nouvel
 
 Le workflow se lance aussi à la main : en poussant un tag comme `v0.2.0`, ou avec **Run workflow** dans l'onglet [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml).
 
-Pour que les apps déjà installées proposent la nouvelle version, le dépôt doit avoir le secret `SPARKLE_PRIVATE_KEY` : c'est la clé qui signe chaque mise à jour, et elle doit correspondre à la clé publique `SUPublicEDKey` de `Config/Info.plist`. Le workflow signe alors le `.dmg` et joint un fichier `appcast.xml` à la version ; l'app le lit pour savoir qu'une mise à jour existe. Sans ce secret, la version est publiée sans ce fichier et seul le téléchargement manuel fonctionne.
+Pour que les apps déjà installées proposent la nouvelle version, le dépôt doit avoir le secret `SPARKLE_PRIVATE_KEY` : c'est la clé qui signe chaque mise à jour, et elle doit correspondre à la clé publique `SUPublicEDKey` de `Config/Info.plist`. Le workflow signe alors le `.dmg` et joint un fichier `appcast.xml` à la version ; l'app le lit pour savoir qu'une mise à jour existe. Juste après la publication, un dernier job installe la version précédente sur un Mac de test et vérifie qu'elle se met à jour toute seule vers la nouvelle. Sans ce secret, la version est publiée sans ce fichier et seul le téléchargement manuel fonctionne.
 
 Pour que l'app s'ouvre sans aucun avertissement, ajoutez ces secrets au dépôt : `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` et `APPLE_APP_SPECIFIC_PASSWORD`. Il faut pour cela un compte Apple Developer. Le détail se trouve en tête de `.github/workflows/release.yml`.
 

@@ -4151,6 +4151,16 @@
         }
       }
     },
+    "Install updates automatically": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installer les mises à jour automatiquement"
+          }
+        }
+      }
+    },
     "Installers": {
       "localizations": {
         "fr": {
@@ -4947,6 +4957,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nouvelle règle intelligente"
+          }
+        }
+      }
+    },
+    "New versions download in the background and install when you quit NOYA Files. Turned off, you are asked first.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les nouvelles versions se téléchargent en arrière-plan et s'installent quand vous quittez NOYA Files. Désactivé, l'app vous demande d'abord."
           }
         }
       }

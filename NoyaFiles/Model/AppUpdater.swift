@@ -19,6 +19,10 @@ final class AppUpdater {
     /// Mirrors Sparkle's setting so SwiftUI views update when it changes.
     private(set) var checksAutomatically: Bool
 
+    /// Whether new versions download in the background and install when the app quits,
+    /// without asking. On by default (`SUAutomaticallyUpdate` in `Config/Info.plist`).
+    private(set) var installsAutomatically: Bool
+
     /// Whether the person has chosen yet. Until then, Sparkle would ask on its own.
     var hasChosenAutomaticChecks: Bool {
         UserDefaults.standard.object(forKey: "SUEnableAutomaticChecks") != nil
@@ -31,6 +35,7 @@ final class AppUpdater {
             userDriverDelegate: nil
         )
         checksAutomatically = controller.updater.automaticallyChecksForUpdates
+        installsAutomatically = controller.updater.automaticallyDownloadsUpdates
     }
 
     /// Looks for a new version now, and shows the result.
@@ -42,6 +47,12 @@ final class AppUpdater {
     func setChecksAutomatically(_ isOn: Bool) {
         controller.updater.automaticallyChecksForUpdates = isOn
         checksAutomatically = isOn
+    }
+
+    /// Turns silent installation of new versions on or off. When off, Sparkle asks first.
+    func setInstallsAutomatically(_ isOn: Bool) {
+        controller.updater.automaticallyDownloadsUpdates = isOn
+        installsAutomatically = isOn
     }
 
     /// When Sparkle last looked for a new version.

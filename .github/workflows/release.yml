@@ -120,3 +120,29 @@ jobs:
             dist/*.dmg
             dist/*.sha256
             dist/appcast.xml
+
+  # A real update, as a person would get it: installs the previous version, lets Sparkle
+  # find, download and install the one just published, and checks the result.
+  update-test:
+    name: Check that installed apps update themselves
+    needs: [version, release]
+    if: ${{ !contains(needs.version.outputs.version, '-') }}
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Find the previous version
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          previous="$(gh release list --repo "$GITHUB_REPOSITORY" --exclude-drafts --exclude-pre-releases \
+            --limit 20 --json tagName --jq '.[].tagName' | grep -vx "v$VERSION" | head -n 1 || true)"
+          echo "Previous version: ${previous:-none}"
+          echo "version=${previous#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Install it and let it update itself
+        if: steps.previous.outputs.version != ''
+        run: scripts/ci/check-update.sh "${{ steps.previous.outputs.version }}" "${{ needs.version.outputs.version }}"
