@@ -50,7 +50,7 @@ jobs:
       build: ${{ steps.version.outputs.build }}
       release: ${{ steps.version.outputs.release }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Work out the version
         id: version
@@ -73,7 +73,7 @@ jobs:
       APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
       SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Import the signing certificate
         if: env.MACOS_CERTIFICATE_P12 != ''
@@ -107,7 +107,7 @@ jobs:
           echo "::warning title=No update feed::The SPARKLE_PRIVATE_KEY secret is missing, so this release has no appcast.xml and installed apps will not offer it as an update."
 
       - name: Publish the release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ needs.version.outputs.version }}
           # The tag is created on the commit that was built.
