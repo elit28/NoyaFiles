@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E4F59410000000000000012 /* NoyaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4E4F59410000000000000011 /* NoyaCore */; };
+		4E4F59410000000000000015 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 4E4F59410000000000000014 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E4F59410000000000000012 /* NoyaCore in Frameworks */,
+				4E4F59410000000000000015 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = NoyaFiles;
 			packageProductDependencies = (
 				4E4F59410000000000000011 /* NoyaCore */,
+				4E4F59410000000000000014 /* Sparkle */,
 			);
 			productName = NoyaFiles;
 			productReference = 4E4F59410000000000000004 /* NOYA Files.app */;
@@ -103,6 +106,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				4E4F59410000000000000010 /* XCLocalSwiftPackageReference "Packages/NoyaCore" */,
+				4E4F59410000000000000013 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4E4F59410000000000000003 /* Products */;
@@ -266,6 +270,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NOYA Files";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "NOYA Files shows and organizes the files on your Desktop.";
@@ -305,6 +310,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NOYA Files";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "NOYA Files shows and organizes the files on your Desktop.";
@@ -361,10 +367,26 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		4E4F59410000000000000013 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		4E4F59410000000000000011 /* NoyaCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NoyaCore;
+		};
+		4E4F59410000000000000014 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E4F59410000000000000013 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

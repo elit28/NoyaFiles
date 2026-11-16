@@ -2611,6 +2611,36 @@
         }
       }
     },
+    "Check for updates automatically": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher les mises à jour automatiquement"
+          }
+        }
+      }
+    },
+    "Check for Updates…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher les mises à jour…"
+          }
+        }
+      }
+    },
+    "Check Now": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifier maintenant"
+          }
+        }
+      }
+    },
     "Check the spelling or broaden the search.": {
       "localizations": {
         "fr": {
@@ -4331,6 +4361,16 @@
         }
       }
     },
+    "Last checked %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dernière vérification %@"
+          }
+        }
+      }
+    },
     "Last Commit": {
       "localizations": {
         "fr": {
@@ -5297,6 +5337,26 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Once a day, from GitHub. Nothing about your Mac is sent.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une fois par jour, depuis GitHub. Rien sur votre Mac n'est envoyé."
+          }
+        }
+      }
+    },
+    "Once a day, NOYA Files asks GitHub whether a new version exists. Nothing about your Mac or your files is sent.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une fois par jour, NOYA Files demande à GitHub si une nouvelle version existe. Rien sur votre Mac ni sur vos fichiers n'est envoyé."
           }
         }
       }
@@ -7467,6 +7527,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "À jour"
+          }
+        }
+      }
+    },
+    "Updates": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mises à jour"
+          }
+        }
+      }
+    },
+    "Version %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
           }
         }
       }

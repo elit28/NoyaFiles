@@ -12,6 +12,11 @@ name: Release
 #   APPLE_ID                     Apple ID email used for notarization
 #   APPLE_APP_SPECIFIC_PASSWORD  App-specific password of that Apple ID
 # Without them, the app is signed ad hoc and macOS shows a warning on first launch.
+#
+# Updates inside the app (Sparkle) need one more secret:
+#   SPARKLE_PRIVATE_KEY          Private key matching SUPublicEDKey in Config/Info.plist
+# It signs the .dmg and the release gets an appcast.xml, which installed apps read to
+# offer the new version. Without it, the release is published without that feed.
 
 on:
   push:
@@ -42,9 +47,10 @@ jobs:
     timeout-minutes: 5
     outputs:
       version: ${{ steps.version.outputs.version }}
+      build: ${{ steps.version.outputs.build }}
       release: ${{ steps.version.outputs.release }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Work out the version
         id: version
@@ -65,8 +71,9 @@ jobs:
       APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
       APPLE_ID: ${{ secrets.APPLE_ID }}
       APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+      SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Import the signing certificate
         if: env.MACOS_CERTIFICATE_P12 != ''
@@ -82,7 +89,7 @@ jobs:
         run: scripts/build-app.sh
         env:
           MARKETING_VERSION: ${{ needs.version.outputs.version }}
-          BUILD_NUMBER: ${{ github.run_number }}
+          BUILD_NUMBER: ${{ needs.version.outputs.build }}
 
       - name: Check links to recent frameworks
         run: scripts/ci/check-weak-links.sh
@@ -90,8 +97,17 @@ jobs:
       - name: Create and notarize the disk image
         run: scripts/make-dmg.sh
 
+      - name: Sign the update for installed apps
+        if: env.SPARKLE_PRIVATE_KEY != ''
+        run: scripts/ci/make-appcast.sh "${{ needs.version.outputs.version }}"
+
+      - name: Warn that installed apps will not see this update
+        if: env.SPARKLE_PRIVATE_KEY == ''
+        run: |
+          echo "::warning title=No update feed::The SPARKLE_PRIVATE_KEY secret is missing, so this release has no appcast.xml and installed apps will not offer it as an update."
+
       - name: Publish the release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ needs.version.outputs.version }}
           # The tag is created on the commit that was built.
@@ -103,3 +119,4 @@ jobs:
           files: |
             dist/*.dmg
             dist/*.sha256
+            dist/appcast.xml

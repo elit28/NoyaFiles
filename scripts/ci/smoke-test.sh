@@ -32,7 +32,8 @@ run() {
   local onboarding=YES
   [[ "$name" == welcome* ]] && onboarding=NO
   "$binary" "$@" -appearance "$appearance" -browser.lastPath "$demo" -browser.insightsVisible YES \
-    -onboarding.completed "$onboarding" -ApplePersistenceIgnoreState YES > "dist/screenshots/$name.log" 2>&1 &
+    -onboarding.completed "$onboarding" -SUEnableAutomaticChecks NO \
+    -ApplePersistenceIgnoreState YES > "dist/screenshots/$name.log" 2>&1 &
   local pid=$!
   sleep 10
   if ! kill -0 "$pid" 2>/dev/null; then

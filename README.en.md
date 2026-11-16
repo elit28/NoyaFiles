@@ -31,6 +31,7 @@ Every build launches the app on macOS 15 and macOS 26, in French and English, in
 - [ ] Quick Look with the space bar
 - [ ] Undo after moving to the Trash, New Folder (⇧⌘N), “Open With”
 - [ ] A notice for each new download
+- [ ] Built-in updates: the app offers each new version itself (Sparkle), from 0.2.0 on
 
 ## Download
 
@@ -64,6 +65,7 @@ The first script produces `dist/NOYA Files.app`, a universal app for Apple silic
 | Folder | Contents |
 | --- | --- |
 | `NoyaFiles/` | The SwiftUI app: model, views, resources and translations. Any file added here is included in the Xcode project automatically. |
+| `Config/` | App settings that Xcode does not manage, such as the address and public key of updates. |
 | `Packages/NoyaCore/` | Logic that does not depend on the interface (reading folders, categories, sizes, suggestions) and its tests. It also builds on Linux. |
 | `scripts/` | Building, creating the `.dmg`, checking translations and, in `scripts/ci/`, the demo data and automated screenshots. |
 | `.github/workflows/` | Automated builds and tests, and releases. |
@@ -81,6 +83,8 @@ In Xcode, it is the **Version** field of the NoyaFiles target. As soon as the ne
 
 You can also start the workflow by hand: push a tag such as `v0.2.0`, or use **Run workflow** in the [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) tab.
 
+For installed apps to offer the new version, the repository needs the `SPARKLE_PRIVATE_KEY` secret: it is the key that signs each update, and it must match the `SUPublicEDKey` public key in `Config/Info.plist`. The workflow then signs the `.dmg` and attaches an `appcast.xml` file to the release; the app reads it to learn that an update exists. Without that secret, the release is published without the file and only manual downloads work.
+
 For the app to open without any warning, add these repository secrets: `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` and `APPLE_APP_SPECIFIC_PASSWORD`. This requires an Apple Developer account. The details are at the top of `.github/workflows/release.yml`.
 
 ## Technology
@@ -89,10 +93,11 @@ For the app to open without any warning, add these repository secrets: `MACOS_CE
 - SwiftUI
 - AppKit
 - Native macOS frameworks
+- [Sparkle](https://sparkle-project.org) for updates
 
 ## Privacy
 
-Everything happens on your Mac: no account, no analytics, no file ever sent over the internet. The AI assistant is off by default; once turned on, it handles your requests and files on the Mac (with Apple Intelligence when available), proposes a plan and changes nothing without your agreement.
+Everything happens on your Mac: no account, no analytics, no file ever sent over the internet. The one exception, if you leave it on: once a day, the app asks GitHub whether a new version exists, without sending anything about your Mac or your files (Settings › General › Updates). The AI assistant is off by default; once turned on, it handles your requests and files on the Mac (with Apple Intelligence when available), proposes a plan and changes nothing without your agreement.
 
 ## Contributing
 

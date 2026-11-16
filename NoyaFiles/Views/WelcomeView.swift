@@ -190,6 +190,7 @@ private struct PreferencesStep: View {
     @AppStorage(PreferenceKey.grouping) private var grouping = GroupingMode.kind
     @AppStorage(PreferenceKey.sidebarVisibility) private var visibility = SidebarVisibility.standard
     @AppStorage(PreferenceKey.assistantEnabled) private var isAssistantEnabled = false
+    private let updater = AppUpdater.shared
 
     private struct Favorite: Identifiable {
         let id: String
@@ -259,6 +260,18 @@ private struct PreferencesStep: View {
                     .frame(maxWidth: 380, alignment: .leading)
                 }
                 GridRow(alignment: .top) {
+                    Text("Updates")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Toggle("Check for updates automatically", isOn: Binding(
+                            get: { updater.checksAutomatically },
+                            set: { updater.setChecksAutomatically($0) }
+                        ))
+                        Text("Once a day, from GitHub. Nothing about your Mac is sent.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                GridRow(alignment: .top) {
                     Text("AI Assistant")
                     VStack(alignment: .leading, spacing: 4) {
                         Toggle("Turn on the assistant", isOn: $isAssistantEnabled)
@@ -271,6 +284,13 @@ private struct PreferencesStep: View {
         }
         .onChange(of: language) {
             language.save()
+        }
+        .onAppear {
+            // Checking for updates is on unless the person turns it off here,
+            // so Sparkle does not ask again later.
+            if !updater.hasChosenAutomaticChecks {
+                updater.setChecksAutomatically(true)
+            }
         }
     }
 

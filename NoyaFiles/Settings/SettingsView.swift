@@ -120,6 +120,8 @@ private struct GeneralSettings: View {
 
             TrashSettings()
 
+            UpdateSettings()
+
             Section {
                 Toggle("Show hidden files", isOn: $showHidden)
                 Toggle(isOn: $measureFolders) {
@@ -457,6 +459,32 @@ private struct AdvancedSettings: View {
             }
         } message: {
             Text("NOYA Files goes back to how it was on first launch.")
+        }
+    }
+}
+
+/// New versions, found and installed with Sparkle.
+private struct UpdateSettings: View {
+    private let updater = AppUpdater.shared
+
+    var body: some View {
+        Section("Updates") {
+            Toggle(isOn: Binding(
+                get: { updater.checksAutomatically },
+                set: { updater.setChecksAutomatically($0) }
+            )) {
+                Text("Check for updates automatically")
+                Text("Once a day, NOYA Files asks GitHub whether a new version exists. Nothing about your Mac or your files is sent.")
+            }
+            LabeledContent {
+                Button("Check Now") { updater.checkForUpdates() }
+            } label: {
+                let version = updater.currentVersion
+                Text("Version \(version)")
+                if let lastCheck = updater.lastCheck {
+                    Text("Last checked \(lastCheck, format: .relative(presentation: .named))")
+                }
+            }
         }
     }
 }

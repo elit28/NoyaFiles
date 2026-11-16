@@ -5,6 +5,8 @@ struct NoyaFilesApp: App {
     init() {
         // Remember the language the app started in, to tell when a change needs a relaunch.
         _ = AppLanguage.atLaunch
+        // Starts Sparkle, which looks for new versions in the background when allowed to.
+        _ = AppUpdater.shared
     }
 
     var body: some Scene {
@@ -13,6 +15,9 @@ struct NoyaFilesApp: App {
         }
         .defaultSize(width: 1180, height: 740)
         .commands {
+            CommandGroup(after: .appInfo) {
+                Button("Check for Updates…") { AppUpdater.shared.checkForUpdates() }
+            }
             BrowserCommands()
         }
 
