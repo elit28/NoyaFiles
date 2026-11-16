@@ -10,7 +10,7 @@ Our mission is to make file management more beautiful, intuitive, powerful and e
 
 ## Project status
 
-🚧 **Under active development.** No stable release yet, but every build produces a test disk image (see [Download](#download)).
+🚧 **Under active development.** The first test release, [**0.1.0**](https://github.com/elit28/NoyaFiles/releases/tag/v0.1.0), is available (see [Download](#download)).
 
 ## Features
 
@@ -34,11 +34,11 @@ Every build launches the app on macOS 15 and macOS 26, in French and English, in
 
 ## Download
 
-Official macOS builds will be published in [GitHub Releases](https://github.com/elit28/NoyaFiles/releases) when available.
+**[Download the latest release](https://github.com/elit28/NoyaFiles/releases/latest)**: get the `NOYA-Files-<version>.dmg` file, open it and drag **NOYA Files** to **Applications**. The app runs on macOS 14 Sonoma and later, on Apple silicon and Intel. A SHA-256 checksum is published next to each disk image.
 
-Until then, every automated build produces a test disk image: open the [Actions](https://github.com/elit28/NoyaFiles/actions) tab, pick the latest successful run of the **CI** workflow, and download the **NOYA-Files-macOS** artifact. The app runs on macOS 14 Sonoma and later, on Apple silicon and Intel.
+Until the app is signed with an Apple Developer ID certificate, macOS shows a warning on first launch. To open it anyway, launch it once, then open **System Settings › Privacy & Security** and click **Open Anyway**.
 
-Until the app is signed with an Apple Developer ID certificate, macOS shows a warning on first launch. To open it anyway, drag **NOYA Files** to **Applications** and launch it once. Then open **System Settings › Privacy & Security** and click **Open Anyway**.
+To try changes that are not released yet, every automated build also produces a test disk image: open the [Actions](https://github.com/elit28/NoyaFiles/actions) tab, pick the latest successful run of the **CI** workflow, and download the **NOYA-Files-macOS** artifact (you need to be signed in to GitHub).
 
 ## Building from source
 
@@ -71,7 +71,7 @@ The first script produces `dist/NOYA Files.app`, a universal app for Apple silic
 
 ## Releasing
 
-Push a version tag such as `v0.2.0`. The **Release** workflow builds the app, creates the `.dmg` and prepares a draft release to review before publishing.
+Push a version tag such as `v0.2.0`, or start the **Release** workflow from the [Actions](https://github.com/elit28/NoyaFiles/actions/workflows/release.yml) tab with **Run workflow** and the version number. The workflow builds the app, creates the `.dmg` and prepares a draft release: review it in [Releases](https://github.com/elit28/NoyaFiles/releases), then click **Publish release**.
 
 For the app to open without any warning, add these repository secrets: `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_TEAM_ID`, `APPLE_ID` and `APPLE_APP_SPECIFIC_PASSWORD`. This requires an Apple Developer account. The details are at the top of `.github/workflows/release.yml`.
 
